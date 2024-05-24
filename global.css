@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+    --cor1 : #363C41;
+    --cor2 : #346A7F;
+    --cor3 : #DA6D45;
+    --cor4 : #F9C080;
+    --cor5 : #B96044;
+    --cor6 : #ffffff;
+    --cor7 : #73bdcf;
+    --black : #000000; 
+}
+* {
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header.mainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--cor1);
+    color: var(--cor6);
+    height: 100px;
+    h1 {
+        background: linear-gradient(to right, var(--cor3), var(--cor4));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }    
+    nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 45%;
+        padding: 0 10px 0 10px;
+        ul{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 10px;
+            width: 50%;
+            li{
+                transition: 200ms;
+                width: 40%;
+                margin: 10px;
+                padding: 10px;
+                background: var(--cor2);
+                list-style: none;
+                text-align: center;
+                border-radius: 10px;
+                &:hover{
+                    cursor: pointer;
+                    box-shadow: 7px 5px 0 rgba(0, 0, 0, 0.3) inset;
+                    background: linear-gradient(to right, var(--cor3), var(--cor4));
+                    -webkit-text-fill-color: var(--black);
+                }
+            }
+            &::after{
+                content: "";
+                height: 60px;
+                width: 1px;
+                background: var(--cor6);
+            }
+        }
+        section{
+            display: flex;
+            width: 30%;
+            button{
+                width: 50%;
+                padding: 10px;
+                border: none;
+                &:hover{
+                    cursor: pointer;
+                    box-shadow: 7px 5px 0 rgba(0, 0, 0, 0.3) inset;
+                    background: linear-gradient(to right, var(--cor3), var(--cor4));
+                    -webkit-text-fill-color: var(--black);
+                }
+            }
+            .join{
+                background: var(--cor2);
+            }
+        }
+    }
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 0 20px;
+        img{
+            border-radius: 50%;
+        }
+    }
+}
