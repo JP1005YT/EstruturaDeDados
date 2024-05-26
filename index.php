@@ -44,6 +44,78 @@
                 <i class='bx bxs-circle'></i>
             </section>
         </section>
+        <section class="about">
+            <div class="top">
+                <section class="info">
+                    <i class='bx bxs-smile'></i>
+                    <div>
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sequi incidunt, quod quaerat excepturi rerum reprehenderit</p>
+                    </div>
+                </section>
+                <section class="info">
+                    <i class='bx bxs-moon' ></i>
+                    <div>
+                    <h3>Lorem ipsum dolor sit amet</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sequi incidunt, quod quaerat excepturi rerum reprehenderit</p>
+                    </div>
+                </section>
+                <section class="info">
+                    <i class='bx bxs-hot' ></i>
+                    <div>
+                    <h3>Lorem ipsum dolor sit amet</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sequi incidunt, quod quaerat excepturi rerum reprehenderit</p>
+                    </div>
+                </section>
+            </div>
+            <h2>Entre na comunidade DataStruct e conecte-se a mais 1M de alunos</h2>
+            <section class="opnioes">
+                <div class="card">
+                    <i class='bx bxs-quote-alt-right' ></i>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos deleniti recusandae error obcaecati porro similique quidem</p>
+                    <div>
+                        <img>
+                        <div class="text">
+                            <h3>André D.</h3>
+                            <span>Software Engineer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class='bx bxs-quote-alt-right' ></i>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos deleniti recusandae error obcaecati porro similique quidem</p>
+                    <div>
+                        <img>
+                        <div class="text">
+                            <h3>André D.</h3>
+                            <span>Software Engineer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class='bx bxs-quote-alt-right' ></i>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos deleniti recusandae error obcaecati porro similique quidem</p>
+                    <div>
+                        <img>
+                        <div class="text">
+                            <h3>André D.</h3>
+                            <span>Software Engineer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class='bx bxs-quote-alt-right' ></i>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos deleniti recusandae error obcaecati porro similique quidem</p>
+                    <div>
+                        <img>
+                        <div class="text">
+                            <h3>André D.</h3>
+                            <span>Software Engineer</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
     </main>
     <script>
         let i = 0

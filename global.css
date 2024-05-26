@@ -25,7 +25,7 @@ header.mainHeader {
     height: 100px;
     h1 {
         background: linear-gradient(to right, var(--cor3), var(--cor4));
-        -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
     }    
     nav{
@@ -88,7 +88,7 @@ header.mainHeader {
         align-items: center;
         margin: 0 0 0 20px;
         img{
-            border-radius: 50%;
+            margin: 10px;
         }
     }
 }
