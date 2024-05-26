@@ -37,9 +37,11 @@ main{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        color: #fff;
         .top{
             display: flex;
             justify-content: space-around;
+            margin-top: 20px;
             section{
                 display: flex;
                 flex-direction: row;
@@ -76,7 +78,9 @@ main{
             }
         }
     }
-
+}
+footer{
+    text-align: center;
 }
 
 @keyframes test {

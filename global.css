@@ -46,6 +46,7 @@ header.mainHeader {
                 margin: 10px;
                 padding: 10px;
                 background: var(--cor2);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
                 list-style: none;
                 text-align: center;
                 border-radius: 10px;
@@ -65,7 +66,6 @@ header.mainHeader {
         }
         section{
             display: flex;
-            width: 30%;
             button{
                 width: 50%;
                 padding: 10px;
@@ -77,8 +77,44 @@ header.mainHeader {
                     -webkit-text-fill-color: var(--black);
                 }
             }
-            .join{
+            .entrar{
                 background: var(--cor2);
+            }
+        }
+        .logged{
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 40%;
+            padding: 10px 10px 10px 20px;
+            border: none;
+            background: var(--cor2);
+            border-radius: 10px;
+            i{
+                margin: 0 10px 0 0;
+                font-size: 25px;
+            }
+            &.active{
+                border-radius: 0;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+            div.dropdown{
+                display: none;
+            }
+            &.active div.dropdown{
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 200px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                background: var(--cor2);
+                top: 100%;
+                left: 0;
+                z-index: 1;
             }
         }
     }

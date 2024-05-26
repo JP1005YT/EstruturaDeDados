@@ -1,3 +1,12 @@
+<?php
+    include_once './backend/classes/Usuario.php';
+    session_start();
+
+    spl_autoload_register(function ($class_name) {
+        include './backend/classes/' . $class_name . '.php';
+    });
+    
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,7 +17,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel="shortcut icon" href="logo.png" />
-    <script src='main.js'></script>
 </head>
 <body>
     <header class="mainHeader">
@@ -21,16 +29,35 @@
                 <li>Página Principal</li>
                 <li>Temas</li>
             </ul>
-            <section>
-                <button>Cadastrar-se</button>
-                <button class="join">Entrar</button>
-            </section>
+            <?php
+                if(isset($_SESSION['user'])){
+                    $user = $_SESSION['user'];
+                    echo '<section class="logged" onclick="dropdown()">
+                            <div>
+                                '.$user->getUsername() .'
+                                <i class="bx bxs-chevron-down"></i>
+                            </div>
+                            <div class="dropdown">
+                                <ul>
+                                    <li>Perfil</li>
+                                    
+                                    <li>Sair</li>
+                                </ul>
+                            </div>
+                        </section>';
+                }else{
+                    echo '<section>
+                            <button class="cadastrar">Cadastrar-se</button>
+                            <button class="entrar" onclick="switchPages('.'/pages/Entrar'.')">Entrar</button>
+                        </section>';
+                }
+            ?>
         </nav>
     </header>
     <main>
         <section class="carrossel">
             <div class="active">
-                <h1>Bom dia</h1>
+                <h1>Bom Dia</h1>
             </div>
             <div>
                 <h1>Boa Tarde</h1>
@@ -117,6 +144,9 @@
             </section>
         </section>
     </main>
+    <footer>
+        Fatec &copy Todos Direitos Reservados 
+    </footer>
     <script>
         let i = 0
         function switchCarrossel(){
@@ -136,8 +166,13 @@
                 i = 0
             }
         }
-
-        setInterval(switchCarrossel,2000)
+        function switchPages(url){
+            window.location.href = url
+        }
+        function dropdown(){
+            document.querySelector(".logged").classList.toggle("active")
+        }
+        // setInterval(switchCarrossel,2000)
     </script>
 </body>
 </html>
