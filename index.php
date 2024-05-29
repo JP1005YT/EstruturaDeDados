@@ -76,22 +76,22 @@
                 <section class="info">
                     <i class='bx bxs-smile'></i>
                     <div>
-                        <h3>Lorem ipsum dolor sit amet</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sequi incidunt, quod quaerat excepturi rerum reprehenderit</p>
+                        <h3> Mente feliz com estruturas de dados </h3>
+                        <p> Desbloqueie o poder dos dados estruturados para programação eficiente.</p>
                     </div>
                 </section>
                 <section class="info">
                     <i class='bx bxs-moon' ></i>
                     <div>
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sequi incidunt, quod quaerat excepturi rerum reprehenderit</p>
+                    <h3> Profunda compreensão de dados </h3>
+                        <p> Experiencie a beleza de dados organizados para programação eficaz. </p>
                     </div>
                 </section>
                 <section class="info">
                     <i class='bx bxs-hot' ></i>
                     <div>
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis sequi incidunt, quod quaerat excepturi rerum reprehenderit</p>
+                    <h3> Complexidade reduzida </h3>
+                        <p> Simplifique a programação com dados estruturados para desempenho otimizado. </p>
                     </div>
                 </section>
             </div>
@@ -99,45 +99,45 @@
             <section class="opnioes">
                 <div class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos deleniti recusandae error obcaecati porro similique quidem</p>
+                    <p> Sinto-me mais confiante em codificação. </p>
                     <div>
                         <img>
                         <div class="text">
                             <h3>André D.</h3>
-                            <span>Software Engineer</span>
+                            <span> Engenheiro de Software </span>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos deleniti recusandae error obcaecati porro similique quidem</p>
+                    <p> Esta plataforma melhorou minhas habilidades de codificação. 10/10! </p>
                     <div>
                         <img>
                         <div class="text">
-                            <h3>André D.</h3>
-                            <span>Software Engineer</span>
+                            <h3> Mariana S.</h3>
+                            <span> Especialista em Estruturas de Dados e Algoritmos </span>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos deleniti recusandae error obcaecati porro similique quidem</p>
+                    <p> Estruturas de dados para uma mente estruturada </p>
                     <div>
                         <img>
                         <div class="text">
-                            <h3>André D.</h3>
-                            <span>Software Engineer</span>
+                            <h3> Rodrigo C. </h3>
+                            <span> Professor de Ciência da Computação </span>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos deleniti recusandae error obcaecati porro similique quidem</p>
+                    <p> Programação estruturada para maior tranquilidade </p>
                     <div>
                         <img>
                         <div class="text">
-                            <h3>André D.</h3>
-                            <span>Software Engineer</span>
+                            <h3> Carla M. </h3>
+                            <span> Analista de Sistemas </span>
                         </div>
                     </div>
                 </div>
@@ -172,7 +172,7 @@
         function dropdown(){
             document.querySelector(".logged").classList.toggle("active")
         }
-        // setInterval(switchCarrossel,2000)
+        setInterval(switchCarrossel,7000)
     </script>
 </body>
 </html>
