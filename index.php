@@ -57,13 +57,13 @@
     <main>
         <section class="carrossel">
             <div class="active">
-                <h1>Bom Dia</h1>
+                <img src="src/Slide1.png">
             </div>
             <div>
-                <h1>Boa Tarde</h1>
+                <img src="src/Slide2.png">
             </div>
             <div>
-                <h1>Bom Noite</h1>
+                <img src="src/Slide3.png">
             </div>
             <section class="marker">
                 <i class='bx bxs-circle' id="active"></i>

@@ -52,9 +52,7 @@ header.mainHeader {
                 border-radius: 10px;
                 &:hover{
                     cursor: pointer;
-                    box-shadow: 7px 5px 0 rgba(0, 0, 0, 0.3) inset;
                     background: linear-gradient(to right, var(--cor3), var(--cor4));
-                    -webkit-text-fill-color: var(--black);
                 }
             }
             &::after{
@@ -73,9 +71,7 @@ header.mainHeader {
                 border: none;
                 &:hover{
                     cursor: pointer;
-                    box-shadow: 7px 5px 0 rgba(0, 0, 0, 0.3) inset;
                     background: linear-gradient(to right, var(--cor3), var(--cor4));
-                    -webkit-text-fill-color: var(--black);
                 }
             }
             .entrar{
