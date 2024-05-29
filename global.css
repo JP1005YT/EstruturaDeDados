@@ -66,6 +66,7 @@ header.mainHeader {
         }
         section{
             display: flex;
+            width: 30%;
             button{
                 width: 50%;
                 padding: 10px;

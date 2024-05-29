@@ -31,7 +31,4 @@
     // Fecha a declaração e a conexão
     $stmt->close();
     $conn->close();
-
-    
-
 ?>

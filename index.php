@@ -48,7 +48,7 @@
                 }else{
                     echo '<section>
                             <button class="cadastrar">Cadastrar-se</button>
-                            <button class="entrar" onclick="switchPages('.'/pages/Entrar'.')">Entrar</button>
+                            <button class="entrar" onclick="switchPages('."'./pages/Entrar/'".')">Entrar</button>
                         </section>';
                 }
             ?>
