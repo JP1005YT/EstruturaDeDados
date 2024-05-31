@@ -9,11 +9,16 @@ main{
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         div{
             display: none;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             height: 100%;
-            animation: test 200ms;
+            animation: test 600ms;
             &.active{
                 display: flex;
+            }
+            img{
+                height: 100%;
             }
         }
         .marker{
@@ -26,7 +31,7 @@ main{
             left: calc(50% - 55px);
             margin: 10px;
             i#active{
-                color: red;
+                color: var(--cor3);
             }
         }
     }
