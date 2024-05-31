@@ -4,15 +4,28 @@
     session_start();
 
     $email = htmlspecialchars($_POST['email']);
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Hash da senha para segurança
+    $senha = $_POST['senha']; // Hash da senha para segurança
 
 
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = (?)");
 
     $stmt->bind_param("s",$email);
 
-    if($stmt->execute()){
-        
+    if($stmt->execute()) {
+        $result = $stmt->get_result();
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                if(password_verify($senha,$row['password'])){
+                    $newUser = new Usuario($row['username'],$row['name'],$row['cargo'],$row['email'],$row['password']);
+                    $_SESSION['user'] = $newUser;
+            
+            
+                    header('Location: ../../index.php');
+                }
+            }
+        } else {
+            echo 'Nenhum usuário encontrado com esse email.';
+        }
     }
 
 ?>
