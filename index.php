@@ -26,22 +26,28 @@
         </div>
         <nav>
             <ul>
-                <li>Página Principal</li>
-                <li>Temas</li>
+                <li>
+                    <a href="./index.php">Página Principal</a>
+                </li>
+                <li>
+                    <a href="./pages/Temas/">Temas</a>
+                </li>
             </ul>
             <?php
                 if(isset($_SESSION['user'])){
                     $user = $_SESSION['user'];
                     echo '<section class="logged" onclick="dropdown()">
-                            <div>
+                            <div class="content">
                                 '.$user->getUsername() .'
-                                <i class="bx bxs-chevron-down"></i>
+                                <i class="bx bxs-chevron-down" id="icon"></i>
                             </div>
                             <div class="dropdown">
                                 <ul>
                                     <li>Perfil</li>
                                     
-                                    <li>Sair</li>
+                                    <li>
+                                        <a href="./backend/functions/sair.php">Sair</a>
+                                    </li>
                                 </ul>
                             </div>
                         </section>';
@@ -171,6 +177,7 @@
         }
         function dropdown(){
             document.querySelector(".logged").classList.toggle("active")
+            document.querySelector("#icon").classList.toggle("active")
         }
         setInterval(switchCarrossel,7000)
     </script>

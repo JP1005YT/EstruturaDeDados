@@ -23,7 +23,7 @@
         </nav>
     </header>
     <main>
-        <form action="" method="POST">
+        <form action="../../backend/functions/entrarUsuario.php" method="POST">
             <h1>Entrar</h1>
             <input placeholder="Email" name="email">
             <input placeholder="Senha"  name="senha">
