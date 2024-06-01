@@ -28,7 +28,7 @@
             <input placeholder="Email" name="email">
             <input placeholder="Senha"  name="senha">
             <input type="submit" value="Entrar">
-            <p>Não possui conta? <span onclick="switchPages('../Cadastrar')">Criar</span></p>
+            <p>Não possui conta? <a href="" onclick="switchPages('../Cadastrar')"> Criar </a> </p>
         </form>
     </main>
     <script>
@@ -37,3 +37,4 @@
         }
     </script>
 </body>
+</html>

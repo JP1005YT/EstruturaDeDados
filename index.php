@@ -20,10 +20,10 @@
 </head>
 <body>
     <header class="mainHeader">
-        <div class="logo">
+        <section class="logo">
             <img src="logo.png" height="70px">
             <h1>DataStruct School</h1>
-        </div>
+        </section>
         <nav>
             <ul>
                 <li>
@@ -37,11 +37,11 @@
                 if(isset($_SESSION['user'])){
                     $user = $_SESSION['user'];
                     echo '<section class="logged" onclick="dropdown()">
-                            <div class="content">
+                            <section class="content">
                                 '.$user->getUsername() .'
                                 <i class="bx bxs-chevron-down" id="icon"></i>
-                            </div>
-                            <div class="dropdown">
+                            </section>
+                            <section class="dropdown">
                                 <ul>
                                     <li>Perfil</li>
                                     
@@ -49,7 +49,7 @@
                                         <a href="./backend/functions/sair.php">Sair</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </section>
                         </section>';
                 }else{
                     echo '<section>
@@ -62,15 +62,15 @@
     </header>
     <main>
         <section class="carrossel">
-            <div class="active">
+            <section class="active">
                 <img src="src/Slide1.png">
-            </div>
-            <div>
+            </section>
+            <section>
                 <img src="src/Slide2.png">
-            </div>
-            <div>
+            </section>
+            <section>
                 <img src="src/Slide3.png">
-            </div>
+            </section>
             <section class="marker">
                 <i class='bx bxs-circle' id="active"></i>
                 <i class='bx bxs-circle'></i>
@@ -78,80 +78,94 @@
             </section>
         </section>
         <section class="about">
-            <div class="top">
+            <section class="top">
                 <section class="info">
                     <i class='bx bxs-smile'></i>
-                    <div>
+                    <section>
                         <h3> Mente feliz com estruturas de dados </h3>
                         <p> Desbloqueie o poder dos dados estruturados para programação eficiente.</p>
-                    </div>
+                    </section>
                 </section>
                 <section class="info">
                     <i class='bx bxs-moon' ></i>
-                    <div>
+                    <section>
                     <h3> Profunda compreensão de dados </h3>
                         <p> Experiencie a beleza de dados organizados para programação eficaz. </p>
-                    </div>
+                    </section>
                 </section>
                 <section class="info">
                     <i class='bx bxs-hot' ></i>
-                    <div>
+                    <section>
                     <h3> Complexidade reduzida </h3>
                         <p> Simplifique a programação com dados estruturados para desempenho otimizado. </p>
-                    </div>
+                    </section>
                 </section>
-            </div>
+            </section>
             <h2>Entre na comunidade DataStruct e conecte-se a mais 1M de alunos</h2>
             <section class="opnioes">
-                <div class="card">
+                <section class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
                     <p> Sinto-me mais confiante em codificação. </p>
-                    <div>
-                        <img>
-                        <div class="text">
+                    <section>
+                        <img src="src/andre.jpg">
+                        <section class="text">
                             <h3>André D.</h3>
                             <span> Engenheiro de Software </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
+                        </section>
+                    </section>
+                </section>
+                <section class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
                     <p> Esta plataforma melhorou minhas habilidades de codificação. 10/10! </p>
-                    <div>
-                        <img>
-                        <div class="text">
+                    <section>
+                        <img src="src/mariana.jpg">
+                        <section class="text">
                             <h3> Mariana S.</h3>
                             <span> Especialista em Estruturas de Dados e Algoritmos </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
+                        </section>
+                    </section>
+                </section>
+                <section class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
                     <p> Estruturas de dados para uma mente estruturada </p>
-                    <div>
-                        <img>
-                        <div class="text">
+                    <section>
+                        <img src="src/rodrigo.jpg">
+                        <section class="text">
                             <h3> Rodrigo C. </h3>
                             <span> Professor de Ciência da Computação </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
+                        </section>
+                    </section>
+                </section>
+                <section class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
                     <p> Programação estruturada para maior tranquilidade </p>
-                    <div>
-                        <img>
-                        <div class="text">
+                    <section>
+                        <img src="src/carla.jpg">
+                        <section class="text">
                             <h3> Carla M. </h3>
                             <span> Analista de Sistemas </span>
-                        </div>
-                    </div>
-                </div>
+                        </section>
+                    </section>
+                </section>
             </section>
         </section>
+            <!-- <section class="navbar">
+            <a href="#">DataStructuresEdu</a>
+            <nav>
+                <a href="#">Discover more about us</a>
+                <a href="#">Get support</a>
+                <a href="#">Become part of our community</a>
+                <a href="#">Download our app</a>
+            </nav>
+            </section>
+            <section>
+            <h2>Discover more about us</h2>
+            <p>Learn more about us and explore career opportunities.</p>
+            <button>Learn More</button>
+            </section> -->
     </main>
     <footer>
-        Fatec &copy Todos Direitos Reservados 
+        <p>Your Ultimate Array Education Destination!</p> Fatec &copy Todos Direitos Reservados 
     </footer>
     <script>
         let i = 0

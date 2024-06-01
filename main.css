@@ -7,7 +7,7 @@ main{
         margin: 0 30px 0 30px;
         height: calc(100vh - 100px);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        div{
+        section{
             display: none;
             align-items: center;
             justify-content: center;
@@ -77,8 +77,13 @@ main{
                 background: var(--cor7);
                 height: 400px;
                 border-radius: 10px;
+                font-size: 20px;
                 i{
-                    font-size: 50px;
+                    font-size: 60px;
+                }
+                section img{
+                    height: 35px;
+                    border-radius: 5px;
                 }
             }
         }

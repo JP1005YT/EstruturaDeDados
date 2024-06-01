@@ -10,6 +10,10 @@ main{
     align-items: center;
     width: 100%;
     height: calc(100vh - 100px);
+    background-image: url(../../src/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     form{
         width: 30%;
         height: 500px;
@@ -36,7 +40,7 @@ main{
                 color: #fff;
             }
         }
-        span{
+        a{
             background: linear-gradient(to right, var(--cor3), var(--cor4));
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -44,9 +48,13 @@ main{
             font-weight: bolder;
             cursor: pointer;
         }
-    }
-    h3{
-        margin: 20px;
-        background: black;
+        h1{
+            background: linear-gradient(to right, var(--cor3), var(--cor4));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.3rem;
+            font-weight: bolder;
+            cursor: pointer;
+        }
     }
 }
