@@ -9,7 +9,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel="shortcut icon" href="../../logo.png" />
 </head>
-<body>
+<body id="body">
     <header class="mainHeader">
         <div class="logo">
             <img src="../../logo.png" height="70px">
@@ -17,8 +17,8 @@
         </div>
         <nav>
             <ul>
-                <li>Página Principal</li>
-                <li>Temas</li>
+                <li onclick="switchPages('../../')">Página Principal</li>
+                <li onclick="switchPages('../Temas/')">Temas</li>
             </ul>
         </nav>
     </header>
@@ -28,7 +28,7 @@
             <input placeholder="Email" name="email">
             <input placeholder="Senha"  name="senha">
             <input type="submit" value="Entrar">
-            <p>Não possui conta? <a href="" onclick="switchPages('../Cadastrar')"> Criar </a> </p>
+            <p>Não possui conta? <a onclick="switchPages('../Cadastrar/')"> Criar </a> </p>
         </form>
     </main>
     <script>

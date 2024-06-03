@@ -3,17 +3,19 @@
 header.mainHeader nav {
     justify-content: flex-end;
 }
-
+#body{
+    overflow: hidden;
+}
 main{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: calc(100vh - 100px);
-    background-image: url(../../src/background.jpg);
+    background-image: url(../../src/background.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    /* background-size: cover; */
     form{
         width: 30%;
         height: 500px;

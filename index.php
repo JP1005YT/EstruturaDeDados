@@ -53,7 +53,7 @@
                         </section>';
                 }else{
                     echo '<section>
-                            <button class="cadastrar">Cadastrar-se</button>
+                            <button class="cadastrar" onclick="switchPages('."'./pages/Cadastrar/'".')">Cadastrar-se</button>
                             <button class="entrar" onclick="switchPages('."'./pages/Entrar/'".')">Entrar</button>
                         </section>';
                 }
@@ -71,11 +71,11 @@
             <section>
                 <img src="src/Slide3.png">
             </section>
-            <section class="marker">
+            <div class="marker">
                 <i class='bx bxs-circle' id="active"></i>
                 <i class='bx bxs-circle'></i>
                 <i class='bx bxs-circle'></i>
-            </section>
+            </div>
         </section>
         <section class="about">
             <section class="top">
@@ -121,7 +121,7 @@
                         <img src="src/mariana.jpg">
                         <section class="text">
                             <h3> Mariana S.</h3>
-                            <span> Especialista em Estruturas de Dados e Algoritmos </span>
+                            <span> Especialista em Estruturas de Dados</span>
                         </section>
                     </section>
                 </section>
@@ -149,28 +149,36 @@
                 </section>
             </section>
         </section>
-            <!-- <section class="navbar">
-            <a href="#">DataStructuresEdu</a>
-            <nav>
-                <a href="#">Discover more about us</a>
-                <a href="#">Get support</a>
-                <a href="#">Become part of our community</a>
-                <a href="#">Download our app</a>
-            </nav>
-            </section>
-            <section>
-            <h2>Discover more about us</h2>
-            <p>Learn more about us and explore career opportunities.</p>
-            <button>Learn More</button>
-            </section> -->
     </main>
     <footer>
-        <p>Your Ultimate Array Education Destination!</p> Fatec &copy Todos Direitos Reservados 
+        <a href="#" class="title"><i class='bx bxs-smile'></i>DataStructuresEdu</a>
+        <section class="navbar">
+            <nav>
+                <h3>Discover more about us</h3>
+                <a href="#">Learn more about us</a>
+                <a href="#">Explore carrer opportunities</a>
+                <a href="#">Acess our press materials</a>
+                <a href="#">Subscription options</a>
+            </nav>
+            <nav>
+                <h3>Get support</h3>
+                <a href="#">Assistance for users</a>
+                <a href="#">Frequently asked questions</a>
+                <a href="#">Need help?</a>
+            </nav>
+            <nav>
+                <h3>Become part of our</h3>
+                <a href="#">Connect with us on</a>
+                <a href="#">Follow us on Instagram</a>
+                <a href="#">Join the conversation on</a>
+                <a href="#">Join our Discord server</a>
+            </nav>
+        </section>
     </footer>
     <script>
         let i = 0
         function switchCarrossel(){
-            const alldivs = document.querySelectorAll(".carrossel div")
+            const alldivs = document.querySelectorAll(".carrossel section")
             const makers = document.querySelectorAll(".marker i")
             makers.forEach(i => {
                 i.id = ""

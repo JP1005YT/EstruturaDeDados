@@ -24,7 +24,7 @@
                 }
             }
         } else {
-            echo 'Nenhum usuário encontrado com esse email.';
+            header('Location: ../../pages/Entrar/');
         }
     }
 
