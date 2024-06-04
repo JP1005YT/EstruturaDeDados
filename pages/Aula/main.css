@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background: var(--cor2);
+    background: var(--cor6);
     color: var(--cor6);
 }
 main{
@@ -12,6 +12,8 @@ main{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background: var(--cor2);
+    padding: 50px;
 }
 .card {
     background: var(--cor2);

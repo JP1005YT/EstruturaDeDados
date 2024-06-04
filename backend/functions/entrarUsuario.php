@@ -21,6 +21,8 @@
             
             
                     header('Location: ../../index.php');
+                }else{
+                    echo "error";
                 }
             }
         } else {
