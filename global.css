@@ -56,7 +56,7 @@ header.mainHeader {
                 border-radius: 10px;
                 &:hover{
                     cursor: pointer;
-                    background: linear-gradient(to right, var(--cor3), var(--cor4));
+                    background: linear-gradient(45deg, var(--cor3), var(--cor4),var(--cor3));
                 }
             }
             &::after{
@@ -125,6 +125,7 @@ header.mainHeader {
                 border-bottom-left-radius: 10px;
                 border-bottom-right-radius: 10px;
                 background: var(--cor2);
+                box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
                 top: 100%;
                 left: 0;
                 z-index: 1;

@@ -41,7 +41,7 @@
                                 '.$user->getUsername() .'
                                 <i class="bx bxs-chevron-down" id="icon"></i>
                             </section>
-                            <section class="dropdown">
+                            <div class="dropdown">
                                 <ul>
                                     <li>Perfil</li>
                                     
@@ -49,7 +49,7 @@
                                         <a href="./backend/functions/sair.php">Sair</a>
                                     </li>
                                 </ul>
-                            </section>
+                            </div>
                         </section>';
                 }else{
                     echo '<section>

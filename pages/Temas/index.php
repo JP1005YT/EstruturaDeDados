@@ -39,15 +39,15 @@
                                 '.$user->getUsername() .'
                                 <i class="bx bxs-chevron-down" id="icon"></i>
                             </section>
-                            <section class="dropdown">
-                                <ul>
-                                    <li>Perfil</li>
-                                    
-                                    <li>
-                                        <a href="./backend/functions/sair.php">Sair</a>
-                                    </li>
-                                </ul>
-                            </section>
+                            <div class="dropdown">
+                            <ul>
+                                <li>Perfil</li>
+                                
+                                <li>
+                                    <a href="./backend/functions/sair.php">Sair</a>
+                                </li>
+                            </ul>
+                        </div>
                         </section>';
                 }else{
                     echo '<section>
