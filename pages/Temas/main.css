@@ -1,1 +1,56 @@
 @import '../../global.css';
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: var(--cor1);
+    color: var(--cor6);
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.card {
+    background: var(--cor2);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 1600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+h1 {
+    text-align: center;
+    color: var(--cor6);
+    background: linear-gradient(to right, var(--cor3), var(--cor4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2, h3 {
+    color: var(--cor6);
+}
+
+p {
+    margin: 10px 0;
+}
+
+.example {
+    border-top: 1px solid var(--cor6);
+    padding-top: 16px;
+    margin-top: 16px;
+}
+
+pre {
+    background: var(--cor1);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+code {
+    color: var(--cor7);
+}
+
+section {
+    margin: 10px 0;
+}

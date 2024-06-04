@@ -26,7 +26,7 @@
         <form action="../../backend/functions/entrarUsuario.php" method="POST">
             <h1>Entrar</h1>
             <input placeholder="Email" name="email">
-            <input placeholder="Senha"  name="senha">
+            <input placeholder="Senha"  name="senha" type="password">
             <input type="submit" value="Entrar">
             <p>Não possui conta? <a onclick="switchPages('../Cadastrar/')"> Criar </a> </p>
         </form>

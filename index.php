@@ -154,24 +154,24 @@
         <a href="#" class="title"><i class='bx bxs-smile'></i>DataStructuresEdu</a>
         <section class="navbar">
             <nav>
-                <h3>Discover more about us</h3>
-                <a href="#">Learn more about us</a>
-                <a href="#">Explore carrer opportunities</a>
-                <a href="#">Acess our press materials</a>
-                <a href="#">Subscription options</a>
+                <h3>Descubra mais sobre nós</h3>
+                <a href="#">Saiba mais sobre nós</a>
+                <a href="#">Explore oportunidades de carreira</a>
+                <a href="#">Acesse nossos materiais de imprensa</a>
+                <a href="#">Opções de assinatura</a>
             </nav>
             <nav>
-                <h3>Get support</h3>
-                <a href="#">Assistance for users</a>
-                <a href="#">Frequently asked questions</a>
-                <a href="#">Need help?</a>
+                <h3>Obtenha suporte</h3>
+                <a href="#">Assistência para usuários</a>
+                <a href="#">Perguntas frequentes</a>
+                <a href="#">Precisa de ajuda?</a>
             </nav>
             <nav>
-                <h3>Become part of our</h3>
-                <a href="#">Connect with us on</a>
-                <a href="#">Follow us on Instagram</a>
-                <a href="#">Join the conversation on</a>
-                <a href="#">Join our Discord server</a>
+                <h3>Torne-se parte da nossa comunidade</h3>
+                <a href="#">Conecte-se conosco em</a>
+                <a href="#">Siga-nos no Instagram</a>
+                <a href="#">Junte-se à conversa em</a>
+                <a href="#">Entre no nosso servidor do Discord</a>
             </nav>
         </section>
     </footer>

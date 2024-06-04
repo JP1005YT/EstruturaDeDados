@@ -30,7 +30,7 @@
             <input placeholder="Nome Completo" name="name">
             <input placeholder="Cargo" name="cargo">
             <input placeholder="Email" name="email">
-            <input placeholder="Senha"  name="senha">
+            <input placeholder="Senha"  name="senha" type="password">
             <input type="submit" value="Cadastrar">
             <p>Já possuí conta? <span onclick="switchPages('../Entrar')">Entrar</span></p>
         </form>
