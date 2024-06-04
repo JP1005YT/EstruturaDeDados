@@ -203,7 +203,7 @@
 
                 // Exibe os nomes extraídos
                 foreach ($arquivos as $arquivo) {
-                    echo "<li id=".$arquivo['nome_arquivo'].">". $arquivo['nome_json'] . "</li>";
+                    echo "<li id='".$arquivo['nome_arquivo']."' class='this-theme'>". $arquivo['nome_json'] . "</li>";
                 }
                 ?>
             </ul>
@@ -632,15 +632,12 @@
 
     </main>
     <script>
-        // let i = 0
-        // function switchPages(url){
-        //     window.location.href = url
-        // }
-        // function dropdown(){
-        //     document.querySelector(".logged").classList.toggle("active")
-        //     document.querySelector("#icon").classList.toggle("active")
-        // }
-        console.log(JSON.stringify(document.querySelector("#test").innerHTML))
+        let all = document.querySelectorAll(".this-theme")
+        all.forEach((theme) => {
+            theme.addEventListener("click",()=>{
+                window.location.href = `../Aula?class=${theme.id}`
+            })
+        })
     </script>
     </body>
 </html>
