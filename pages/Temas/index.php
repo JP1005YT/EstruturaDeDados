@@ -5,7 +5,8 @@
     spl_autoload_register(function ($class_name) {
         include './../../backend/classes/' . $class_name . '.php';
     });
-    
+    // $json = json_decode(file_get_contents('../../backend/temas/tad.json'),true);
+    // echo $json['content'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -154,9 +155,62 @@
                 </pre>
             </section>
         </section>
-    </section>
+        <section class="aulas">
+            <h2>Aulas</h2>
+            <ul class="class_grid">
+            <?php
+                // Função para ler todos os arquivos JSON de um diretório e retornar os valores da chave "nome"
+                function listarNomes($directory) {
+                    $arquivos = [];
 
-    <section class="card">
+                    // Abre o diretório
+                    if ($handle = opendir($directory)) {
+                        // Itera sobre os arquivos do diretório
+                        while (false !== ($entry = readdir($handle))) {
+                            // Ignora os diretórios '.' e '..'
+                            if ($entry !== '.' && $entry !== '..') {
+                                // Constrói o caminho completo do arquivo
+                                $filePath = $directory . DIRECTORY_SEPARATOR . $entry;
+
+                                // Verifica se é um arquivo JSON
+                                if (pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
+                                    // Lê o conteúdo do arquivo
+                                    $jsonContent = file_get_contents($filePath);
+                                    // Decodifica o JSON
+                                    $data = json_decode($jsonContent, true);
+
+                                    // Verifica se o JSON foi decodificado corretamente e se contém a chave "nome"
+                                    if ($data !== null && isset($data['nome'])) {
+                                        // Adiciona o valor de "nome" e o nome do arquivo à lista
+                                        $arquivos[] = array(
+                                            'nome_arquivo' => $entry,
+                                            'nome_json' => $data['nome']
+                                        );
+                                    }
+                                }
+                            }
+                        }
+                        // Fecha o diretório
+                        closedir($handle);
+                    }
+
+                    return $arquivos;
+                }
+
+                // Chama a função e passa o caminho do diretório
+                $directoryPath = '../../backend/temas/';
+                $arquivos = listarNomes($directoryPath);
+
+                // Exibe os nomes extraídos
+                foreach ($arquivos as $arquivo) {
+                    echo "<li id=".$arquivo['nome_arquivo'].">". $arquivo['nome_json'] . "</li>";
+                }
+                ?>
+            </ul>
+        </section>
+
+
+    <!-- <section class="card">
         <h1>Caixa Mágica de Brinquedos - TAD (Tipo Abstrato de Dados)</h1>
         <section>
             <h2>O que é uma Caixa Mágica?</h2>
@@ -245,9 +299,9 @@
                 </code>
             </pre>
         </section>
-    </section>
+    </section> -->
 
-    <section class="card">
+    <!-- <section class="card" >
         <h1>Listas Simplesmente Encadeadas</h1>
         <section>
             <h2>O que é uma Lista Simplesmente Encadeada?</h2>
@@ -396,9 +450,9 @@
                 </pre>
             </section>
         </section>
-    </section>
+    </section> -->
 
-    <section class="card">
+    <!-- <section class="card" id="test">
         <h1>Listas Duplamente Encadeadas</h1>
         <section>
             <h2>O que é uma Lista Duplamente Encadeada?</h2>
@@ -574,36 +628,19 @@
                 </pre>
             </section>
         </section>
-    </section>
+    </section> -->
 
     </main>
     <script>
-        let i = 0
-        function switchCarrossel(){
-            const alldivs = document.querySelectorAll(".carrossel div")
-            const makers = document.querySelectorAll(".marker i")
-            makers.forEach(i => {
-                i.id = ""
-            })
-            alldivs.forEach(div => {  
-                div.classList.value = ""
-            })
-            alldivs[i].classList.add('active')
-            makers[i].id = 'active'
-            if(i < 2){
-                i++
-            }else{
-                i = 0
-            }
-        }
-        function switchPages(url){
-            window.location.href = url
-        }
-        function dropdown(){
-            document.querySelector(".logged").classList.toggle("active")
-            document.querySelector("#icon").classList.toggle("active")
-        }
-        setInterval(switchCarrossel,7000)
+        // let i = 0
+        // function switchPages(url){
+        //     window.location.href = url
+        // }
+        // function dropdown(){
+        //     document.querySelector(".logged").classList.toggle("active")
+        //     document.querySelector("#icon").classList.toggle("active")
+        // }
+        console.log(JSON.stringify(document.querySelector("#test").innerHTML))
     </script>
     </body>
 </html>

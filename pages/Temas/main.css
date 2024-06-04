@@ -54,3 +54,34 @@ code {
 section {
     margin: 10px 0;
 }
+.class_grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas de tamanho igual */
+    gap: 16px; /* Espaçamento entre os itens do grid */
+    list-style: none;
+    li{
+        position: relative;
+        background: var(--cor1);
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        &:hover{
+            cursor: pointer;
+            text-align: start;
+        }
+        &:hover::before{
+            position: absolute;
+            right: 0;
+            top: 0;
+            content: ">";
+            font-size: 62px;
+            background: green;
+            width: 100px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+    }
+}
