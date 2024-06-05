@@ -59,9 +59,11 @@ session_start();
             </nav>
         </header>
         <main>
-        <?php
-            echo $json['content'];
-        ?>
+            <section class="card">
+                <?php
+                    echo $json['content'];
+                ?>
+            </section>
         </main>
         <script>
             function switchPages(url){

@@ -2,18 +2,14 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background: var(--cor6);
+    background: var(--cor1);
     color: var(--cor6);
 }
 main{
-    width: 80%;
-    margin: 0 0 0 10%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: var(--cor2);
-    padding: 50px;
 }
 .card {
     background: var(--cor2);

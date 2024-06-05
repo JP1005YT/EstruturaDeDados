@@ -155,23 +155,23 @@
         <section class="navbar">
             <nav>
                 <h3>Descubra mais sobre nós</h3>
-                <a href="#">Saiba mais sobre nós</a>
-                <a href="#">Explore oportunidades de carreira</a>
-                <a href="#">Acesse nossos materiais de imprensa</a>
-                <a href="#">Opções de assinatura</a>
+                <p>Saiba mais sobre nós</p>
+                <p>Explore oportunidades de carreira</p>
+                <p>Acesse nossos materiais de imprensa</p>
+                <p>Opções de assinatura</p>
             </nav>
             <nav>
                 <h3>Obtenha suporte</h3>
-                <a href="#">Assistência para usuários</a>
-                <a href="#">Perguntas frequentes</a>
-                <a href="#">Precisa de ajuda?</a>
+                <p>Assistência para usuários</p>
+                <p>Perguntas frequentes</p>
+                <p>Precisa de ajuda?</p>
             </nav>
             <nav>
                 <h3>Torne-se parte da nossa comunidade</h3>
-                <a href="#">Conecte-se conosco em</a>
-                <a href="#">Siga-nos no Instagram</a>
-                <a href="#">Junte-se à conversa em</a>
-                <a href="#">Entre no nosso servidor do Discord</a>
+                <p>Conecte-se conosco em</p>
+                <p>Siga-nos no Instagram</p>
+                <p>Junte-se à conversa em</p>
+                <p>Entre no nosso servidor do Discord</p>
             </nav>
         </section>
     </footer>

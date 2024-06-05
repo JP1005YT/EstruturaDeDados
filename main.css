@@ -1,12 +1,15 @@
 @import 'global.css';
-
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: var(--cor1);
+    color: var(--cor6);
+}
 main{
     width: 100%;
     .carrossel{
         position: relative;
-        margin: 0 30px 0 30px;
         height: calc(100vh - 100px);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         section{
             display: none;
             align-items: center;
@@ -123,13 +126,14 @@ footer{
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #000;
+        color: var(--cor6);
         i{
             margin: 10px;
             font-size: 26px;
         }
     }
     .navbar{
+        color: var(--cor6);
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -141,10 +145,6 @@ footer{
             width: 30%;
             height: 100%;
             padding: 20px;
-            a{
-                text-decoration: none;
-                color: var(--cor1);
-            }
         }
     }
 }
