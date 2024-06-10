@@ -54,3 +54,8 @@ code {
 section {
     margin: 10px 0;
 }
+
+.imagem{
+    width: 100%;
+    background: red;
+}
