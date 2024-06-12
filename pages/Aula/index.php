@@ -41,7 +41,9 @@ session_start();
                                 </section>
                                 <div class="dropdown">
                                     <ul>
-                                        <li>Perfil</li>
+                                        <li>
+                                            <a href="../../pages/Perfil/index.php">Perfil</a>
+                                        </li>
                                         
                                         <li>
                                             <a href="../../backend/functions/sair.php">Sair</a>

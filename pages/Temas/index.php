@@ -42,7 +42,9 @@
                             </section>
                             <div class="dropdown">
                             <ul>
-                                <li>Perfil</li>
+                                <li>
+                                    <a href="../../pages/Perfil/index.php"> Perfil </a>
+                                </li>
                                 
                                 <li>
                                     <a href="./backend/functions/sair.php">Sair</a>
@@ -88,20 +90,26 @@
                     </p>
                     <pre>
                         <code>
-                            using System;
-                            using System.Collections.Generic;
-
-                            class PilhaDePanquecas {
-                                static void Main() {
-                                    Stack<string> pilha = new Stack<string>();
-                                    pilha.Push("Panqueca 1");
-                                    pilha.Push("Panqueca 2");
-                                    pilha.Push("Panqueca 3");
-                                    
-                                    Console.WriteLine(pilha.Pop()); // Panqueca 3
-                                    Console.WriteLine(pilha.Pop()); // Panqueca 2
-                                }
-                            }
+                          1.    Using System;
+                          2.    Using System.Collections.Generic;
+                          3.
+                          4.    Class PilhaDePanquecas {  
+                          5.        static void Main() {
+                          6.            // Cria uma pilha usando a classe Stack da biblioteca padrão.
+                          7.            Stack pilha = new Stack();
+                          8.     
+                          9.            // Adiciona a string "Panqueca 1" ao topo da pilha.
+                          10.           pilha.Push("Panqueca 1");
+                          11.
+                          12.           // Adiciona a string "Panqueca 2" ao topo da pilha.
+                          13.           pilha.Push("Panqueca 2");
+                          14.
+                          15.           // Adiciona a string "Panqueca 3" ao topo da pilha.
+                          16.           pilha.Push("Panqueca 3");
+                          17.
+                          18.           Console.WriteLine(pilha.Pop());  // Imprime e remove o elemento do topo da pilha (último adicionado).
+                          19.       }
+                          20.   } 
                         </code>
                     </pre>
                 </section>
@@ -113,18 +121,28 @@
                     </p>
                     <pre>
                         <code>
-                            using System;
-                            using System.Collections.Generic;
+                            Using System;
+                            Using System.Collections.Generic;
 
                             class FilaDoTobogã {
                                 static void Main() {
-                                    Queue<string> fila = new Queue<string>();
+                                    // Cria uma fila usando a classe Queue da biblioteca padrão.
+                                    Queue fila = new Queue();
+
+                                    // Adiciona a string "Pessoa 1" ao final da fila.
                                     fila.Enqueue("Pessoa 1");
+
+                                    // Adiciona a string "Pessoa 2" ao final da fila.
                                     fila.Enqueue("Pessoa 2");
+
+                                    // Adiciona a string "Pessoa 3" ao final da fila.
                                     fila.Enqueue("Pessoa 3");
                                     
-                                    Console.WriteLine(fila.Dequeue()); // Pessoa 1
-                                    Console.WriteLine(fila.Dequeue()); // Pessoa 2
+                                    // Remove e retorna o primeiro elemento da fila, que é "Pessoa 1".
+                                    Console.WriteLine(fila.Dequeue());
+
+                                    // Remove e retorna o primeiro elemento da fila, que é "Pessoa 2".
+                                    Console.WriteLine(fila.Dequeue());
                                 }
                             }
                         </code>
@@ -138,8 +156,8 @@
                 </p>
                 <pre>
                     <code>
-                        using System;
-                        using System.Collections.Generic;
+                        Using System;
+                        Using System.Collections.Generic;
 
                         class CaixaDeBrinquedos {
                             static void Main() {
@@ -217,6 +235,10 @@
                 window.location.href = `../Aula?class=${theme.id}`
             })
         })
+        function dropdown(){
+            document.querySelector(".logged").classList.toggle("active")
+            document.querySelector("#icon").classList.toggle("active")
+        }
     </script>
     </body>
 </html>

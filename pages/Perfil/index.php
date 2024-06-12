@@ -30,7 +30,7 @@
                     <a href="../../index.php">Página Principal</a>
                 </li>
                 <li>
-                    <a href="./pages/Temas/">Temas</a>
+                    <a href="../../pages/Temas/">Temas</a>
                 </li>
             </ul>
             <?php
