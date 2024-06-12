@@ -44,7 +44,10 @@
                             <div class="dropdown">
                                 <ul> 
                                     <li>
-                                        <a href="./../../backend/functions/sair.php"> Sair </a>
+                                        <a href="index.php"> Perfil </a>
+                                    </li>
+                                    <li>
+                                        <a href="../../backend/functions/sair.php"> Sair </a>
                                     </li>
                                 </ul>
                             </div>
@@ -60,10 +63,10 @@
             </header>
             <main>
                 <section class="profile-container">
-                    <h2> Nome: Manoela </h2>
-                    <p>Cargo: Dev FrontEnd </p>
-                    <p>Email: Manoela2903@outlook.com </p>
-                    <p>Username: Manu </p>
+                    <?php echo "<h2> ". $_SESSION['user']->GetName() ."</h2>" ;?>
+                    <?php echo "<p> Cargo: ". $_SESSION['user']->GetCargo() ."</p>" ;?>
+                    <?php echo "<p> E-mail: ". $_SESSION['user']->GetEmail() ."</p>" ;?>
+                    <?php echo "<p> UserName: ". $_SESSION['user']->GetUsername() ."</p>" ;?>
                     <section class="profile-options">
                     <img src="../../src/carla.jpg" alt="Foto de Perfil">
                     <div class="theme-toggle">
@@ -103,6 +106,11 @@
         function enableDarkMode() {
             document.body.classList.add('dark-mode');
             themeSwitchBtn.textContent = 'Modo Claro';
+        }
+
+        function dropdown(){
+            document.querySelector(".logged").classList.toggle("active")
+            document.querySelector("#icon").classList.toggle("active")
         }
     </script>
 </body>

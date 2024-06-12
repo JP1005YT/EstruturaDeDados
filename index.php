@@ -44,7 +44,7 @@
                             <div class="dropdown">
                                 <ul>
                                     <li> 
-                                        <a href="../../pages/Perfil/index.php"> Perfil </a>
+                                        <a href="./pages/Perfil/index.php"> Perfil </a>
                                     </li>
                                     
                                     <li>

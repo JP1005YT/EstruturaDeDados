@@ -42,6 +42,11 @@ main {
     font-size: 2.5em; 
     margin-bottom: 20px;
     width: 50%;
+    transition: color 0.3s ease-in-out;
+}
+
+.profile-container h2:hover{
+    filter: drop-shadow(0px 16px 10px var(--cor1));
 }
 
 .profile-container p {
@@ -52,6 +57,10 @@ main {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     padding-bottom: 10px; 
+}
+
+.profile-container p:hover{
+    filter: drop-shadow(0px 16px 10px var(--cor1));
 }
 
 .profile-options {
@@ -72,6 +81,12 @@ main {
     height: 300px;
     border-radius: 50%;
     margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out;
+    filter: drop-shadow(0px 16px 10px var(--cor1));
+}
+
+.profile-options img:hover {
+    transform: scale(1.1);
 }
 
 .theme-toggle {
