@@ -1,8 +1,4 @@
 <?php
-$json = json_decode(file_get_contents('../../backend/temas/'.$_GET['class']),true);
-spl_autoload_register(function ($class_name) {
-    include '../../backend/classes/' . $class_name . '.php';
-});
 session_start();
 ?>
 <!DOCTYPE html>
@@ -10,7 +6,7 @@ session_start();
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title> DataStruct School | <?php $json['nome']?></title>
+        <title> DataStruct School | Aula</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
@@ -61,11 +57,8 @@ session_start();
             </nav>
         </header>
         <main>
-            <section class="card">
-                <?php
-                    echo $json['content'];
-                ?>
-            </section>
+            <iframe src=<?php echo '../../backend/temas/'.$_GET['class']?> class="card" width="100%">
+            </iframe>
         </main>
         <script>
             function switchPages(url){

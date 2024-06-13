@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <main>
+        <section class="card">
+            <h1>Caixa Mágica de Brinquedos - TAD (Tipo Abstrato de Dados)</h1>
+            <section>
+                <h2>O que é uma Caixa Mágica?</h2>
+                <p>
+                    Imagine que você tem uma caixa mágica onde você pode guardar seus brinquedos favoritos. Mas essa não é uma caixa comum; ela tem 
+                    regras especiais sobre como você pode colocar e tirar brinquedos dela. Essa caixa mágica é o que os adultos chamam de TAD, ou Tipo 
+                    Abstrato de Dados. Ela ajuda a manter seus brinquedos organizados e prontos para brincar sempre que você quiser!
+                </p>
+                <p>
+                    Um TAD é uma maneira de organizar dados de forma estruturada e eficiente. É muito importante na programação porque permite que 
+                    você manipule dados de uma forma consistente, independentemente de como eles são implementados por trás das cenas. Pense no TAD 
+                    como as regras de um jogo: ele define como você pode jogar, mas não se preocupa com os detalhes internos.
+                </p>
+            </section>
+            <section>
+                <h2>Brincando com a Caixa Mágica</h2>
+                <p>
+                    Vamos ver como você pode brincar com duas caixas mágicas diferentes: a Caixa de Empilhar e a Caixa de Enfileirar. Essas caixas 
+                    mágicas são exemplos de como você pode organizar e acessar dados de maneiras diferentes.
+                </p>
+            </section>
+            <section class="example">
+                <h3>Caixa de Empilhar</h3>
+                <p>
+                    A Caixa de Empilhar é como uma torre de blocos. Você coloca um bloco em cima do outro, e quando quer brincar, você só pode pegar 
+                    o bloco do topo! É uma maneira divertida de brincar, mas você precisa seguir as regras da caixa.
+                </p>
+                <pre><code>
+        // Exemplo em C#
+        public class CaixaDeEmpilhar {
+            private Stack<int> pilha = new Stack<int>();
+        
+            public void Colocar(int bloco) {
+                pilha.Push(bloco);
+            }
+        
+            public int Pegar() {
+                if (pilha.Count > 0)
+                    return pilha.Pop();
+                else
+                    throw new InvalidOperationException("A pilha está vazia!");
+            }
+        
+            public bool EstaVazia() {
+                return pilha.Count == 0;
+            }
+        
+            public int OlharTopo() {
+                if (pilha.Count > 0)
+                    return pilha.Peek();
+                else
+                    throw new InvalidOperationException("A pilha está vazia!");
+            }
+        }
+                </code></pre>
+            </section>
+            <section class="example">
+                <h3>Caixa de Enfileirar</h3>
+                <p>
+                    A Caixa de Enfileirar é como uma fila para o escorregador. Você entra na fila e espera sua vez. Quando é sua vez, você pode brincar! 
+                    E lembre-se, quem chega primeiro, brinca primeiro.
+                </p>
+                <pre><code>
+        // Exemplo em C#
+        public class CaixaDeEnfileirar {
+            private Queue<int> fila = new Queue<int>();
+        
+            public void EntrarNaFila(int brinquedo) {
+                fila.Enqueue(brinquedo);
+            }
+        
+            public int Brincar() {
+                if (fila.Count > 0)
+                    return fila.Dequeue();
+                else
+                    throw new InvalidOperationException("A fila está vazia!");
+            }
+        
+            public bool EstaVazia() {
+                return fila.Count == 0;
+            }
+        }
+                </code></pre>
+            </section>
+        </section>
+    </main>
+</body>

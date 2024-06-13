@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <main>
+        <section class="card">
+           <h1>Listas Simplesmente Encadeadas</h1>
+        <section>
+            <h2>O que é uma Lista Simplesmente Encadeada?</h2>
+            <p>
+                Imagine que você tem uma fila de amigos, e cada amigo está segurando a mão do próximo amigo na fila. 
+                Esta é uma maneira fácil de pensar em uma lista simplesmente encadeada. Cada amigo é um "nó" na lista, 
+                e a mão que eles estão segurando é a "ligação" para o próximo nó.
+            </p>
+            <p>
+                As listas simplesmente encadeadas são importantes na programação porque permitem armazenar e organizar dados de forma eficiente. 
+                Elas são usadas quando você precisa de uma estrutura de dados que pode crescer ou diminuir dinamicamente, sem precisar de um 
+                tamanho fixo. Além disso, elas facilitam a inserção e remoção de elementos em qualquer ponto da lista.
+            </p>
+        </section>
+        <section>
+            <h2>Como Funciona?</h2>
+            <p>
+                Vamos ver como essa fila de amigos funciona e como você pode brincar com ela. Vamos explorar algumas operações básicas que você 
+                pode realizar em uma lista simplesmente encadeada.
+            </p>
+            <img src='../../../src/listasimplesmenteencadeada.png' class='imagem'>
+            <section class="example">
+                <h3>Adicionando um Amigo ao Final</h3>
+                <p>
+                    Quando você quer adicionar um novo amigo ao final da fila, você pede ao último amigo que segure a mão do novo amigo. 
+                    Agora, o novo amigo é o último da fila!
+                </p>
+                <pre><code>
+    // Exemplo em C#
+    public class No {
+        public int Valor;
+        public No Proximo;
+    
+        public No(int valor) {
+            Valor = valor;
+            Proximo = null;
+        }
+    }
+    
+    public class ListaSimplesmenteEncadeada {
+        private No primeiro;
+    
+        public ListaSimplesmenteEncadeada() {
+            primeiro = null;
+        }
+    
+        public void AdicionarAmigoAoFinal(int valor) {
+            No novoNo = new No(valor);
+            if (primeiro == null) {
+                primeiro = novoNo;
+            } else {
+                No atual = primeiro;
+                while (atual.Proximo != null) {
+                    atual = atual.Proximo;
+                }
+                atual.Proximo = novoNo;
+            }
+        }
+    }
+                </code></pre>
+            </section>
+            <section class="example">
+                <h3>Adicionando um Amigo ao Início</h3>
+                <p>
+                    Quando você quer adicionar um novo amigo ao início da fila, o novo amigo segura a mão do amigo que estava na frente, 
+                    e agora ele é o primeiro da fila!
+                </p>
+                <pre><code>
+    // Exemplo em C#
+    public class ListaSimplesmenteEncadeada {
+        private No primeiro;
+    
+        public ListaSimplesmenteEncadeada() {
+            primeiro = null;
+        }
+    
+        public void AdicionarAmigoAoInicio(int valor) {
+            No novoNo = new No(valor);
+            novoNo.Proximo = primeiro;
+            primeiro = novoNo;
+        }
+    }
+                </code></pre>
+            </section>
+            <section class="example">
+                <h3>Adicionando um Amigo no Meio</h3>
+                <p>
+                    Quando você quer adicionar um novo amigo no meio da fila, você pede ao amigo que está no meio para segurar a mão do novo amigo, 
+                    e o novo amigo segura a mão do próximo amigo. Agora, ele está no meio da fila!
+                </p>
+                <pre><code>
+    // Exemplo em C#
+    public class ListaSimplesmenteEncadeada {
+        private No primeiro;
+    
+        public ListaSimplesmenteEncadeada() {
+            primeiro = null;
+        }
+    
+        public void AdicionarAmigoNoMeio(int valor, int posicao) {
+            No novoNo = new No(valor);
+            if (posicao == 0) {
+                AdicionarAmigoAoInicio(valor);
+            } else {
+                No atual = primeiro;
+                for (int i = 0; i &lt; posicao - 1 &amp;&amp; atual != null; i++) {
+                    atual = atual.Proximo;
+                }
+                if (atual != null) {
+                    novoNo.Proximo = atual.Proximo;
+                    atual.Proximo = novoNo;
+                } else {
+                    throw new ArgumentOutOfRangeException("Posição inválida!");
+                }
+            }
+        }
+    }
+                </code></pre>
+            </section>
+            <section class="example">
+                <h3>Brincando com a Fila</h3>
+                <p>
+                    Se você quiser saber quem é o primeiro amigo na fila, você simplesmente pergunta ao amigo que está na frente.
+                    E se quiser saber quem vem depois, é só perguntar a cada amigo quem eles estão segurando a mão.
+                </p>
+                <pre><code>
+    // Exemplo em C#
+    public class ListaSimplesmenteEncadeada {
+        // ... (outros métodos)
+    
+        public No VerPrimeiroAmigo() {
+            return primeiro;
+        }
+    
+        public No VerProximoAmigo(No atualAmigo) {
+            return atualAmigo?.Proximo;
+        }
+    }
+                </code></pre>
+            </section>
+        </section>
+       </section> 
+    </main>
+</body>
+</html>

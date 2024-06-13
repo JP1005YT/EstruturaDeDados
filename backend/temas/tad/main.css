@@ -1,10 +1,11 @@
-@import '../../global.css';
+@import '../../../global.css';
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background: var(--cor1);
     color: var(--cor6);
-    overflow: hidden;
+    margin-bottom: 200px;
+    margin-top: 50px;
 }
 main{
     display: flex;
@@ -13,8 +14,11 @@ main{
     flex-direction: column;
 }
 .card {
-    height: 100vh;
-    border: none;
+    background: var(--cor2);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 1600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 h1 {
     text-align: center;

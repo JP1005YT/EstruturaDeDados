@@ -178,52 +178,41 @@
             <h2>Aulas</h2>
             <ul class="class_grid">
             <?php
-                // Função para ler todos os arquivos JSON de um diretório e retornar os valores da chave "nome"
-                function listarNomes($directory) {
-                    $arquivos = [];
+// Função para listar todas as pastas de um diretório
+function listarPastas($directory) {
+    $pastas = [];
 
-                    // Abre o diretório
-                    if ($handle = opendir($directory)) {
-                        // Itera sobre os arquivos do diretório
-                        while (false !== ($entry = readdir($handle))) {
-                            // Ignora os diretórios '.' e '..'
-                            if ($entry !== '.' && $entry !== '..') {
-                                // Constrói o caminho completo do arquivo
-                                $filePath = $directory . DIRECTORY_SEPARATOR . $entry;
+    // Abre o diretório
+    if ($handle = opendir($directory)) {
+        // Itera sobre os arquivos e pastas do diretório
+        while (false !== ($entry = readdir($handle))) {
+            // Ignora os diretórios '.' e '..'
+            if ($entry !== '.' && $entry !== '..') {
+                // Constrói o caminho completo da entrada
+                $filePath = $directory . DIRECTORY_SEPARATOR . $entry;
 
-                                // Verifica se é um arquivo JSON
-                                if (pathinfo($filePath, PATHINFO_EXTENSION) === 'json') {
-                                    // Lê o conteúdo do arquivo
-                                    $jsonContent = file_get_contents($filePath);
-                                    // Decodifica o JSON
-                                    $data = json_decode($jsonContent, true);
-
-                                    // Verifica se o JSON foi decodificado corretamente e se contém a chave "nome"
-                                    if ($data !== null && isset($data['nome'])) {
-                                        // Adiciona o valor de "nome" e o nome do arquivo à lista
-                                        $arquivos[] = array(
-                                            'nome_arquivo' => $entry,
-                                            'nome_json' => $data['nome']
-                                        );
-                                    }
-                                }
-                            }
-                        }
-                        // Fecha o diretório
-                        closedir($handle);
-                    }
-
-                    return $arquivos;
+                // Verifica se é um diretório
+                if (is_dir($filePath)) {
+                    // Adiciona o nome da pasta à lista
+                    $pastas[] = $entry;
                 }
+            }
+        }
+        // Fecha o diretório
+        closedir($handle);
+    }
 
-                // Chama a função e passa o caminho do diretório
-                $directoryPath = '../../backend/temas/';
-                $arquivos = listarNomes($directoryPath);
+    return $pastas;
+}
 
-                // Exibe os nomes extraídos
-                foreach ($arquivos as $arquivo) {
-                    echo "<li id='".$arquivo['nome_arquivo']."' class='this-theme'>". $arquivo['nome_json'] . "</li>";
-                }
+// Chama a função e passa o caminho do diretório
+$directoryPath = '../../backend/temas/';
+$pastas = listarPastas($directoryPath);
+
+// Exibe os nomes das pastas extraídas
+foreach ($pastas as $pasta) {
+    echo "<li id='".$pasta."' class='this-theme'>". $pasta . "</li>";
+};
                 ?>
             </ul>
         </section>
