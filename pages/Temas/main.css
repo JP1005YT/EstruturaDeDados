@@ -17,10 +17,9 @@ main{
     padding: 20px;
     max-width: 1600px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        img{
-            height: 180px;
-            width: 180px;
-        }
+}
+img{
+    margin-left: calc(50% - 150px);
 }
 h1 {
     text-align: center;

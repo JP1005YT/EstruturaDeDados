@@ -66,7 +66,7 @@
             <h1>Bem-vindo ao Mundo Mágico das Estruturas de Dados!</h1>
             <section>
                 <h2>O que são Estruturas de Dados?</h2>
-                <img src="../../src/BauTesouro.png">
+                <img src="../../src/BauTesouro.png" height="300px">
                 <p>
                     Imagine que você tem um baú do tesouro cheio de brinquedos. Você não vai querer jogar tudo lá de qualquer jeito, certo? 
                     Você vai querer organizar seus brinquedos para que possa encontrar o que quiser rapidamente. No mundo da programação, 

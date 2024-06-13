@@ -6,6 +6,7 @@ body {
     background: var(--cor1);
     color: var(--cor6);
     transition: background-color 0.3s ease-in-out;
+    overflow-y: hidden;
 }
 
 main {
