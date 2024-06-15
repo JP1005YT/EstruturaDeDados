@@ -91,23 +91,23 @@
                 <section class="info">
                     <i class='bx bxs-moon' ></i>
                     <section>
-                    <h3> Profunda compreensão de dados </h3>
+                        <h3> Profunda compreensão de dados </h3>
                         <p> Experiencie a beleza de dados organizados para programação eficaz. </p>
                     </section>
                 </section>
                 <section class="info">
                     <i class='bx bxs-hot' ></i>
                     <section>
-                    <h3> Complexidade reduzida </h3>
+                        <h3> Complexidade reduzida </h3>
                         <p> Simplifique a programação com dados estruturados para desempenho otimizado. </p>
                     </section>
                 </section>
             </section>
             <h2>Entre na comunidade DataStruct e conecte-se a mais 1M de alunos</h2>
-            <section class="opnioes">
+            <section class="opinioes">
                 <section class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
-                    <p> Sinto-me mais confiante em codificação. </p>
+                    <p> Sinto-me mais confiante quando vou codificar. </p>
                     <section>
                         <img src="src/andre.jpg">
                         <section class="text">
@@ -129,7 +129,7 @@
                 </section>
                 <section class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
-                    <p> Estruturas de dados para uma mente estruturada </p>
+                    <p> Estruturas de dados para uma mente estruturada! </p>
                     <section>
                         <img src="src/rodrigo.jpg">
                         <section class="text">
@@ -140,7 +140,7 @@
                 </section>
                 <section class="card">
                     <i class='bx bxs-quote-alt-right' ></i>
-                    <p> Programação estruturada para maior tranquilidade </p>
+                    <p> Programação estruturada para maior tranquilidade. </p>
                     <section>
                         <img src="src/carla.jpg">
                         <section class="text">

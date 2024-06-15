@@ -37,34 +37,42 @@
                     A Caixa de Empilhar é como uma torre de blocos. Você coloca um bloco em cima do outro, e quando quer brincar, você só pode pegar 
                     o bloco do topo! É uma maneira divertida de brincar, mas você precisa seguir as regras da caixa.
                 </p>
-                <pre><code>
-        // Exemplo em C#
-        public class CaixaDeEmpilhar {
-            private Stack<int> pilha = new Stack<int>();
-        
-            public void Colocar(int bloco) {
-                pilha.Push(bloco);
-            }
-        
-            public int Pegar() {
-                if (pilha.Count > 0)
-                    return pilha.Pop();
-                else
-                    throw new InvalidOperationException("A pilha está vazia!");
-            }
-        
-            public bool EstaVazia() {
-                return pilha.Count == 0;
-            }
-        
-            public int OlharTopo() {
-                if (pilha.Count > 0)
-                    return pilha.Peek();
-                else
-                    throw new InvalidOperationException("A pilha está vazia!");
-            }
-        }
-                </code></pre>
+                <pre>
+                    <code>
+                        1.    using System;
+                        2.    using System.Collections.Generic;          
+
+                        3.    public class CaixaDeEmpilhar {
+                        4.        private Stack pilha = new Stack();  // Declaração de uma pilha utilizando a classe Stack da biblioteca padrão.
+                                
+                        5.        // Método para colocar um bloco na pilha.
+                        6.        public void Colocar(int bloco) {
+                        7.            pilha.Push(bloco);  // Insere o bloco no topo da pilha.
+                        8.        }
+                                
+                        9.        // Método para pegar e remover o bloco do topo da pilha.
+                        10.       public int Pegar() {
+                        11.           if (pilha.Count > 0)
+                        12.               return pilha.Pop();  // Remove e retorna o bloco no topo da pilha.
+                        13.           else
+                        14.               throw new InvalidOperationException("A pilha está vazia!");  // Lança uma exceção se a pilha estiver vazia.
+                        15.       }
+                                
+                        16.       // Método para verificar se a pilha está vazia.
+                        17.       public bool EstaVazia() {
+                        18.           return pilha.Count == 0;  // Retorna verdadeiro se a pilha estiver vazia, caso contrário, falso.
+                        19.       }
+                                
+                        20.       // Método para olhar o bloco no topo da pilha sem removê-lo.
+                        21.       public int OlharTopo() {
+                        22.           if (pilha.Count > 0)
+                        23.               return pilha.Peek();  // Retorna o bloco no topo da pilha sem removê-lo.
+                        24.           else
+                        25.               throw new InvalidOperationException("A pilha está vazia!");  // Lança uma exceção se a pilha estiver vazia.
+                        26.       }
+                        27.   }
+                </code>
+            </pre>
             </section>
             <section class="example">
                 <h3>Caixa de Enfileirar</h3>
@@ -72,27 +80,34 @@
                     A Caixa de Enfileirar é como uma fila para o escorregador. Você entra na fila e espera sua vez. Quando é sua vez, você pode brincar! 
                     E lembre-se, quem chega primeiro, brinca primeiro.
                 </p>
-                <pre><code>
-        // Exemplo em C#
-        public class CaixaDeEnfileirar {
-            private Queue<int> fila = new Queue<int>();
-        
-            public void EntrarNaFila(int brinquedo) {
-                fila.Enqueue(brinquedo);
-            }
-        
-            public int Brincar() {
-                if (fila.Count > 0)
-                    return fila.Dequeue();
-                else
-                    throw new InvalidOperationException("A fila está vazia!");
-            }
-        
-            public bool EstaVazia() {
-                return fila.Count == 0;
-            }
-        }
-                </code></pre>
+                <pre>
+                    <code>
+                        1.    using System;
+                        2.    using System.Collections.Generic;
+                                                
+                        3.    public class CaixaDeEnfileirar {
+                        4.        private Queue fila = new Queue();  // Declaração de uma fila utilizando a classe Queue da biblioteca padrão.
+                                                
+                        5.        // Método para adicionar um brinquedo ao final da fila.
+                        6.        public void EntrarNaFila(int brinquedo) {
+                        7.            fila.Enqueue(brinquedo);  // Adiciona o brinquedo ao final da fila.
+                        8.        }
+                                                
+                        9.        // Método para retirar e retornar o brinquedo do início da fila.
+                        10.       public int Brincar() {
+                        11.           if (fila.Count > 0)
+                        12.               return fila.Dequeue();  // Remove e retorna o brinquedo do início da fila.
+                        13.           else
+                        14.               throw new InvalidOperationException("A fila está vazia!");  // Lança uma exceção se a fila estiver vazia.
+                        15.       }
+                                                
+                        16.       // Método para verificar se a fila está vazia.
+                        17.       public bool EstaVazia() {
+                        18.           return fila.Count == 0;  // Retorna verdadeiro se a fila estiver vazia, caso contrário, falso.
+                        19.       }
+                        20.   }                        
+                </code>
+            </pre>
             </section>
         </section>
     </main>
