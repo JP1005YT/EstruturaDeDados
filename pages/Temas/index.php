@@ -27,10 +27,12 @@
         </div>
         <nav>
             <ul>
-                <li>
-                    <a href="./../../index.php">Página Principal</a>
+                <li onclick="switchPages('./index.php')">
+                    <a>Página Principal</a>
                 </li>
-                <li>Temas</li>
+                <li>
+                    <a>Aulas</a>
+                </li>
             </ul>
             <?php
                 if(isset($_SESSION['user'])){
@@ -238,6 +240,9 @@
                         document.querySelector(".logged").classList.toggle("active")
                         document.querySelector("#icon").classList.toggle("active")
                      }
+                     function switchPages(url){
+                        window.location.href = url
+                    }
             </script>
-    </body>
+</body>
 </html>

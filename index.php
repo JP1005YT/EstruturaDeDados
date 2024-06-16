@@ -26,11 +26,11 @@
         </section>
         <nav>
             <ul>
-                <li>
+                <li onclick="switchPages('./index.php')">
                     <a href="./index.php">Página Principal</a>
                 </li>
-                <li>
-                    <a href="./pages/Temas/">Temas</a>
+                <li onclick="switchPages('./pages/Temas/')">
+                    <a href="./pages/Temas/">Aulas</a>
                 </li>
             </ul>
             <?php

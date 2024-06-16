@@ -18,7 +18,7 @@
         <nav>
             <ul>
                 <li onclick="switchPages('../../')">Página Principal</li>
-                <li onclick="switchPages('../Temas/')">Temas</li>
+                <li onclick="switchPages('../Temas/')">Aulas</li>
             </ul>
         </nav>
     </header>

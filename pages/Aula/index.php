@@ -1,5 +1,11 @@
 <?php
+include_once './../../backend/classes/Usuario.php';
+
 session_start();
+
+spl_autoload_register(function ($class_name) {
+    include './../../backend/classes/' . $class_name . '.php';
+});
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -20,11 +26,11 @@ session_start();
             </section>
             <nav>
                 <ul>
-                    <li>
-                        <a href="../../index.php">Página Principal</a>
+                    <li onclick="switchPages('./../../index.php')">
+                        <a>Página Principal</a>
                     </li>
-                    <li>
-                        <a href="../../pages/Temas/">Temas</a>
+                    <li onclick="switchPages('./../../pages/Temas/')">
+                        <a>Aulas</a>
                     </li>
                 </ul>
                 <?php
@@ -64,10 +70,9 @@ session_start();
             function switchPages(url){
                 window.location.href = url
             }
-            document.title = `DataStruct | <?php echo $json['nome']?>`
             function dropdown(){
-            document.querySelector(".logged").classList.toggle("active")
-            document.querySelector("#icon").classList.toggle("active")
+                document.querySelector(".logged").classList.toggle("active")
+                document.querySelector("#icon").classList.toggle("active")
             }
         </script>
     </body>
