@@ -5,8 +5,6 @@
     spl_autoload_register(function ($class_name) {
         include './../../backend/classes/' . $class_name . '.php';
     });
-    // $json = json_decode(file_get_contents('../../backend/temas/tad.json'),true);
-    // echo $json['content'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -27,7 +25,7 @@
         </div>
         <nav>
             <ul>
-                <li onclick="switchPages('./index.php')">
+                <li onclick="switchPages('./../../index.php')">
                     <a>Página Principal</a>
                 </li>
                 <li>
@@ -68,7 +66,7 @@
             <h1>Bem-vindo ao Mundo Mágico das Estruturas de Dados!</h1>
             <section>
                 <h2>O que são Estruturas de Dados?</h2>
-                <img src="../../src/BauTesouro.png" height="300px">
+                <img src="../../src/BauTesouro.png" class="image">
                 <p>
                     Imagine que você tem um baú do tesouro cheio de brinquedos. Você não vai querer jogar tudo lá de qualquer jeito, certo? 
                     Você vai querer organizar seus brinquedos para que possa encontrar o que quiser rapidamente. No mundo da programação, 
@@ -85,6 +83,7 @@
                 <h2>Exemplos Divertidos de Estruturas de Dados</h2>
                 <section class="example">
                     <h3>1. Pilha de Panquecas 🥞</h3>
+                    <img src="../../src/panquecas.png" class="image">
                     <p>
                         Uma pilha é como uma pilha de panquecas. Você coloca a primeira panqueca no prato, depois coloca outra por cima, e outra, 
                         e outra... Quando você vai comer, você começa pela panqueca do topo! Isso é o que chamamos de "LIFO" - Last In, First Out 
@@ -117,6 +116,7 @@
                 </section>
                 <section class="example">
                     <h3>2. Fila do Tobogã 🏊</h3>
+                    <img src="../../src/toboga.png" class="image">
                     <p>
                         Uma fila é como esperar na fila para o tobogã na piscina. A primeira pessoa que chega é a primeira a descer pelo tobogã. 
                         E a última pessoa que chega terá que esperar sua vez. Isso é "FIFO" - First In, First Out (Primeiro a Entrar, Primeiro a Sair).
@@ -152,6 +152,7 @@
             </section>
             <section class="example">
                 <h3>3. Caixa de Brinquedos 🧸</h3>
+                <img src="../../src/brinquedos.png" class="image">
                 <p>
                     Uma lista é como sua caixa de brinquedos onde você pode pegar qualquer brinquedo que quiser, não importa se está no topo, no 
                     meio ou no fundo. Você pode até mesmo colocar um novo brinquedo onde quiser!

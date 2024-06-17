@@ -19,7 +19,16 @@ main{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 img{
-    margin-left: calc(50% - 150px);
+    display: block;
+    margin: 0 auto;
+}
+.image{
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    border: 3px solid var(--cor4);
+    border-radius: 10px;
 }
 h1 {
     text-align: center;

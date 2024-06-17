@@ -57,7 +57,11 @@ section {
     margin: 10px 0;
 }
 
-.imagem{
-    width: 100%;
-    background: red;
+.image{
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    border: 3px solid var(--cor4);
+    border-radius: 10px;
 }
