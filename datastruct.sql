@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Ago-2024 às 20:12
+-- Tempo de geração: 23-Ago-2024 às 22:28
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -24,48 +24,120 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `users`
+-- Estrutura da tabela `item`
 --
 
-CREATE TABLE `users` (
-  `id` int(4) NOT NULL,
-  `username` varchar(40) NOT NULL,
-  `cargo` varchar(30) NOT NULL,
-  `coins` int(10) NOT NULL,
-  `name` varchar(120) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `item` (
+  `iditem` int(11) NOT NULL,
+  `src_item` varchar(120) DEFAULT NULL,
+  `categoria_item` varchar(60) DEFAULT NULL,
+  `valor_item` int(11) DEFAULT NULL,
+  `nome_item` varchar(120) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
 
 --
--- Extraindo dados da tabela `users`
+-- Estrutura da tabela `quiz_perguntas`
 --
 
-INSERT INTO `users` (`id`, `username`, `cargo`, `coins`, `name`, `email`, `password`) VALUES
-(1, 'JP1005YT', 'DevFullStack', 0, 'João Pedro Garcia Girotto', 'godlolpro32@gmail.com', '$2y$10$08s0RlS065eGbvtTDv608eENdouZj23puVPf5/rJ.VmpFuiHgBdjW'),
-(4, 'JP1005YT', 'Dev', 0, 'João Pedro Garcia Girotto', 'godlolpro32@gmail.com', '$2y$10$QhDQ39Uo8DK8boXiQLLpWuLE1QyHoa1W804muLAy1RA.AF5tc40K.'),
-(5, 'Manu', 'Dev FrontEnd', 0, 'Manoela Pinheiro da Silva', 'manoela2903@outlook.com', '$2y$10$fmkcAi90/pcJTWvb.CDehewxstPJlqDK5p4jtoC./gBgaOUX7PhlS');
+CREATE TABLE `quiz_perguntas` (
+  `idpergunta` int(11) NOT NULL,
+  `pergunta_quiz` varchar(255) DEFAULT NULL,
+  `idresposta` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `quiz_respostas`
+--
+
+CREATE TABLE `quiz_respostas` (
+  `idquiz` int(11) NOT NULL,
+  `resposta_quiz` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `idusuario` int(11) NOT NULL,
+  `nickname_usuario` varchar(30) DEFAULT NULL,
+  `coins_usuario` int(11) DEFAULT NULL,
+  `nome_usuario` varchar(90) DEFAULT NULL,
+  `email_usuario` varchar(120) DEFAULT NULL,
+  `senha_usuario` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario_has_item`
+--
+
+CREATE TABLE `usuario_has_item` (
+  `usuario_idusuario` int(11) NOT NULL,
+  `item_iditem` int(11) NOT NULL,
+  `ativo_item` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `users`
+-- Índices para tabela `item`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-ALTER TABLE `users` ADD FULLTEXT KEY `cargo` (`cargo`);
+ALTER TABLE `item`
+  ADD PRIMARY KEY (`iditem`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- Índices para tabela `quiz_perguntas`
+--
+ALTER TABLE `quiz_perguntas`
+  ADD PRIMARY KEY (`idpergunta`),
+  ADD KEY `fk_quiz_perguntas_quiz_respostas1_idx` (`idresposta`);
+
+--
+-- Índices para tabela `quiz_respostas`
+--
+ALTER TABLE `quiz_respostas`
+  ADD PRIMARY KEY (`idquiz`);
+
+--
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`idusuario`);
+
+--
+-- Índices para tabela `usuario_has_item`
+--
+ALTER TABLE `usuario_has_item`
+  ADD PRIMARY KEY (`usuario_idusuario`,`item_iditem`),
+  ADD KEY `fk_usuario_has_item_item1_idx` (`item_iditem`),
+  ADD KEY `fk_usuario_has_item_usuario_idx` (`usuario_idusuario`);
+
+--
+-- Restrições para despejos de tabelas
 --
 
 --
--- AUTO_INCREMENT de tabela `users`
+-- Limitadores para a tabela `quiz_perguntas`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `quiz_perguntas`
+  ADD CONSTRAINT `fk_quiz_perguntas_quiz_respostas1` FOREIGN KEY (`idresposta`) REFERENCES `quiz_respostas` (`idquiz`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `usuario_has_item`
+--
+ALTER TABLE `usuario_has_item`
+  ADD CONSTRAINT `fk_usuario_has_item_item1` FOREIGN KEY (`item_iditem`) REFERENCES `item` (`iditem`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_usuario_has_item_usuario` FOREIGN KEY (`usuario_idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
