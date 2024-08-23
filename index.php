@@ -32,6 +32,9 @@
                 <li onclick="switchPages('./pages/Temas/')">
                     <a href="./pages/Temas/">Aulas</a>
                 </li>
+                <li onclick="switchPages('./pages/Jogos/Quiz/index.php')">
+                    <a href="./pages/Jogos/Quiz/index.php">Quiz</a>
+                </li>
             </ul>
             <?php
                 if(isset($_SESSION['user'])){

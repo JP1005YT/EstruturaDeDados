@@ -1,4 +1,65 @@
 @import '../../global.css';
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (min-width: 601px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Estilo para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .menu {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Estilo para tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        width: 80%;
+        margin: auto;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+/* Estilo para desktops */
+@media only screen and (min-width: 1025px) {
+    .container {
+        width: 70%;
+        margin: auto;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
