@@ -1,50 +1,41 @@
 <?php
 
 class Usuario {
-    // Propriedades
-    private $username;
-    private $name;
-    private $cargo;
-    private $email;
-    private $senha;
+    private $idUser;
+    private $nickUser;
+    private $nameUser;
+    private $emailUser;
+    private $senhaUser;
+    private $adquiredItemsUser;
+    private $equippedItemsUser;
+
+
 
     // Construtor
-    public function __construct($username, $name, $cargo, $email, $senha) {
-        $this->username = $username;
-        $this->name = $name;
-        $this->cargo = $cargo;
-        $this->email = $email;
-        $this->senha = password_hash($senha, PASSWORD_DEFAULT); // Hash da senha
+    public function __construct($idUser, $nickUser, $nameUser, $emailUser, $senhaUser) {
+        $this->$idUser = $idUser;
+        $this->$emailUser = $emailUser;
+        $this->$nameUser = $nameUser;
+        $this->$nickUser = $nickUser;
+        $this->$senhaUser = password_hash($senhaUser, PASSWORD_DEFAULT); // Hash da senha
     }
 
     // Métodos Getters
     public function getUsername() {
-        return $this->username;
+        return $this->nickUser;
     }
 
     public function getName() {
-        return $this->name;
-    }
-
-    public function getCargo() {
-        return $this->cargo;
+        return $this->nameUser;
     }
 
     public function getEmail() {
-        return $this->email;
+        return $this->emailUser;
     }
 
     // Método para verificar a senha
     public function verificarSenha($senha) {
-        return password_verify($senha, $this->senha);
-    }
-
-    // Método para imprimir os detalhes do usuário
-    public function imprimirDetalhes() {
-        echo "Username: " . $this->username . "<br>";
-        echo "Name: " . $this->name . "<br>";
-        echo "Cargo: " . $this->cargo . "<br>";
-        echo "Email: " . $this->email . "<br>";
+        return password_verify($senha, $this->senhaUser);
     }
 }
 
