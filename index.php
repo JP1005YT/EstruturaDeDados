@@ -1,5 +1,6 @@
 <?php
     include_once './backend/classes/Usuario.php';
+    include_once './backend/controllers/page_controller.php';
     session_start();
 
     spl_autoload_register(function ($class_name) {
@@ -19,52 +20,9 @@
     <link rel="shortcut icon" href="logo.png" />
 </head>
 <body>
-    <header class="mainHeader">
-        <section class="logo">
-            <img src="logo.png" height="70px">
-            <h1>DataStruct School</h1>
-        </section>
-        <nav>
-            <ul>
-                <li onclick="switchPages('./index.php')">
-                    <a href="./index.php">Página Principal</a>
-                </li>
-                <li onclick="switchPages('./pages/Temas/')">
-                    <a href="./pages/Temas/">Aulas</a>
-                </li>
-                <li onclick="switchPages('./pages/Jogos/Quiz/index.php')">
-                    <a href="./pages/Jogos/Quiz/index.php">Quiz</a>
-                </li>
-            </ul>
-            <?php
-                if(isset($_SESSION['user'])){
-                    $user = $_SESSION['user'];
-                    echo '<section class="logged" onclick="dropdown()">
-                            <section class="content">
-                                '.$user->getUsername() .'
-                                <i class="bx bxs-chevron-down" id="icon"></i>
-                            </section>
-                            <div class="dropdown">
-                                <ul>
-                                    <li> 
-                                        <a href="./pages/Perfil/index.php"> Perfil </a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="./backend/functions/sair.php"> Sair </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>';
-                }else{
-                    echo '<section>
-                            <button class="cadastrar" onclick="switchPages('."'./pages/Cadastrar/'".')">Cadastrar-se</button>
-                            <button class="entrar" onclick="switchPages('."'./pages/Entrar/'".')">Entrar</button>
-                        </section>';
-                }
-            ?>
-        </nav>
-    </header>
+    <?php
+        cabecalho();
+    ?>
     <main>
         <section class="carrossel">
             <section class="active">
