@@ -21,7 +21,7 @@
 </head>
 <body>
     <?php
-        cabecalho();
+        PageController::renderHeader();
     ?>
     <main>
         <section class="carrossel">

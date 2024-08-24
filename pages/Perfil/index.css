@@ -1,0 +1,166 @@
+@import '../../global.css';
+
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: var(--cor1);
+    color: var(--cor6);
+    transition: background-color 0.3s ease-in-out;
+    overflow-y: hidden;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100vw;
+    background-color: var(--cor1);
+}
+
+.profile-container {
+    background: linear-gradient(135deg, var(--cor2) 0%, var(--cor3) 100%);
+    color: var(--cor6);
+    padding: 20px; /* Reduzido para maior responsividade */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ajusta o alinhamento dos itens */
+    width: 90%; /* Ajustado para ser mais flexível */
+    max-width: 600px; /* Limita a largura máxima */
+}
+
+.profile-container:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    background-color: var(--cor4);
+}
+
+.profile-container h2 {
+    color: var(--cor5);
+    font-size: 2em; /* Reduzido para maior responsividade */
+    margin-bottom: 20px;
+    width: 100%;
+    transition: color 0.3s ease-in-out;
+    text-align: center; /* Centraliza o texto */
+}
+
+.profile-container h2:hover {
+    color: var(--cor1);
+}
+
+.profile-container p {
+    margin-bottom: 15px;
+    font-size: 1em; /* Reduzido para maior responsividade */
+    font-weight: bold;
+    width: 100%; /* Ajusta para usar toda a largura disponível */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.profile-container p:hover {
+    color: var(--cor1);
+}
+
+.profile-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.profile-options img {
+    width: 150px; /* Reduzido para maior responsividade */
+    height: 150px; /* Reduzido para maior responsividade */
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    filter: drop-shadow(0px 16px 10px var(--cor1));
+}
+
+.profile-options img:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.theme-toggle button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    .profile-container {
+        padding: 15px;
+        width: 95%;
+    }
+
+    .profile-container h2 {
+        font-size: 1.8em;
+    }
+
+    .profile-container p {
+        font-size: 0.9em;
+    }
+
+    .profile-options img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .theme-toggle button {
+        padding: 6px 12px;
+    }
+}
+
+/* Estilo para tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .profile-container {
+        width: 80%;
+        padding: 20px;
+    }
+
+    .profile-container h2 {
+        font-size: 2.2em;
+    }
+
+    .profile-container p {
+        font-size: 1.1em;
+    }
+
+    .profile-options img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* Estilo para desktops */
+@media only screen and (min-width: 1025px) {
+    .profile-container {
+        width: 60%;
+        padding: 20px;
+    }
+}

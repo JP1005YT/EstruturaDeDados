@@ -1,5 +1,6 @@
 <?php
     include_once './../../backend/classes/Usuario.php';
+    include_once './../../backend/controllers/page_controller.php';
     session_start();
 
     spl_autoload_register(function ($class_name) {
@@ -18,49 +19,9 @@
         <link rel="shortcut icon" href="./../../logo.png" />
     </head>
     <body>
-    <header class="mainHeader">
-        <div class="logo">
-            <img src="./../../logo.png" height="70px">
-            <h1>DataStruct School</h1>
-        </div>
-        <nav>
-            <ul>
-                <li onclick="switchPages('./../../index.php')">
-                    <a>Página Principal</a>
-                </li>
-                <li>
-                    <a>Aulas</a>
-                </li>
-            </ul>
-            <?php
-                if(isset($_SESSION['user'])){
-                    $user = $_SESSION['user'];
-                    echo '<section class="logged" onclick="dropdown()">
-                            <section class="content">
-                                '.$user->getUsername() .'
-                                <i class="bx bxs-chevron-down" id="icon"></i>
-                            </section>
-                            <div class="dropdown">
-                            <ul>
-                                <li>
-                                    <a href="../../pages/Perfil/index.php"> Perfil </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="./backend/functions/sair.php">Sair</a>
-                                </li>
-                            </ul>
-                        </div>
-                        </section>';
-                }else{
-                    echo '<section>
-                            <button class="cadastrar" onclick="switchPages('."'../../pages/Cadastrar/'".')"">Cadastrar-se</button>
-                            <button class="entrar" onclick="switchPages('."'../../pages/Entrar/'".')">Entrar</button>
-                        </section>';
-                }
-            ?>
-        </nav>
-    </header>
+    <?php
+        PageController::renderHeader();
+    ?>
     <main>
         <section class="card">
             <h1>Bem-vindo ao Mundo Mágico das Estruturas de Dados!</h1>
