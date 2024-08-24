@@ -1,8 +1,4 @@
 @import '../../global.css';
-img {
-    max-width: 100%;
-    height: auto;
-}
 
 .container {
     display: flex;
@@ -112,8 +108,4 @@ code {
 
 section {
     margin: 10px 0;
-}
-
-.imagem{
-    width: 100%;
 }

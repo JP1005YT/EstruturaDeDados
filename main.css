@@ -9,156 +9,155 @@ body {
 
 main {
     width: 100%;
-}
-
-.carrossel {
-    position: relative;
-    height: calc(100vh - 100px);
-    display: flex; /* Adicione esta linha para evitar problemas de alinhamento */
-    overflow: hidden; /* Adicione esta linha para ocultar qualquer conteúdo excedente */
-}
-
-.carrossel section {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    animation: test 600ms;
-}
-
-.carrossel section.active {
-    display: flex;
-}
-
-.carrossel img {
-    height: auto; /* Ajuste a altura da imagem para manter a proporção */
-    max-width: 100%; /* Adicione esta linha para manter a imagem dentro dos limites do contêiner */
-}
-
-.carrossel .marker {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    position: absolute;
-    bottom: 20px;
-    left: calc(50% - 55px);
-}
-
-.carrossel .marker i {
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 5px;
-    transition: color 0.3s ease;
-}
-
-.carrossel .marker i#active {
-    color: var(--cor3);
-}
-
-.about {
-    width: 100%;
-    min-height: 100vh; /* Altere de height para min-height para garantir que o conteúdo não se sobreponha */
-    background: var(--cor2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    color: #fff;
-    padding: 20px; /* Adicione um pouco de padding */
-}
-
-.about .top {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte em telas menores */
-    justify-content: center; /* Centraliza os itens em telas maiores */
-}
-
-.about .top .info {
-    display: flex;
-    flex-direction: column; /* Torna os itens flexíveis para se ajustarem */
-    align-items: center;
-    width: 100%;
-    max-width: 400px; /* Defina uma largura máxima para evitar que os itens se expandam demais */
-    margin: 10px;
-}
-
-.about .top .info section {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    padding: 10px;
-}
-
-.about .top .info i {
-    font-size: 100px; /* Ajuste o tamanho da fonte para ser mais proporcional em telas menores */
-    margin: 15px;
-}
-
-.about .top .info h3, .about .top .info p {
-    transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
-}
-
-.about .top .info h3:hover, .about .top .info p:hover {
-    border-bottom: 2px solid var(--cor3);
-    transform: translateY(-5px);
-}
-
-.about h2 {
-    text-align: center;
-    margin-top: 20px; /* Aumente o espaço no topo */
-    font-size: 1.5rem; /* Ajuste o tamanho da fonte para ser mais consistente */
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.about h2:hover {
-    color: var(--cor3);
-    transform: scale(1.1);
-}
-
-.about .opinioes {
-    display: flex;
-    flex-wrap: wrap; /* Permite que os cartões se movam para a linha seguinte */
-    gap: 20px;
-    justify-content: center; /* Centraliza os cartões */
-}
-
-.about .opinioes .card {
-    width: 100%;
-    max-width: 300px; /* Defina uma largura máxima para evitar que os cartões sejam muito grandes */
-    padding: 20px;
-    background: var(--cor7);
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.about .opinioes .card i {
-    font-size: 40px;
-    margin-bottom: 10px;
-    color: var(--cor3);
-}
-
-.about .opinioes .card p {
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-.about .opinioes .card section img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.about .opinioes .card:hover {
-    transform: translateY(-5px);
-    background-color: var(--cor1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    .carrossel {
+        position: relative;
+        height: calc(100vh - 100px);
+        display: flex; /* Adicione esta linha para evitar problemas de alinhamento */
+        overflow: hidden; /* Adicione esta linha para ocultar qualquer conteúdo excedente */
+            section {
+                display: none;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                animation: test 600ms;
+                &.active{
+                    display: flex;
+                }
+                img{
+                    height: 100%;
+                    max-width: 100%;
+                }
+            }
+            .marker {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100px;
+                position: absolute;
+                bottom: 20px;
+                left: calc(50% - 55px);
+                i{
+                    font-size: 16px;
+                    cursor: pointer;
+                    margin: 0 5px;
+                    transition: color 0.3s ease;
+                }
+                i#active{
+                    color: var(--cor3);
+                }
+            }
+     }
+     .about {
+         width: 100%;
+         min-height: 100vh; /* Altere de height para min-height para garantir que o conteúdo não se sobreponha */
+         background: var(--cor2);
+         display: flex;
+         flex-direction: column;
+         justify-content: space-evenly;
+         color: #fff;
+         padding: 20px; /* Adicione um pouco de padding */
+         .top {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte em telas menores */
+            justify-content: center; /* Centraliza os itens em telas maiores */
+            .info {
+                display: flex;
+                flex-direction: column; /* Torna os itens flexíveis para se ajustarem */
+                align-items: center;
+                width: 100%;
+                max-width: 400px; /* Defina uma largura máxima para evitar que os itens se expandam demais */
+                margin: 10px;
+                section {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    width: 100%;
+                    padding: 10px;
+                }
+                i {
+                    font-size: 100px; /* Ajuste o tamanho da fonte para ser mais proporcional em telas menores */
+                    margin: 15px;
+                    transition: color 0.3s ease, transform 0.3s ease;
+                }
+                &:hover i {
+                    color: var(--cor3);
+                    transform: scale(1.2);
+                }
+                h3, p {
+                    transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
+                }
+                h3:hover, p:hover {
+                    border-bottom: 2px solid var(--cor3);
+                    transform: translateY(-5px);
+                }
+            }
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px; /* Aumente o espaço no topo */
+            font-size: 1.5rem; /* Ajuste o tamanho da fonte para ser mais consistente */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        h2:hover{
+            color: var(--cor3);
+            transform: scale(1.1);
+        }  
+        .opinioes {
+            display: flex;
+            flex-wrap: wrap; /* Permite que os cartões se movam para a linha seguinte */
+            gap: 20px;
+            justify-content: center; /* Centraliza os cartões */
+            .card {
+                width: 100%;
+                max-width: 300px; /* Defina uma largura máxima para evitar que os cartões sejam muito grandes */
+                padding: 20px;
+                background: var(--cor7);
+                border-radius: 10px;
+                text-align: center;
+                cursor: pointer;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, background-color 0.3s ease;
+                i {
+                    font-size: 40px;
+                    margin-bottom: 10px;
+                    color: var(--cor3);
+                }
+                p {
+                    font-size: 18px;
+                    margin-bottom: 15px;
+                }
+                /* &>section{
+                    display: flex;
+                    flex-direction: column;
+                    .text{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        h3{
+                            margin-bottom: 5px;
+                        }
+                        span {
+                            font-size: 14px;
+                            color: var(--cor4);
+                        }
+                    }
+                } */
+                section img {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-bottom: 10px;
+                }
+            }
+        }  
+        .opinioes .card:hover {
+            transform: translateY(-5px);
+            background-color: var(--cor1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+     }
 }
 
 footer{

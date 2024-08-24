@@ -12,19 +12,19 @@ spl_autoload_register(function ($class_name) {
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title> DataStruct School | Aula</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <title>DataStruct School | Aula</title>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
         <link rel="shortcut icon" href="./../../logo.png" />
+        <link rel="stylesheet" href="path/to/your/global.css">
     </head>
     <body>
-        <header class="mainHeader">
+        <header class="mainHeader container">
             <section class="logo">
-                <img src="../../logo.png" height="70px">
+                
                 <h1>DataStruct School</h1>
             </section>
-            <nav>
+            <nav class="menu">
                 <ul>
                     <li onclick="switchPages('./../../index.php')">
                         <a>Página Principal</a>
@@ -46,14 +46,13 @@ spl_autoload_register(function ($class_name) {
                                         <li>
                                             <a href="../../pages/Perfil/index.php">Perfil</a>
                                         </li>
-                                        
                                         <li>
                                             <a href="../../backend/functions/sair.php">Sair</a>
                                         </li>
                                     </ul>
                                 </div>
                             </section>';
-                    }else{
+                    } else {
                         echo '<section>
                                 <button class="cadastrar" onclick="switchPages('."'../../pages/Cadastrar/'".')">Cadastrar-se</button>
                                 <button class="entrar" onclick="switchPages('."'../../pages/Entrar/'".')">Entrar</button>
