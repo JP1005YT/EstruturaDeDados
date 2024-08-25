@@ -244,3 +244,128 @@ header.mainHeader nav .nav-list .logged.active div.dropdown ul li:hover {
         flex-direction: row;
     }
 }
+
+
+footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    background: var(--cor1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: var(--cor6);
+    font-size: 14px;
+    text-align: center;
+}
+
+.footer-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+    width: 100%; /* Define uma largura total */
+    max-width: 300px; /* Limita a largura máxima */
+}
+
+.footer-section h3 {
+    color: var(--cor6);
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-section h3:hover {
+    color: var(--cor3);
+}
+
+.footer-section p, 
+.footer-section ul {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--cor6);
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: var(--cor6);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--cor3);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--cor6);
+    margin-top: 20px;
+    width: 100%;
+}
+
+.title {
+    margin-bottom: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor6);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.title i {
+    margin: 10px;
+    font-size: 26px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.title:hover {
+    border-bottom: 2px solid var(--cor3);
+}
+
+.title:hover i {
+    color: var(--cor3);
+    transform: scale(1.2);
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row; /* Alinha os itens em linha */
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        flex: 1;
+        margin: 0 10px; /* Espaçamento entre as seções */
+    }
+
+    .footer-section h3 {
+        font-size: 18px;
+    }
+
+    .footer-section p, 
+    .footer-section ul li a {
+        font-size: 15px;
+    }
+}

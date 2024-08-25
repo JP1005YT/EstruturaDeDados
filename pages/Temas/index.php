@@ -20,7 +20,7 @@
     </head>
     <body>
     <?php
-        PageController::renderHeader();
+        PageController::Cabecalho();
     ?>
     <main>
         <section class="card">
@@ -206,5 +206,8 @@
                         window.location.href = url
                     }
             </script>
+        <?php
+            PageController::Rodape();
+        ?>
 </body>
 </html>

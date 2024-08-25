@@ -1,4 +1,6 @@
-
+<?php 
+     include_once './../../backend/controllers/page_controller.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,18 +13,9 @@
     <link rel="shortcut icon" href="../../logo.png" />
 </head>
 <body id="body">
-    <header class="mainHeader">
-        <div class="logo">
-            <img src="../../logo.png" height="70px">
-            <h1>DataStruct School</h1>
-        </div>
-        <nav>
-            <ul>
-                <li onclick="switchPages('../../')">Página Principal</li>
-                <li onclick="switchPages('../Temas/')">Temas</li>
-            </ul>
-        </nav>
-    </header>
+        <?php
+            PageController::Cabecalho();
+        ?>
     <main>
         <form action="../../backend/functions/cadastrarUsuario.php" method="POST">
             <h1>Cadastrar-se</h1>
@@ -41,3 +34,4 @@
         }
     </script>
 </body>
+</html>

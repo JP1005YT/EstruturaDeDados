@@ -1,6 +1,8 @@
 <?php
 include_once './../../backend/classes/Usuario.php';
 
+include_once './../../backend/controllers/page_controller.php';
+
 session_start();
 
 spl_autoload_register(function ($class_name) {
@@ -19,48 +21,9 @@ spl_autoload_register(function ($class_name) {
         <link rel="stylesheet" href="path/to/your/global.css">
     </head>
     <body>
-        <header class="mainHeader container">
-            <section class="logo">
-                
-                <h1>DataStruct School</h1>
-            </section>
-            <nav class="menu">
-                <ul>
-                    <li onclick="switchPages('./../../index.php')">
-                        <a>Página Principal</a>
-                    </li>
-                    <li onclick="switchPages('./../../pages/Temas/')">
-                        <a>Aulas</a>
-                    </li>
-                </ul>
-                <?php
-                    if(isset($_SESSION['user'])){
-                        $user = $_SESSION['user'];
-                        echo '<section class="logged" onclick="dropdown()">
-                                <section class="content">
-                                    '.$user->getUsername() .'
-                                    <i class="bx bxs-chevron-down" id="icon"></i>
-                                </section>
-                                <div class="dropdown">
-                                    <ul>
-                                        <li>
-                                            <a href="../../pages/Perfil/index.php">Perfil</a>
-                                        </li>
-                                        <li>
-                                            <a href="../../backend/functions/sair.php">Sair</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>';
-                    } else {
-                        echo '<section>
-                                <button class="cadastrar" onclick="switchPages('."'../../pages/Cadastrar/'".')">Cadastrar-se</button>
-                                <button class="entrar" onclick="switchPages('."'../../pages/Entrar/'".')">Entrar</button>
-                            </section>';
-                    }
-                ?>
-            </nav>
-        </header>
+        <?php
+            PageController::Cabecalho();
+        ?>
         <main>
             <iframe src=<?php echo '../../backend/temas/'.$_GET['class']?> class="card" width="100%">
             </iframe>
@@ -74,5 +37,8 @@ spl_autoload_register(function ($class_name) {
                 document.querySelector("#icon").classList.toggle("active")
             }
         </script>
+        <?php
+            PageController::Rodape();
+        ?> 
     </body>
 </html>

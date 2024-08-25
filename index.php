@@ -6,7 +6,6 @@
     spl_autoload_register(function ($class_name) {
         include './backend/classes/' . $class_name . '.php';
     });
-    
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -21,7 +20,7 @@
 </head>
 <body>
     <?php
-        PageController::renderHeader();
+        PageController::Cabecalho();
     ?>
     <main>
         <section class="carrossel">
@@ -112,32 +111,18 @@
                 </section>
             </section>
         </section>
+        <section id="sobre-nos" class="sobre-nos">
+            <h2>Sobre a DataStruct School</h2>
+            <section class="sobre-nos-content">
+                <p>Na DataStruct School, somos apaixonados por educação em ciência da computação. Nossa missão é capacitar programadores e estudantes com o conhecimento necessário para dominar as estruturas de dados e técnicas de programação eficiente. Com mais de 1 milhão de alunos em nossa comunidade, nos esforçamos para oferecer conteúdo de alta qualidade que transforma a maneira como as pessoas aprendem e aplicam estruturas de dados.</p>
+                <p>Com uma equipe dedicada de especialistas e educadores, criamos uma plataforma onde a complexidade da programação é simplificada. Queremos que nossos alunos sintam a confiança e a alegria de entender profundamente como as estruturas de dados funcionam, promovendo uma programação mais eficaz e eficiente.</p>
+                <p>Junte-se a nós nessa jornada de aprendizado e descubra como a programação estruturada pode transformar sua maneira de pensar e codificar!</p>
+            </section>
+    </section>
     </main>
-    <footer>
-        <a href="#" class="title"><i class='bx bxs-smile'></i>DataStructuresEdu</a>
-        <section class="navbar">
-            <nav>
-                <h3>Descubra mais sobre nós</h3>
-                <p>Saiba mais sobre nós</p>
-                <p>Explore oportunidades de carreira</p>
-                <p>Acesse nossos materiais de imprensa</p>
-                <p>Opções de assinatura</p>
-            </nav>
-            <nav>
-                <h3>Obtenha suporte</h3>
-                <p>Assistência para usuários</p>
-                <p>Perguntas frequentes</p>
-                <p>Precisa de ajuda?</p>
-            </nav>
-            <nav>
-                <h3>Torne-se parte da nossa comunidade</h3>
-                <p>Conecte-se conosco em</p>
-                <p>Siga-nos no Instagram</p>
-                <p>Junte-se à conversa em</p>
-                <p>Entre no nosso servidor do Discord</p>
-            </nav>
-        </section>
-    </footer>
+    <?php
+        PageController::Rodape();
+    ?>
     <script>
         let i = 0
         function switchCarrossel(){
