@@ -1,0 +1,193 @@
+### TAD (Tipo Abstrato de Dados)
+
+1. **O que é um Tipo Abstrato de Dados (TAD) e qual é a sua importância na programação?**
+   - A) Um TAD é um tipo de dado específico da linguagem que não pode ser modificado.
+   - B) Um TAD é uma abstração que define um conjunto de operações sem especificar a implementação, facilitando a modularização.
+   - C) Um TAD é uma estrutura de dados que só pode ser usada em linguagens orientadas a objetos.
+   - D) Um TAD é uma função que manipula dados sem definir claramente o tipo de dado.
+
+2. **Dê um exemplo de TAD e explique como ele pode ser implementado em uma linguagem de programação.**
+   - A) Lista Simplesmente Encadeada, implementada como uma classe com métodos para inserção e busca.
+   - B) Pilha, implementada como uma variável global com operações para empilhar e desempilhar.
+   - C) Array Dinâmico, implementado usando um vetor de tamanho fixo.
+   - D) Fila Circular, implementada com uma estrutura de dados interna não visível ao usuário.
+
+3. **Como a abstração de um TAD pode ajudar na modularização de um software?**
+   - A) Permitindo que o software ignore a implementação interna dos dados e se concentre apenas nas operações disponíveis.
+   - B) Fornecendo acesso direto à memória onde os dados são armazenados.
+   - C) Impedindo a reutilização de código em diferentes partes do software.
+   - D) Exigindo que o usuário implemente cada operação de forma independente.
+
+4. **Qual a diferença entre um TAD e uma estrutura de dados concreta?**
+   - A) TAD é uma implementação específica de um tipo de dado, enquanto estrutura de dados é um conceito geral.
+   - B) TAD é uma abstração que define operações sem implementação, enquanto estrutura de dados é a implementação concreta de uma abstração.
+   - C) TAD é uma biblioteca de funções para manipulação de dados, enquanto estrutura de dados é um tipo de variável.
+   - D) TAD e estrutura de dados são termos intercambiáveis e não possuem diferenças.
+
+5. **Explique o conceito de encapsulamento em TADs e por que ele é importante para a manutenção do código.**
+   - A) Encapsulamento é o processo de expor todos os detalhes internos da implementação para o usuário.
+   - B) Encapsulamento é a técnica de esconder a implementação e expor apenas a interface, facilitando alterações futuras sem impactar o código que usa o TAD.
+   - C) Encapsulamento é a prática de criar múltiplos TADs para a mesma operação.
+   - D) Encapsulamento é um método para tornar a implementação de TADs mais complexa.
+
+### Lista Simplesmente Encadeada
+
+1. **O que caracteriza uma lista simplesmente encadeada e como ela é estruturada?**
+   - A) Uma lista com nós que possuem referências tanto para o próximo quanto para o anterior.
+   - B) Uma lista com nós que possuem apenas uma referência para o próximo nó.
+   - C) Uma lista que é implementada usando um vetor dinâmico.
+   - D) Uma lista que é armazenada em um banco de dados relacional.
+
+2. **Qual é a complexidade de tempo para inserção e remoção de elementos em uma lista simplesmente encadeada?**
+   - A) O(1) para ambas as operações, assumindo que temos uma referência direta ao nó.
+   - B) O(n) para inserção e O(1) para remoção.
+   - C) O(1) para inserção e O(n) para remoção.
+   - D) O(n) para ambas as operações, pois é necessário percorrer a lista.
+
+3. **Como você pode implementar uma função para buscar um elemento específico em uma lista simplesmente encadeada?**
+   - A) Percorrendo a lista a partir do início e comparando cada nó com o valor procurado.
+   - B) Usando um índice para acessar diretamente o elemento.
+   - C) Adicionando todos os elementos em uma tabela hash para acesso rápido.
+   - D) Criando uma cópia da lista para buscar o elemento em paralelo.
+
+4. **Qual é a diferença entre uma lista simplesmente encadeada e uma lista duplamente encadeada?**
+   - A) A lista simplesmente encadeada possui referências apenas para o próximo nó, enquanto a lista duplamente encadeada possui referências para o próximo e o anterior.
+   - B) A lista duplamente encadeada é sempre mais rápida em inserção e remoção que a lista simplesmente encadeada.
+   - C) A lista simplesmente encadeada é usada apenas para filas, enquanto a lista duplamente encadeada é usada para pilhas.
+   - D) A lista duplamente encadeada é uma versão mais compacta da lista simplesmente encadeada.
+
+5. **Descreva o processo para reverter uma lista simplesmente encadeada.**
+   - A) Percorra a lista uma vez e inverta a ordem dos nós usando uma estrutura auxiliar.
+   - B) Percorra a lista e altere a referência do próximo nó para o anterior de cada nó.
+   - C) Crie uma nova lista e insira os elementos em ordem reversa.
+   - D) Use uma pilha para armazenar os elementos e depois crie uma nova lista a partir da pilha.
+
+### Lista Duplamente Encadeada
+
+1. **O que caracteriza uma lista duplamente encadeada e como ela é estruturada?**
+   - A) Uma lista onde cada nó possui referências tanto para o próximo quanto para o anterior nó.
+   - B) Uma lista onde cada nó possui uma referência para o próximo nó e um índice para o elemento.
+   - C) Uma lista que é implementada como uma matriz de tamanho fixo.
+   - D) Uma lista onde os nós são armazenados em uma tabela hash.
+
+2. **Qual é a principal vantagem de uma lista duplamente encadeada em comparação com uma lista simplesmente encadeada?**
+   - A) Permite acesso mais rápido ao final da lista, pois cada nó possui uma referência para o nó anterior.
+   - B) Reduz o uso de memória, pois os nós são armazenados em uma estrutura de dados compacta.
+   - C) Melhora o desempenho nas operações de busca por meio de índices rápidos.
+   - D) Facilita a ordenação dos elementos devido ao armazenamento em vetor.
+
+3. **Explique como você pode remover um nó de uma lista duplamente encadeada sem perder referências.**
+   - A) Atualize as referências do nó anterior e do nó seguinte para pular o nó a ser removido.
+   - B) Mova o nó a ser removido para o final da lista e depois o exclua.
+   - C) Substitua o nó a ser removido por um nó vazio e atualize todas as referências.
+   - D) Crie uma nova lista com todos os nós exceto o nó a ser removido.
+
+4. **Qual é a complexidade de tempo para acessar um elemento em uma lista duplamente encadeada?**
+   - A) O(1), pois a lista possui acesso direto aos nós.
+   - B) O(log n), devido à ordenação dos elementos.
+   - C) O(n), pois é necessário percorrer a lista para encontrar o elemento.
+   - D) O(n^2), devido à necessidade de percorrer todos os nós múltiplas vezes.
+
+5. **Como você pode implementar a inserção de um elemento em uma posição específica de uma lista duplamente encadeada?**
+   - A) Navegue até a posição desejada e atualize as referências do nó anterior e do próximo nó para incluir o novo nó.
+   - B) Insira o elemento no início da lista e depois mova os elementos existentes para a posição correta.
+   - C) Substitua um dos nós existentes na posição desejada pelo novo elemento.
+   - D) Crie uma nova lista com o novo elemento na posição desejada e copie todos os outros elementos.
+
+### Filas Encadeadas FIFO
+
+1. **O que é uma fila encadeada FIFO e como ela funciona?**
+   - A) Uma estrutura de dados onde o primeiro elemento inserido é o primeiro a ser removido, implementada com um vetor.
+   - B) Uma estrutura de dados onde o primeiro elemento inserido é o último a ser removido, implementada com uma lista encadeada.
+   - C) Uma estrutura de dados onde o primeiro elemento inserido é o primeiro a ser removido, implementada com uma lista encadeada.
+   - D) Uma estrutura de dados onde os elementos são removidos em ordem aleatória, implementada com um array dinâmico.
+
+2. **Qual é a diferença entre uma fila encadeada e uma fila implementada usando um vetor?**
+   - A) A fila encadeada pode crescer dinamicamente, enquanto a fila com vetor tem um tamanho fixo.
+   - B) A fila encadeada é mais rápida para acesso aleatório de elementos, enquanto a fila com vetor é mais lenta.
+   - C) A fila encadeada usa uma estrutura de dados interna visível ao usuário, enquanto a fila com vetor não.
+   - D) A fila encadeada é sempre mais eficiente em termos de memória que a fila com vetor.
+
+3. **Explique como você pode implementar a operação de enfileiramento e desenfileiramento em uma
+
+ fila encadeada.**
+   - A) Enfileirar adiciona um novo nó ao final da fila e desenfileirar remove o nó do início da fila, atualizando as referências adequadas.
+   - B) Enfileirar remove um nó do início da fila e desenfileirar adiciona um novo nó ao final da fila.
+   - C) Enfileirar e desenfileirar ambos alteram as referências do nó no meio da fila.
+   - D) Enfileirar adiciona um novo nó ao início da fila e desenfileirar remove o nó do final da fila.
+
+4. **Como você pode verificar se uma fila encadeada está vazia?**
+   - A) Verifique se a referência do início da fila é nula.
+   - B) Verifique se a referência do final da fila é nula.
+   - C) Verifique se a fila contém apenas um nó.
+   - D) Verifique se todos os nós da fila possuem uma referência nula.
+
+5. **Qual é a complexidade de tempo das operações de enfileiramento e desenfileiramento em uma fila encadeada?**
+   - A) O(1) para ambas as operações, pois ambas envolvem apenas atualizações de referências.
+   - B) O(n) para enfileiramento e O(1) para desenfileiramento.
+   - C) O(1) para enfileiramento e O(n) para desenfileiramento.
+   - D) O(n) para ambas as operações, pois é necessário percorrer a fila.
+
+### Fila de Prioridades Encadeada FIFO
+
+1. **O que é uma fila de prioridades encadeada e como ela é diferente de uma fila FIFO simples?**
+   - A) Uma fila de prioridades encadeada ordena os elementos por prioridade, enquanto uma fila FIFO simples mantém a ordem de inserção.
+   - B) Uma fila de prioridades encadeada é sempre mais lenta que uma fila FIFO simples.
+   - C) Uma fila de prioridades encadeada é uma versão otimizada de uma fila FIFO simples com índices de prioridade.
+   - D) Uma fila de prioridades encadeada e uma fila FIFO simples são conceitos idênticos e intercambiáveis.
+
+2. **Como você pode implementar a operação de inserção em uma fila de prioridades encadeada?**
+   - A) Insira o novo elemento na posição correta de acordo com sua prioridade, mantendo a ordem dos elementos com prioridades iguais.
+   - B) Insira o novo elemento no final da fila e depois reordene toda a fila.
+   - C) Substitua o elemento com a menor prioridade pelo novo elemento.
+   - D) Adicione o novo elemento no início da fila, sem considerar a prioridade.
+
+3. **Explique como a prioridade afeta a ordem dos elementos em uma fila de prioridades encadeada.**
+   - A) Elementos com maior prioridade são removidos antes dos elementos com menor prioridade.
+   - B) Elementos com menor prioridade são removidos antes dos elementos com maior prioridade.
+   - C) A prioridade não afeta a ordem dos elementos, que é baseada na ordem de inserção.
+   - D) Elementos são removidos aleatoriamente, independentemente da prioridade.
+
+4. **Qual é a complexidade de tempo para inserir um elemento com uma prioridade específica em uma fila de prioridades encadeada?**
+   - A) O(n), pois é necessário encontrar a posição correta para o novo elemento.
+   - B) O(1), pois o elemento é sempre inserido no final da fila.
+   - C) O(log n), pois a fila é ordenada internamente.
+   - D) O(n^2), devido à necessidade de reordenar a fila.
+
+5. **Descreva o processo para remover o elemento com a maior prioridade em uma fila de prioridades encadeada.**
+   - A) Remova o elemento do início da fila, onde os elementos com maior prioridade são armazenados.
+   - B) Remova o elemento do final da fila, que é onde os elementos com maior prioridade são armazenados.
+   - C) Percorra toda a fila para encontrar e remover o elemento com a maior prioridade.
+   - D) Remova aleatoriamente um elemento e depois reordene a fila.
+
+### Pilha Encadeada
+
+1. **O que é uma pilha encadeada e como ela é estruturada?**
+   - A) Uma pilha encadeada é uma estrutura onde cada nó possui uma referência para o próximo nó, implementando o conceito LIFO.
+   - B) Uma pilha encadeada é uma estrutura onde cada nó possui referências tanto para o próximo quanto para o nó anterior.
+   - C) Uma pilha encadeada é uma estrutura de dados que usa um vetor para armazenar os elementos.
+   - D) Uma pilha encadeada é uma estrutura de dados onde os elementos são removidos em ordem aleatória.
+
+2. **Como a pilha encadeada implementa o conceito LIFO (Last In, First Out)?**
+   - A) O último elemento inserido é o primeiro a ser removido, pois ele está no topo da pilha.
+   - B) O primeiro elemento inserido é o primeiro a ser removido, pois ele está no topo da pilha.
+   - C) Os elementos são removidos em ordem aleatória, independentemente da ordem de inserção.
+   - D) O último elemento inserido é removido ao final da lista, não no topo da pilha.
+
+3. **Explique como você pode implementar as operações de push e pop em uma pilha encadeada.**
+   - A) Push adiciona um novo nó ao topo da pilha e pop remove o nó do topo da pilha, atualizando as referências adequadas.
+   - B) Push remove um nó do topo da pilha e pop adiciona um novo nó ao topo da pilha.
+   - C) Push e pop ambos atualizam os nós intermediários da pilha.
+   - D) Push adiciona um nó ao final da lista e pop remove um nó do início da lista.
+
+4. **Qual é a complexidade de tempo das operações de push e pop em uma pilha encadeada?**
+   - A) O(1) para ambas as operações, pois ambas envolvem apenas atualizações de referências.
+   - B) O(n) para push e O(1) para pop.
+   - C) O(1) para pop e O(n) para push.
+   - D) O(n) para ambas as operações, devido à necessidade de percorrer a pilha.
+
+5. **Como você pode verificar se uma pilha encadeada está vazia?**
+   - A) Verifique se a referência para o topo da pilha é nula.
+   - B) Verifique se a referência para a base da pilha é nula.
+   - C) Verifique se todos os nós da pilha possuem referências nulas.
+   - D) Verifique se a pilha contém apenas um nó.
