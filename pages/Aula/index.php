@@ -24,19 +24,6 @@ spl_autoload_register(function ($class_name) {
         <?php
             PageController::Cabecalho();
         ?>
-        <main>
-            <iframe src=<?php echo '../../backend/temas/'.$_GET['class']?> class="card" width="100%">
-            </iframe>
-        </main>
-        <script>
-            function switchPages(url){
-                window.location.href = url
-            }
-            function dropdown(){
-                document.querySelector(".logged").classList.toggle("active")
-                document.querySelector("#icon").classList.toggle("active")
-            }
-        </script>
         <?php
             PageController::Rodape();
         ?> 

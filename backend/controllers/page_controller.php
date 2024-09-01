@@ -13,7 +13,30 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
             <nav>
                 <ul class="nav-list">
                     <li><a href="' . BASE_URL . '/index.php">Página Principal</a></li>
-                    <li><a href="' . BASE_URL . '/pages/Temas/">Aulas</a></li>
+                    <div class="dropdown">
+                        <li><a href="' . BASE_URL . '/pages/Temas/">Aulas</a></li>
+                        <div class="dropdown-content">';
+                            $diretorio = "../../backend/temas/";
+
+                            $itens = scandir($diretorio);
+
+                            // Remove os itens '.' e '..' da lista
+                            $itens = array_diff($itens, array('.', '..'));
+
+                            // Se desejar, pode formatar a saída
+                            echo "<ul>";
+                            foreach ($itens as $item) {
+                                $caminho = $diretorio . DIRECTORY_SEPARATOR . $item;
+                                if (is_dir($caminho)) {
+                                    echo "<li class='card'> $item </li>";
+                                } else {
+                                    echo "<li> $item</li>";
+                                }
+                            }
+                            echo "</ul>";
+                          echo '
+                        </div>
+                    </div>
                     <li><a href="' . BASE_URL . '/pages/Jogos/Quiz/index.php">Quiz</a></li>';
     
         if (isset($_SESSION['user'])) {
@@ -35,6 +58,9 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
                     <button class="btn entrar" onclick="switchPages(\'' . BASE_URL . '/pages/Entrar/\')">Entrar</button>';
         }
         echo '</ul></nav></header>';
+        echo ' <script> function dropdown() {
+            document.querySelector(".dropdown-content").classList.toggle("active");
+        } </script>';
     }
 
     public static function Rodape() {
