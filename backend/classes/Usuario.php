@@ -1,7 +1,6 @@
 <?php
 
 class Usuario {
-    private $idUser;
     private $nickUser;
     private $nameUser;
     private $emailUser;
@@ -12,8 +11,7 @@ class Usuario {
 
 
     // Construtor
-    public function __construct($idUser, $nickUser, $nameUser, $emailUser, $senhaUser) {
-        $this->$idUser = $idUser;
+    public function __construct( $nickUser, $nameUser, $emailUser, $senhaUser) {
         $this->$emailUser = $emailUser;
         $this->$nameUser = $nameUser;
         $this->$nickUser = $nickUser;

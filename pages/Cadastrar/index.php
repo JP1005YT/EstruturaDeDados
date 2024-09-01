@@ -1,5 +1,10 @@
 <?php 
      include_once './../../backend/controllers/page_controller.php';
+     session_start();
+
+    spl_autoload_register(function ($class_name) {
+        include './../../backend/classes/' . $class_name . '.php';
+    });
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -17,13 +22,12 @@
             PageController::Cabecalho();
         ?>
     <main>
-        <form action="../../backend/functions/cadastrarUsuario.php" method="POST">
+        <form action="proc_cadastro.php" method="POST">
             <h1>Cadastrar-se</h1>
             <input placeholder="Apelido" name="username">
             <input placeholder="Nome Completo" name="name">
-            <input placeholder="Cargo" name="cargo">
             <input placeholder="Email" name="email">
-            <input placeholder="Senha"  name="senha" type="password">
+            <input placeholder="Senha" name="senha" type="password">
             <input type="submit" value="Cadastrar">
             <p>Já possuí conta? <span onclick="switchPages('../Entrar')">Entrar</span></p>
         </form>

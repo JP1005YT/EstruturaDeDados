@@ -1,5 +1,7 @@
 <?php 
      include_once './../../../backend/controllers/page_controller.php';
+
+     session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
