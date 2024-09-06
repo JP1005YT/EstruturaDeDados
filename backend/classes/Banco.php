@@ -166,7 +166,7 @@ class Banco
     public function getUsuarioByEmail($email){
         $email = mysqli_real_escape_string($this->conn, $email);
         $query = "SELECT * FROM usuario WHERE email_usuario = '$email'";
-        return $this->executeQuery($query);
+        return $this->executeQuery($query)->fetch_assoc();
     }
     public function insertUsuario($nickname, $nome, $email, $senha)
     {

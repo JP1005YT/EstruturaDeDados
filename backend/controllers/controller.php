@@ -1,6 +1,6 @@
 <?php
-    include __DIR__.'./../classes/Banco.php';
-    include __DIR__.'./../classes/Usuario.php';
+    require_once __DIR__.'/../classes/Banco.php';
+    require_once __DIR__.'/../classes/Usuario.php';
     define('BASE_URL', '/EstruturaDeDados');
     session_start();
 
@@ -13,12 +13,21 @@
 
         public function UserLogin(){
             $email = htmlspecialchars($_POST['email']);
-            $senha = $_POST['senha']; // Hash da senha para segurança
-        
+            $senha = $_POST['senha'];
+
+            $user = $this->banco->getUsuarioByEmail($email);
+
+            $passwordHash = $user['senha_usuario'];
+
+            $entry = password_verify($senha,$passwordHash);
+
+            if($entry){
+                $_SESSION['user'] = new Usuario($user['nickname_usuario'],$user['nome_usuario'],$user['email_usuario'],$user['senha_usuario']);
+                header('Location: '. BASE_URL. '/index.php');
+            }
+            // Hash da senha para segurança
             // $stmt = $this->banco->getUsuarioByEmail( $email );
         
-            // var_dump( $stmt );
-
             // $result = $stmt->get_result();
             // if($result->num_rows > 0) {
             //     while($row = $result->fetch_assoc()) {
@@ -48,7 +57,9 @@
                 header('Location: '. BASE_URL. '/index.php');
             };
         }
-        static function Teste(){
-            echo 'okay';
+
+        public function UserLogout(){
+            session_destroy();
+            header('Location: '. BASE_URL. '/index.php');
         }
     }
