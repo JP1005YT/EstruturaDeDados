@@ -1,0 +1,48 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.character-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.character-display {
+    position: relative;
+    width: 200px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.character-display img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+.option-group {
+    margin: 10px 0;
+}
+
+.option-group h3 {
+    margin: 0 0 10px 0;
+}
+
+button {
+    margin: 5px;
+}
