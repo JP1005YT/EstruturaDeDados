@@ -18,14 +18,19 @@ spl_autoload_register(function ($class_name) {
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
         <link rel="shortcut icon" href="./../../logo.png" />
-        <link rel="stylesheet" href="path/to/your/global.css">
     </head>
     <body>
         <?php
             PageController::Cabecalho();
         ?>
         <?php
+        $tema = $_GET['tema'];
+        $diretorio = "./../../backend/temas/" . urlencode($tema) . "/index.html";
+        $diretorio = str_replace('+', '%20', $diretorio);
+        echo "<iframe src=".$diretorio.">";
+        ?>
+        <?php
             PageController::Rodape();
-        ?> 
+        ?>
     </body>
 </html>

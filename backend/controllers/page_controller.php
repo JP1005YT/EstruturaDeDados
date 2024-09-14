@@ -6,7 +6,6 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
  class PageController {
     public static function Cabecalho() {
         echo '
-        <style>.dropdown{display:none}</style>
         <header class="mainHeader">
             <section class="logo">
                 <img src="' . BASE_URL . '/logo.png" height="70px">
@@ -16,7 +15,7 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
                 <ul class="nav-list">
                     <li><a href="' . BASE_URL . '/index.php">Página Principal</a></li>
                     <div class="dropdown">
-                        <li><a href="' . BASE_URL . '/pages/Temas/">Aulas</a></li>
+                        <li onclick="dropdownAulas()">Aulas</li>
                         <div class="dropdown-content">';
                             $diretorio = __DIR__ . "/../../backend/temas/";
 
@@ -30,9 +29,7 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
                             foreach ($itens as $item) {
                                 $caminho = $diretorio . DIRECTORY_SEPARATOR . $item;
                                 if (is_dir($caminho)) {
-                                    echo "<li class='card'> $item </li>";
-                                } else {
-                                    echo "<li> $item</li>";
+                                    echo "<a><li><a href='" . BASE_URL . "/pages/Aula/index.php?tema=" . $item . "'>" . $item . "</a></li>";
                                 }
                             }
                             echo "</ul>";
@@ -60,8 +57,8 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
                     <button class="btn entrar" onclick="switchPages(\'' . BASE_URL . '/pages/Entrar/\')">Entrar</button>';
         }
         echo '</ul></nav></header>';
-        echo ' <script> function dropdown() {
-            document.querySelector(".dropdown-content").classList.toggle("active");
+        echo ' <script defer> function dropdownAulas() {
+            document.querySelector(".dropdown-content").classList.toggle("active")
         } </script>';
     }
 
