@@ -114,6 +114,7 @@ header.mainHeader nav .nav-list li:hover {
     cursor: pointer;
     background: linear-gradient(45deg, var(--cor3), var(--cor4));
     transform: scale(1.05);
+    z-index: 1;
 }
 
 header.mainHeader nav .nav-list .btn {
@@ -143,9 +144,8 @@ header.mainHeader nav .nav-list .logged {
     align-items: center;
     width: 100%;
     max-width: 250px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     padding: 10px 20px;
-    background: var(--cor2);
     border-radius: 10px;
     cursor: pointer;
 }
@@ -173,40 +173,6 @@ header.mainHeader nav .nav-list .logged.active {
     border-top-right-radius: 10px;
 }
 
-header.mainHeader nav .nav-list .logged.active div.dropdown {
-    display: block;
-}
-
-header.mainHeader nav .nav-list .logged.active div.dropdown ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 10px 0;
-}
-
-header.mainHeader nav .nav-list .logged.active div.dropdown ul li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 250px; /* Largura máxima para itens dropdown */
-    height: 50px;
-    padding: 10px 20px;
-    cursor: pointer;
-    text-align: center;
-}
-
-header.mainHeader nav .nav-list .logged.active div.dropdown ul li a {
-    text-decoration: none;
-    color: var(--cor6);
-}
-
-header.mainHeader nav .nav-list .logged.active div.dropdown ul li:hover {
-    background: var(--cor7);
-}
-
 header.mainHeader nav .dropdown-content {
     z-index: 1;
     display: none;
@@ -225,6 +191,27 @@ header.mainHeader nav .dropdown-content.active{
 header.mainHeader nav .dropdown-content li{
     margin: 10px !important;
     width: 100% !important;
+}
+header.mainHeader nav .dropdown-logged{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    top: calc(100% + 10px);
+    background: var(--cor1);
+    left: 0;
+    z-index: 1;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+header.mainHeader nav .dropdown-logged *{
+    width: 100% !important;
+    margin: 0 0 10px 0 !important;
+}
+header.mainHeader nav .dropdown-logged.active{
+    display: block;
 }
 
 /* Responsividade para telas maiores */

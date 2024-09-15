@@ -22,8 +22,11 @@
             $entry = password_verify($senha,$passwordHash);
 
             if($entry){
-                $_SESSION['user'] = new Usuario($user['nickname_usuario'],$user['nome_usuario'],$user['email_usuario'],$user['senha_usuario']);
+                $novoUsuario = new Usuario($user['idusuario'],$user['nickname_usuario'],$user['nome_usuario'],$user['email_usuario'],$user['senha_usuario'],$user['coins_usuario']);
+                $_SESSION['user'] = $novoUsuario;
                 header('Location: '. BASE_URL. '/index.php');
+            }else{
+                header('Location: '. BASE_URL. '/pages/Entrar/');
             }
             // Hash da senha para segurança
             // $stmt = $this->banco->getUsuarioByEmail( $email );

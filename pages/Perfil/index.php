@@ -24,19 +24,20 @@
             PageController::Cabecalho();
         ?>
             <main>
-                <section class="profile-container">
-                    <!-- <?php echo "<h2> ". $_SESSION['user']->GetName() ."</h2>" ;?>
-                    <?php echo "<p> Cargo: ". $_SESSION['user']->GetCargo() ."</p>" ;?>
-                    <?php echo "<p> E-mail: ". $_SESSION['user']->GetEmail() ."</p>" ;?>
-                    <?php echo "<p> UserName: ". $_SESSION['user']->GetUsername() ."</p>" ;?> -->
-                    <section class="profile-options">
-                    <img src="../../src/carla.jpg" alt="Foto de Perfil">
-                    <div class="theme-toggle">
-                        <button id="theme-switch-btn">Modo Claro</button>
-                        <!-- a continuar... -->
-                    </div>
-                    </section>
-                </section>
+                <div class="card">
+                    <img src="./../../logo.png" width="35px" class="card-logo">
+                    <h1><?php echo $_SESSION['user']->getUsername(); ?></h1>
+                    <h2><?php echo $_SESSION['user']->getName(); ?></h2>
+                    <span class="card-id"><?php
+
+                    $val = str_pad($_SESSION['user']->getIdUser(), 9, '0', STR_PAD_LEFT);
+                     
+                    echo $val
+                     ?></span>
+                </div>
+                <div class="character">
+
+                </div>
             </main>
             <script>
                 function dropdown(){

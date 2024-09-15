@@ -42,10 +42,10 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
             $user = $_SESSION['user'];
             echo '<li class="logged" onclick="dropdown()">
                     <section class="content">
-                        ' . htmlspecialchars($user->getUsername()) . '
+                        ' . $user->getUsername() . '
                         <i class="bx bxs-chevron-down" id="icon"></i>
                     </section>
-                    <div class="dropdown">
+                    <div class="dropdown-logged">
                         <ul>
                             <li><a href="' . BASE_URL . '/pages/Perfil/index.php">Perfil</a></li>
                             <li><a href="' . BASE_URL . '/pages/sair.php">Sair</a></li>
@@ -57,9 +57,15 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
                     <button class="btn entrar" onclick="switchPages(\'' . BASE_URL . '/pages/Entrar/\')">Entrar</button>';
         }
         echo '</ul></nav></header>';
-        echo ' <script defer> function dropdownAulas() {
-            document.querySelector(".dropdown-content").classList.toggle("active")
-        } </script>';
+        echo ' <script defer>
+            function dropdownAulas() {
+                document.querySelector(".dropdown-content").classList.toggle("active")
+            }
+            function dropdown() {
+                document.querySelector(".dropdown-logged").classList.toggle("active")
+                document.querySelector("#icon").classList.toggle("active")
+            }
+            </script>';
     }
 
     public static function Rodape() {
