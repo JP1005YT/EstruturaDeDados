@@ -36,14 +36,21 @@
                      ?></span>
                 </div>
                 <div class="character">
-
+                    <div class="icon-store">
+                        <i class='bx bx-store'></i>
+                        <span>Loja</span>
+                    </div>
+                    <div class="icon-closet">
+                        <i class='bx bx-closet'></i>
+                        <span>Minhas Roupas</span>
+                    </div>
+                    <img src="./../../src/person/base_face.png">
+                    <img src="./../../src/person/torsos/corpo1.png">
+                    <img src="./../../src/person/calcas/calca1.png">
+                    <img src="./../../src/person/cabelos/naruto_hair.png">
                 </div>
             </main>
             <script>
-                function dropdown(){
-                    document.querySelector(".logged").classList.toggle("active")
-                    document.querySelector("#icon").classList.toggle("active")
-                }
                 function switchPages(url){
                     window.location.href = url
                 }

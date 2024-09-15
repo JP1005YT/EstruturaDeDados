@@ -43,10 +43,6 @@
         function switchPages(url){
             window.location.href = url
         }
-        function dropdown(){
-            document.querySelector(".logged").classList.toggle("active")
-            document.querySelector("#icon").classList.toggle("active")
-        }
     </script>
 </body>
 </html>

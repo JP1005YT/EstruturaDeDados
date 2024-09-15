@@ -155,6 +155,7 @@ header.mainHeader nav .nav-list .logged .content {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+    margin: 0 10px;
 }
 
 header.mainHeader nav .nav-list .logged i {

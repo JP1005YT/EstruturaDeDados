@@ -51,7 +51,7 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
                             <li><a href="' . BASE_URL . '/pages/sair.php">Sair</a></li>
                         </ul>
                     </div>
-                </li>';
+                    </li>';
         } else {
             echo '<button class="btn cadastrar" onclick="switchPages(\'' . BASE_URL . '/pages/Cadastrar/\')">Cadastrar-se</button>
                     <button class="btn entrar" onclick="switchPages(\'' . BASE_URL . '/pages/Entrar/\')">Entrar</button>';
