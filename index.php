@@ -22,6 +22,8 @@
     <?php
         PageController::Cabecalho();
     ?>
+    <main>
+        <section class="carrossel">
             <section class="active">
                 <img src="src/Slide1.png">
             </section>
