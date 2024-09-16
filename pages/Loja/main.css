@@ -1,0 +1,81 @@
+@import '../../global.css';
+
+main {
+    width: 90%;
+    margin-left: 5%;
+    background: var(--cor2);
+    padding: 20px;
+}
+
+.items{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+.item{
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    height:auto;
+    max-height: 400px;
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    padding-bottom: 75px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.item.disable .price{
+    background: gray;
+}
+.item:hover{
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.img-container{
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    overflow: hidden;
+    image-rendering: pixelated;
+}
+h3{
+    text-align: center;
+    margin: 2px 0;
+}
+h4{
+    text-align: center;
+    margin: 2px 0;
+    font-size: 14px;
+    color: #ccc;
+}
+p{
+    text-align: center;
+    margin: 2px 0;
+    font-size: 24px;
+}
+img{
+    height: 300px;
+    object-fit: cover;
+}
+.price{
+    content: "teste";
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: green;
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+    height:20%;
+    bottom: 0;
+    position: absolute;
+}
+.price.active{
+    transition: 0.3s;
+    bottom: 0;
+    position: absolute;
+    height: 100%;
+}

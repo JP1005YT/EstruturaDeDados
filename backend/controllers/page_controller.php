@@ -36,7 +36,8 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
                           echo '
                         </div>
                     </div>
-                    <li><a href="' . BASE_URL . '/pages/Jogos/Quiz/index.php">Quiz</a></li>';
+                    <li><a href="' . BASE_URL . '/pages/Jogos/Quiz/index.php">Quiz</a></li>                    
+                    ';
     
         if (isset($_SESSION['user'])) {
             $user = $_SESSION['user'];
@@ -47,8 +48,11 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
                     </section>
                     <div class="dropdown-logged">
                         <ul>
-                            <li><a href="' . BASE_URL . '/pages/Perfil/index.php">Perfil</a></li>
-                            <li><a href="' . BASE_URL . '/pages/sair.php">Sair</a></li>
+                            <li><a href="' . BASE_URL . '/pages/Perfil/index.php">Perfil</a></li>';
+                            if($user->getEmail() == 'admin'){
+                                echo '<li><a href="' . BASE_URL . '/pages/admin/index.php">Admin</a></li>';
+                            }
+                        echo '<li><a href="' . BASE_URL . '/pages/sair.php">Sair</a></li>
                         </ul>
                     </div>
                     </li>';

@@ -13,5 +13,25 @@ class Item{
         $this->catItem = $catItem;
         $this->valItem = $valItem;
     }
-}
 
+    public function getIdItem(){
+        return $this->idItem;
+    }
+
+    public function getNameItem(){
+        return $this->nameItem;
+    }
+
+    public function getImgItem(){
+        return $this->imgItem;
+    }
+
+    public function getCatItem(){
+        return $this->catItem;
+    }
+
+    public function getValItem(){
+        return $this->valItem;
+    }
+}
+?>

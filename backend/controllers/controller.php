@@ -2,8 +2,6 @@
     require_once __DIR__.'/../classes/Banco.php';
     require_once __DIR__.'/../classes/Usuario.php';
     define('BASE_URL', '/EstruturaDeDados');
-    session_start();
-
     class Controller{
 
         public $banco;
@@ -12,6 +10,7 @@
         }
 
         public function UserLogin(){
+            session_start();
             $email = htmlspecialchars($_POST['email']);
             $senha = $_POST['senha'];
 
@@ -50,19 +49,55 @@
         }
 
         public function UserRegister(){
+            session_start();
             $username = $_POST['username'] ;
             $name = $_POST['name'];
             $email = $_POST['email'];
             $password = password_hash($_POST['senha'], PASSWORD_DEFAULT);
             if($this->banco->insertUsuario($username,$name,$email,$password)){
-                $_SESSION['user'] = new Usuario($username,$name,$email,$password);
-
-                header('Location: '. BASE_URL. '/index.php');
+                header('Location: '. BASE_URL. '/pages/Entrar/');
             };
         }
 
         public function UserLogout(){
+            session_start();
             session_destroy();
             header('Location: '. BASE_URL. '/index.php');
+        }
+
+        public function UserPush(){
+            return $this->banco->getUsuarios();
+        }
+
+        public function UsuarioItemRegistrar(){
+            $idusuario = $_POST['user'];
+            $iditem = $_POST['item'];
+
+            if($this->banco->insertUsuarioHasItem($idusuario,$iditem,0)){
+                header('Location: '. BASE_URL. '/pages/Admin/');
+            };
+        }
+
+        public function ItemRegister(){ 
+            $nome = $_POST['nome'];
+            $categoria = $_POST['categoria'];
+            $valor = $_POST['valor'];
+            $imagem = $_FILES['imagem'];
+
+            $extensao = strtolower(substr($_FILES['imagem']['name'], -4));
+            $novo_nome = md5(time()).$extensao;
+            $diretorio = "./../../src/sprites/".$categoria."/";
+
+            move_uploaded_file($_FILES['imagem']['tmp_name'], $diretorio.$novo_nome);
+
+            if($this->banco->insertItem($novo_nome,$categoria,$valor,$nome)){
+                header('Location: '. BASE_URL. '/pages/Admin/');
+            };
+        }
+        public function ItemPush(){
+            return $this->banco->getItems();
+        }
+        public function GetItemsOfUsuariosById($id){
+            return $this->banco->getUsuarioHasItemById($id);
         }
     }

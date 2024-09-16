@@ -36,7 +36,7 @@
                      ?></span>
                 </div>
                 <div class="character">
-                    <div class="icon-store">
+                    <div class="icon-store" onclick="switchPages('./../Loja/')">
                         <i class='bx bx-store'></i>
                         <span>Loja</span>
                     </div>
@@ -44,10 +44,10 @@
                         <i class='bx bx-closet'></i>
                         <span>Minhas Roupas</span>
                     </div>
-                    <img src="./../../src/person/base_face.png">
-                    <img src="./../../src/person/torsos/corpo1.png">
-                    <img src="./../../src/person/calcas/calca1.png">
-                    <img src="./../../src/person/cabelos/naruto_hair.png">
+                    <img src="./../../src/sprites/base_face.png">
+                    <img src="./../../src/sprites/torsos/corpo1.png">
+                    <img src="./../../src/sprites/calcas/calca1.png">
+                    <img src="./../../src/sprites/cabelos/naruto_hair.png">
                 </div>
             </main>
             <script>

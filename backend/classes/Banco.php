@@ -168,8 +168,7 @@ class Banco
         $query = "SELECT * FROM usuario WHERE email_usuario = '$email'";
         return $this->executeQuery($query)->fetch_assoc();
     }
-    public function insertUsuario($nickname, $nome, $email, $senha)
-    {
+    public function insertUsuario($nickname, $nome, $email, $senha){
         $nickname = mysqli_real_escape_string($this->conn, $nickname);
         $coins = mysqli_real_escape_string($this->conn, 0);
         $nome = mysqli_real_escape_string($this->conn, $nome);
@@ -206,11 +205,10 @@ class Banco
         return $this->executeQuery($query);
     }
 
-    public function getUsuarioHasItemById($userId, $itemId)
+    public function getUsuarioHasItemById($userId)
     {
         $userId = mysqli_real_escape_string($this->conn, $userId);
-        $itemId = mysqli_real_escape_string($this->conn, $itemId);
-        $query = "SELECT * FROM usuario_has_item WHERE usuario_idusuario = '$userId' AND item_iditem = '$itemId'";
+        $query = "SELECT * FROM usuario_has_item WHERE usuario_idusuario = '$userId'";
         return $this->executeQuery($query);
     }
 

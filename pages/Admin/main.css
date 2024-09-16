@@ -1,0 +1,12 @@
+@import '../../global.css';
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
