@@ -44,10 +44,10 @@
                         <i class='bx bx-closet'></i>
                         <span>Minhas Roupas</span>
                     </div>
-                    <img src="./../../src/sprites/base_face.png">
-                    <img src="./../../src/sprites/torsos/corpo1.png">
-                    <img src="./../../src/sprites/calcas/calca1.png">
-                    <img src="./../../src/sprites/cabelos/naruto_hair.png">
+                    <img src="./../../src/sprites/torsos/corpodefalt.png">
+                    <img src="./../../src/sprites/calcas/calcadefalt.png">
+                    <img src="./../../src/sprites/cabelos/.png">
+                    <img src="./../../src/sprites/rostos/rostodefalt.png">
                 </div>
             </main>
             <script>
