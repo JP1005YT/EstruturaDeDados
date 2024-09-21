@@ -71,6 +71,9 @@
                 }
             ?>
         </section>
+        <section class="tabs">
+                
+        </section>
     </main>
     <script>
         let items = document.querySelectorAll(".item:not(.disable)")
