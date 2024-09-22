@@ -24,13 +24,11 @@
                 <!-- Pergunta 1 -->
                 <div class="question">
                     <p>Qual estrutura de dados é usada para implementar uma fila?</p>
-                    <label><input type="radio" name="q1" value="Stack"> Stack </label><br>
-                    <label><input type="radio" name="q1" value="Queue"> Queue </label><br>
-                    <label><input type="radio" name="q1" value="List"> List </label><br>
-                    <label><input type="radio" name="q1" value="Tree"> Tree </label>
+                    <label><input type="radio" name="resp1" value="Stack"> Stack </label><br>
+                    <label><input type="radio" name="resp2" value="Queue"> Queue </label><br>
+                    <label><input type="radio" name="resp3" value="List"> List </label><br>
+                    <label><input type="radio" name="resp4" value="Tree"> Tree </label>
                 </div>
-                
-                <!-- Adicione mais perguntas conforme necessário -->
                 
                 <button type="submit">Enviar</button>
             </form>

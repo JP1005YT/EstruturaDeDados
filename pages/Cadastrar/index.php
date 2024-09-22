@@ -29,7 +29,7 @@
             <input placeholder="Email" name="email">
             <input placeholder="Senha" name="senha" type="password">
             <input type="submit" value="Cadastrar">
-            <p>Já possuí conta? <span onclick="switchPages('../Entrar')">Entrar</span></p>
+            <p>Já possuí conta? <a onclick="switchPages('../Entrar')">Entrar</a></p>
         </form>
     </main>
     <script>
