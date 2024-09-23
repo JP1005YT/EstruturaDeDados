@@ -1,8 +1,14 @@
 <?php 
-     include_once './../../../backend/controllers/page_controller.php';
+error_reporting(E_ERROR | E_PARSE);
 
-     session_start();
+include_once './../../../backend/classes/Usuario.php';
+include_once './../../../backend/controllers/page_controller.php';
+include_once './../../../backend/controllers/controller.php';
+session_start();
+
+$controlador = new Controller();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,33 +20,43 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-        <?php
-            PageController::Cabecalho();
-        ?>   
+    <?php PageController::Cabecalho(); ?>
+    
     <main>
-        <h2>Quiz</h2>
-        <section class="quiz-container">
-            <form id="quiz-form">
-                <!-- Pergunta 1 -->
-                <div class="question">
-                    <p>Qual estrutura de dados é usada para implementar uma fila?</p>
-                    <label><input type="radio" name="resp1" value="Stack"> Stack </label><br>
-                    <label><input type="radio" name="resp2" value="Queue"> Queue </label><br>
-                    <label><input type="radio" name="resp3" value="List"> List </label><br>
-                    <label><input type="radio" name="resp4" value="Tree"> Tree </label>
-                </div>
-                
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-    </main>
+        <h1>Responda ao Quiz!</h1>
+        <form method="POST" action="process_quiz.php">
         <?php
-            PageController::Rodape();
-        ?> 
-    <script>
-        function switchPages(url){
-            window.location.href = url
-        }
-    </script>
+            if (method_exists($controlador, 'QuizPush')) {
+                $perguntas = $controlador->QuizPush();
+                $perguntasArray = [];
+                
+                while ($pergunta = $perguntas->fetch_assoc()) {
+                    $perguntasArray[] = $pergunta;
+                }
+                
+                // Embaralha as perguntas
+                shuffle($perguntasArray);
+                
+                // Seleciona as primeiras 10 perguntas
+                $perguntasSelecionadas = array_slice($perguntasArray, 0, 10);
+                
+                foreach ($perguntasSelecionadas as $index => $pergunta) {
+                    echo "<h3 class='question'>" . $pergunta['pergunta_quiz'] . "</h3>";
+                    for ($i = 1; $i <= 4; $i++) {
+                        $alternativa = $pergunta["alternativa$i"];
+                        echo "<label>";
+                        echo "<input type='radio' name='resposta_$index' value='$alternativa'> $alternativa";
+                        echo "</label><br>";
+                    }
+                }
+            } else {
+                echo "<p>Erro: Método QuizPush não encontrado na classe Controller.</p>";
+            }
+        ?>
+            <button type="submit">Enviar Respostas</button>
+        </form>
+    </main>
+
+    <?php PageController::Rodape(); ?>
 </body>
 </html>

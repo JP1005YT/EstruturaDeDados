@@ -87,30 +87,6 @@ class Banco
         return $this->executeQuery($query);
     }
 
-    public function insertQuizPergunta($pergunta, $idresposta)
-    {
-        $pergunta = mysqli_real_escape_string($this->conn, $pergunta);
-        $idresposta = mysqli_real_escape_string($this->conn, $idresposta);
-        $query = "INSERT INTO quiz_perguntas (pergunta_quiz, idresposta) VALUES ('$pergunta', $idresposta)";
-        return $this->executeQuery($query);
-    }
-
-    public function updateQuizPergunta($id, $pergunta, $idresposta)
-    {
-        $id = mysqli_real_escape_string($this->conn, $id);
-        $pergunta = mysqli_real_escape_string($this->conn, $pergunta);
-        $idresposta = mysqli_real_escape_string($this->conn, $idresposta);
-        $query = "UPDATE quiz_perguntas SET pergunta_quiz = '$pergunta', idresposta = $idresposta WHERE idpergunta = '$id'";
-        return $this->executeQuery($query);
-    }
-
-    public function deleteQuizPergunta($id)
-    {
-        $id = mysqli_real_escape_string($this->conn, $id);
-        $query = "DELETE FROM quiz_perguntas WHERE idpergunta = '$id'";
-        return $this->executeQuery($query);
-    }
-
     // Métodos CRUD para a tabela `quiz_respostas`
 
     public function getQuizRespostas()
@@ -125,29 +101,6 @@ class Banco
         $query = "SELECT * FROM quiz_respostas WHERE idquiz = '$id'";
         return $this->executeQuery($query);
     }
-
-    public function insertQuizResposta($resposta)
-    {
-        $resposta = mysqli_real_escape_string($this->conn, $resposta);
-        $query = "INSERT INTO quiz_respostas (resposta_quiz) VALUES ($resposta)";
-        return $this->executeQuery($query);
-    }
-
-    public function updateQuizResposta($id, $resposta)
-    {
-        $id = mysqli_real_escape_string($this->conn, $id);
-        $resposta = mysqli_real_escape_string($this->conn, $resposta);
-        $query = "UPDATE quiz_respostas SET resposta_quiz = $resposta WHERE idquiz = '$id'";
-        return $this->executeQuery($query);
-    }
-
-    public function deleteQuizResposta($id)
-    {
-        $id = mysqli_real_escape_string($this->conn, $id);
-        $query = "DELETE FROM quiz_respostas WHERE idquiz = '$id'";
-        return $this->executeQuery($query);
-    }
-
     // Métodos CRUD para a tabela `usuario`
 
     public function getUsuarios()

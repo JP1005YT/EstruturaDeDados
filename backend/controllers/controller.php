@@ -100,4 +100,13 @@
         public function GetItemsOfUsuariosById($id){
             return $this->banco->getUsuarioHasItemById($id);
         }
+
+        //funções para o quiz
+        public function QuizPush(){
+            return $this->banco->getQuizPerguntas();
+        }
+
+        public function QuizRespostaPush($id){
+            return $this->banco->getQuizRespostaById($id);
+        }
     }
