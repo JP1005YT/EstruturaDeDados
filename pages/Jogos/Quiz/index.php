@@ -21,11 +21,11 @@ $controlador = new Controller();
 </head>
 <body>
     <?php PageController::Cabecalho(); ?>
-    
     <main>
         <h1>Responda ao Quiz!</h1>
-        <form method="POST" action="process_quiz.php">
         <?php
+            $acertos = 0;
+            $perguntasSelecionadas = [];
             if (method_exists($controlador, 'QuizPush')) {
                 $perguntas = $controlador->QuizPush();
                 $perguntasArray = [];
@@ -39,18 +39,76 @@ $controlador = new Controller();
                 
                 // Seleciona as primeiras 10 perguntas
                 $perguntasSelecionadas = array_slice($perguntasArray, 0, 10);
-                
-                foreach ($perguntasSelecionadas as $index => $pergunta) {
-                    echo "<h3 class='question'>" . $pergunta['pergunta_quiz'] . "</h3>";
-                    for ($i = 1; $i <= 4; $i++) {
-                        $alternativa = $pergunta["alternativa$i"];
-                        echo "<label>";
-                        echo "<input type='radio' name='resposta_$index' value='$alternativa'> $alternativa";
-                        echo "</label><br>";
+            }
+            
+            if (isset($_POST['submitted'])) {
+                foreach ($_POST as $key => $value) {
+                    if (strpos($key, 'resposta_') === 0) {
+                        $index = str_replace('resposta_', '', $key);
+                        $respostaUsuario = $value;
+                        $idresposta = $_POST["idresposta_$index"];
+                        $respostas = $controlador->QuizRespostaPush($idresposta)->fetch_assoc();
+                        $respostaCorreta = $respostas['resposta_quiz'];
+                        if ($respostaUsuario == $respostaCorreta) {
+                            $acertos++;
+                        }
                     }
                 }
-            } else {
-                echo "<p>Erro: Método QuizPush não encontrado na classe Controller.</p>";
+                echo "<h2>Você acertou $acertos de 10 perguntas.</h2>";
+            }
+        ?>
+        <form method="POST" action="">
+            <input type="hidden" name="submitted" value="true">
+        <?php
+            foreach ($perguntasSelecionadas as $index => $pergunta) {
+                echo "<section class='question-container'>";
+                echo "<h3 class='question'>" . $pergunta['pergunta_quiz'] . "</h3>";
+                
+                // Buscar alternativas da tabela quiz_respostas
+                $idresposta = $pergunta['idresposta'];
+                $respostas = $controlador->QuizRespostaPush($idresposta)->fetch_assoc();
+                
+                $alternativas = [
+                    'A' => $respostas['alternativa_a'],
+                    'B' => $respostas['alternativa_b'],
+                    'C' => $respostas['alternativa_c'],
+                    'D' => $respostas['alternativa_d']
+                ];
+                
+                $respostaCorreta = $respostas['resposta_quiz'];
+                $respostaUsuario = $_POST["resposta_$index"] ?? null;
+                $pontos = 0;
+                
+                if (isset($_POST['submitted']) && $respostaUsuario == $respostaCorreta) {
+                    $pontos = 1;
+                }
+                
+                echo "<section class='points'>Pontos: $pontos</section>";
+                
+                foreach ($alternativas as $letra => $alternativa) {
+                    $inputId = "resposta_{$index}_{$letra}";
+                    $cor = '';
+                    $icone = '';
+                    
+                    if (isset($_POST['submitted'])) {
+                        if ($letra == $respostaCorreta) {
+                            $cor = 'class="correct"';
+                            if ($letra == $respostaUsuario) {
+                                $icone = '✔️';
+                            }
+                        } elseif ($letra == $respostaUsuario) {
+                            $cor = 'class="incorrect"';
+                            $icone = '❌';
+                        }
+                    }
+                    
+                    echo "<label for='$inputId' $cor>";
+                    echo "<input type='radio' id='$inputId' name='resposta_$index' value='$letra' " . ($respostaUsuario == $letra ? 'checked' : '') . "> $alternativa $icone";
+                    echo "</label><br>";
+                }
+                
+                echo "<input type='hidden' name='idresposta_$index' value='$idresposta'>";
+                echo "</section>";
             }
         ?>
             <button type="submit">Enviar Respostas</button>

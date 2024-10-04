@@ -42,12 +42,28 @@ main form {
     color: var(--black);
 }
 
-.question label {
+.question-container {
+    position: relative;
+}
+.points {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.correct {
+    color: green;
+}
+.incorrect {
+    color: red;
+}
+
+label {
     display: block;
     margin-bottom: 10px;
     font-size: 16px;
     color: var(--black);
-    background: var(--cor7);
     padding: 5px;
     border-radius: 5px;
 }
