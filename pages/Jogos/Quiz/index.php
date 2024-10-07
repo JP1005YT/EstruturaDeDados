@@ -1,4 +1,4 @@
-<?php 
+<?php
 error_reporting(E_ERROR | E_PARSE);
 
 include_once './../../../backend/classes/Usuario.php';
@@ -18,6 +18,41 @@ $controlador = new Controller();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="main.css">
+    <script>
+        function validateForm() {
+            const questions = document.querySelectorAll('.question-container');
+            let firstUnanswered = null;
+            for (let i = 0; i < questions.length; i++) {
+                const radios = questions[i].querySelectorAll('input[type="radio"]');
+                let answered = false;
+                for (let j = 0; j < radios.length; j++) {
+                    if (radios[j].checked) {
+                        answered = true;
+                        break;
+                    }
+                }
+                const alertMessage = questions[i].querySelector('.alert-message');
+                if (!answered) {
+                    if (!alertMessage) {
+                        const alert = document.createElement('section');
+                        alert.className = 'alert-message alert';
+                        alert.textContent = 'Por favor, responda a pergunta abaixo.';
+                        questions[i].insertBefore(alert, questions[i].firstChild);
+                    }
+                    if (!firstUnanswered) {
+                        firstUnanswered = questions[i];
+                    }
+                } else if (alertMessage) {
+                    alertMessage.remove();
+                }
+            }
+            if (firstUnanswered) {
+                firstUnanswered.scrollIntoView({ behavior: 'smooth' });
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
     <?php PageController::Cabecalho(); ?>
@@ -57,7 +92,7 @@ $controlador = new Controller();
                 echo "<h2>Você acertou $acertos de 10 perguntas.</h2>";
             }
         ?>
-        <form method="POST" action="">
+        <form method="POST" action="" onsubmit="return validateForm();">
             <input type="hidden" name="submitted" value="true">
         <?php
             foreach ($perguntasSelecionadas as $index => $pergunta) {
@@ -103,7 +138,7 @@ $controlador = new Controller();
                     }
                     
                     echo "<label for='$inputId' $cor>";
-                    echo "<input type='radio' id='$inputId' name='resposta_$index' value='$letra' " . ($respostaUsuario == $letra ? 'checked' : '') . "> $alternativa $icone";
+                    echo "<input type='radio' id='$inputId' name='resposta_$index' value='$letra' " . ($respostaUsuario == $letra ? 'checked' : '') . "> $letra) $alternativa $icone";
                     echo "</label><br>";
                 }
                 

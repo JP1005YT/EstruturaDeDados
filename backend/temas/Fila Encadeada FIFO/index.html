@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Fila Encadeada FIFO</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+</head>
+<body>
+    <main>
+        <section class="card">
+           <h1>Fila Encadeada FIFO</h1>
+        <section>
+            <h2>O que é uma Fila Encadeada FIFO?</h2>
+            <p>
+                A fila encadeada é uma estrutura de dados que segue o princípio do FIFO (First In, First Out), ou seja, o primeiro elemento que entra é o primeiro a sair. 
+                Imagine uma fila de pessoas em um caixa de supermercado: a primeira pessoa a chegar é a primeira a ser atendida.
+            </p>
+            <p>
+                Na programação, a fila encadeada é útil quando precisamos garantir que o processamento dos dados ocorra na ordem em que eles foram inseridos. 
+                Isso é muito utilizado em sistemas onde a ordem das operações é importante, como em servidores ou sistemas de impressão.
+            </p>
+        </section>
+        <section>
+            <h2>Como Funciona?</h2>
+            <p>
+                A fila encadeada é composta por nós, e cada nó tem um dado e uma referência para o próximo nó. O primeiro nó é chamado de cabeça da fila, e o último é chamado de cauda. Quando adicionamos um novo elemento, ele é colocado na cauda, e quando removemos, ele é retirado da cabeça.
+            </p>
+                <img src='' class='image' alt='Fila encadeada exemplo'>
+            <h2>Estrutura de uma Fila Encadeada</h2>
+                <p>
+                    Cada nó da fila encadeada possui um valor e uma referência para o próximo nó. O último nó aponta para null, indicando que não há mais elementos na fila.
+                </p>
+                <img src="" class="image" alt='Estrutura de um nó da fila encadeada'>
+            <section class="example">
+                <h3>Adicionando um Elemento na Fila (Enfileirar)</h3>
+                <p>
+                    Para adicionar um elemento na fila (enfileirar), o novo elemento é colocado no final (cauda) da fila, e a cauda é atualizada para apontar para esse novo nó.
+                </p>
+                <pre>
+                    <code>
+                        1.    class No {
+                        2.        public int valor;
+                        3.        public No proximo;
+                        4.    
+                        5.        public No(int valor) {
+                        6.            this.valor = valor;
+                        7.            this.proximo = null;
+                        8.        }
+                        9.    }
+                        
+                        10.   class FilaEncadeada {
+                        11.       private No cabeça;
+                        12.       private No cauda;
+                        
+                        13.       public FilaEncadeada() {
+                        14.           this.cabeça = null;
+                        15.           this.cauda = null;
+                        16.       }
+                        
+                        17.       public void enfileirar(int valor) {
+                        18.           No novoNo = new No(valor);
+                        19.           if (this.cauda == null) {
+                        20.               this.cabeça = novoNo;
+                        21.               this.cauda = novoNo;
+                        22.           } else {
+                        23.               this.cauda.proximo = novoNo;
+                        24.               this.cauda = novoNo;
+                        25.           }
+                        26.       }
+                        27.   }
+                    </code>
+                </pre>
+            </section>
+            <h2>Explicação</h2>
+                <p>
+                    O novo nó é adicionado ao final da fila, e o próximo nó da antiga cauda passa a apontar para o novo nó. A cauda é então atualizada para o novo nó.
+                </p>
+                <img src="" class='image' alt='Adicionando nó na fila'>
+            <section class="example">
+                <h3>Removendo um Elemento da Fila (Desenfileirar)</h3>
+                <p>
+                    Para remover o primeiro elemento da fila (desenfileirar), o nó que está na cabeça da fila é removido, e a cabeça passa a ser o próximo nó.
+                </p>
+                <pre>
+                    <code>
+                        1.    class FilaEncadeada {
+                        2.        private No cabeça;
+                        3.        private No cauda;
+                        4.    
+                        5.        public FilaEncadeada() {
+                        6.            this.cabeça = null;
+                        7.            this.cauda = null;
+                        8.        }
+                        
+                        9.        public int desenfileirar() {
+                        10.           if (this.cabeça == null) {
+                        11.               throw new Exception("Fila está vazia");
+                        12.           }
+                        13.           int valorRemovido = this.cabeça.valor;
+                        14.           this.cabeça = this.cabeça.proximo;
+                        15.           if (this.cabeça == null) {
+                        16.               this.cauda = null;
+                        17.           }
+                        18.           return valorRemovido;
+                        19.       }
+                        20.   }
+                    </code>
+                </pre>
+            </section>
+            <h2>Explicação</h2>
+            <p>
+                O nó que estava na cabeça da fila é removido, e a cabeça é atualizada para o próximo nó. Se a fila ficar vazia, a cauda também é ajustada para null.
+            </p>
+            <img src="" class='image' alt='Removendo nó da fila'>
+            <section class="example">
+                <h3>Exemplo Completo</h3>
+                <p>
+                    Vamos ver um exemplo completo de como criar uma fila encadeada, adicionar e remover elementos.
+                </p>
+                <pre>
+                    <code>
+                        1.    public class ExemploFilaEncadeada {
+                        2.        public static void Main(string[] args) {
+                        3.            FilaEncadeada fila = new FilaEncadeada();
+                        4.            fila.enfileirar(10);
+                        5.            fila.enfileirar(20);
+                        6.            fila.enfileirar(30);
+                        7.            
+                        8.            Console.WriteLine(fila.desenfileirar()); // 10
+                        9.            Console.WriteLine(fila.desenfileirar()); // 20
+                        10.           Console.WriteLine(fila.desenfileirar()); // 30
+                        11.        }
+                        12.   }
+                    </code>
+                </pre>
+            </section>
+        </section>
+       </section> 
+    </main>
+</body>
+</html>

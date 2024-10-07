@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pilha Encadeada</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+</head>
+<body>
+    <main>
+        <section class="card">
+           <h1>Pilha Encadeada</h1>
+        <section>
+            <h2>O que é uma Pilha Encadeada?</h2>
+            <p>
+                A pilha encadeada é uma estrutura de dados que segue o princípio LIFO (Last In, First Out), ou seja, o último elemento a ser inserido é o primeiro a ser removido. Imagine uma pilha de pratos: você coloca um prato em cima do outro e, para remover, sempre retira o que está no topo.
+            </p>
+            <p>
+                Na programação, a pilha encadeada é utilizada em várias situações, como em operações de desfazer em editores de texto, chamadas de funções recursivas e na avaliação de expressões matemáticas. A estrutura encadeada permite que a pilha cresça dinamicamente, sem a necessidade de um tamanho fixo.
+            </p>
+        </section>
+        <section>
+            <h2>Como Funciona?</h2>
+            <p>
+                A pilha encadeada é composta por nós, onde cada nó tem um valor e uma referência para o próximo nó. O topo da pilha aponta para o nó mais recente inserido, e o último nó aponta para null. A operação de empilhar adiciona um novo nó no topo, e a operação de desempilhar remove o nó do topo.
+            </p>
+                <img src='' class='image' alt='Pilha encadeada exemplo'>
+            <h2>Estrutura de uma Pilha Encadeada</h2>
+                <p>
+                    Cada nó da pilha encadeada possui um valor e uma referência para o próximo nó. O nó mais alto da pilha é o topo, e o último nó aponta para null.
+                </p>
+                <img src="" class="image" alt='Estrutura de um nó da pilha encadeada'>
+            <section class="example">
+                <h3>Adicionando um Elemento na Pilha (Empilhar)</h3>
+                <p>
+                    Para adicionar um elemento na pilha (empilhar), o novo nó é colocado no topo da pilha, e o topo é atualizado para apontar para esse novo nó.
+                </p>
+                <pre>
+                    <code>
+                        1.    class No {
+                        2.        public int valor;
+                        3.        public No proximo;
+                        4.    
+                        5.        public No(int valor) {
+                        6.            this.valor = valor;
+                        7.            this.proximo = null;
+                        8.        }
+                        9.    }
+                        
+                        10.   class PilhaEncadeada {
+                        11.       private No topo;
+                        
+                        12.       public PilhaEncadeada() {
+                        13.           this.topo = null;
+                        14.       }
+                        
+                        15.       public void empilhar(int valor) {
+                        16.           No novoNo = new No(valor);
+                        17.           novoNo.proximo = this.topo;
+                        18.           this.topo = novoNo;
+                        19.       }
+                        20.   }
+                    </code>
+                </pre>
+            </section>
+            <h2>Explicação</h2>
+                <p>
+                    O novo nó é adicionado no topo da pilha, e sua referência de próximo aponta para o nó que antes era o topo. O topo é atualizado para o novo nó.
+                </p>
+                <img src="" class='image' alt='Adicionando nó na pilha'>
+            <section class="example">
+                <h3>Removendo um Elemento da Pilha (Desempilhar)</h3>
+                <p>
+                    Para remover um elemento da pilha (desempilhar), o nó do topo é removido, e o topo passa a ser o próximo nó da pilha.
+                </p>
+                <pre>
+                    <code>
+                        1.    class PilhaEncadeada {
+                        2.        private No topo;
+                        3.    
+                        4.        public PilhaEncadeada() {
+                        5.            this.topo = null;
+                        6.        }
+                        
+                        7.        public int desempilhar() {
+                        8.            if (this.topo == null) {
+                        9.                throw new Exception("Pilha está vazia");
+                        10.           }
+                        11.           int valorRemovido = this.topo.valor;
+                        12.           this.topo = this.topo.proximo;
+                        13.           return valorRemovido;
+                        14.       }
+                        15.   }
+                    </code>
+                </pre>
+            </section>
+            <h2>Explicação</h2>
+            <p>
+                O nó que está no topo da pilha é removido, e o topo passa a ser o nó seguinte. Se a pilha estiver vazia, não há elementos para remover.
+            </p>
+            <img src="" class='image' alt='Removendo nó da pilha'>
+            <section class="example">
+                <h3>Exemplo Completo</h3>
+                <p>
+                    Vamos ver um exemplo completo de como criar uma pilha encadeada, adicionar e remover elementos.
+                </p>
+                <pre>
+                    <code>
+                        1.    public class ExemploPilhaEncadeada {
+                        2.        public static void Main(string[] args) {
+                        3.            PilhaEncadeada pilha = new PilhaEncadeada();
+                        4.            pilha.empilhar(10);
+                        5.            pilha.empilhar(20);
+                        6.            pilha.empilhar(30);
+                        7.            
+                        8.            Console.WriteLine(pilha.desempilhar()); // 30 (último a entrar, primeiro a sair)
+                        9.            Console.WriteLine(pilha.desempilhar()); // 20
+                        10.           Console.WriteLine(pilha.desempilhar()); // 10
+                        11.        }
+                        12.   }
+                    </code>
+                </pre>
+            </section>
+        </section>
+       </section> 
+    </main>
+</body>
+</html>

@@ -59,6 +59,11 @@ main form {
     color: red;
 }
 
+.alert {
+    color: red;
+    font-weight: bold;
+}
+
 label {
     display: block;
     margin-bottom: 10px;
