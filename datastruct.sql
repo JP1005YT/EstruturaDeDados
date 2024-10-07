@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/10/2024 às 19:49
+-- Tempo de geração: 07/10/2024 às 20:01
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -71,32 +71,32 @@ INSERT INTO `quiz_perguntas` (`idpergunta`, `pergunta_quiz`, `idresposta`) VALUE
 (2, 'Qual é a complexidade de tempo para acessar um elemento em uma fila de prioridades encadeada?', 2),
 (3, 'Qual estrutura de dados é usada para implementar uma fila de prioridades encadeada?', 3),
 (4, 'Qual é a principal desvantagem de usar uma fila de prioridades encadeada?', 4),
-(5, 'Dado o código abaixo, qual é a função do método enfileirar?', 5),
+(5, 'Dado o código exemplo na aula, qual é a função do método enfileirar?', 5),
 (6, 'Qual é a principal vantagem de usar uma lista simplesmente encadeada?', 6),
 (7, 'Qual é a complexidade de tempo para acessar um elemento em uma lista simplesmente encadeada?', 7),
 (8, 'Qual estrutura de dados é usada para implementar uma lista simplesmente encadeada?', 8),
 (9, 'Qual é a principal desvantagem de usar uma lista simplesmente encadeada?', 9),
-(10, 'Dado o código abaixo, qual é a função do método AdicionarAmigoAoFinal?', 10),
+(10, 'Dado o código exemplo na aula, qual é a função do método AdicionarAmigoAoFinal?', 10),
 (11, 'Qual é a principal vantagem de usar uma lista duplamente encadeada?', 11),
 (12, 'Qual é a complexidade de tempo para acessar um elemento em uma lista duplamente encadeada?', 12),
 (13, 'Qual estrutura de dados é usada para implementar uma lista duplamente encadeada?', 13),
 (14, 'Qual é a principal desvantagem de usar uma lista duplamente encadeada?', 14),
-(15, 'Dado o código abaixo, qual é a função do método AdicionarAmigoAoFinal?', 15),
+(15, 'Dado o código exemplo na aula, qual é a função do método AdicionarAmigoAoFinal?', 15),
 (16, 'Qual é a principal vantagem de usar uma fila encadeada?', 16),
 (17, 'Qual é a complexidade de tempo para acessar um elemento em uma fila encadeada?', 17),
 (18, 'Qual estrutura de dados é usada para implementar uma fila encadeada?', 18),
 (19, 'Qual é a principal desvantagem de usar uma fila encadeada?', 19),
-(20, 'Dado o código abaixo, qual é a função do método enfileirar?', 20),
+(20, 'Dado o código exemplo na aula, qual é a função do método enfileirar?', 20),
 (21, 'Qual é a principal vantagem de usar um TAD (Tipo Abstrato de Dados)?', 21),
 (22, 'Qual é a complexidade de tempo para acessar um elemento em um TAD?', 22),
 (23, 'Qual estrutura de dados é usada para implementar uma pilha em um TAD?', 23),
 (24, 'Qual é a principal desvantagem de usar um TAD?', 24),
-(25, 'Dado o código abaixo, qual é a função do método Colocar na CaixaDeEmpilhar?', 25),
+(25, 'Dado o código exemplo na aula, qual é a função do método Colocar na CaixaDeEmpilhar?', 25),
 (26, 'Qual é a principal vantagem de usar uma pilha encadeada?', 26),
 (27, 'Qual é a complexidade de tempo para acessar um elemento em uma pilha encadeada?', 27),
 (28, 'Qual estrutura de dados é usada para implementar uma pilha encadeada?', 28),
 (29, 'Qual é a principal desvantagem de usar uma pilha encadeada?', 29),
-(30, 'Dado o código abaixo, qual é a função do método empilhar?', 30);
+(30, 'Dado o código exemplo na aula, qual é a função do método empilhar?', 30);
 
 -- --------------------------------------------------------
 
