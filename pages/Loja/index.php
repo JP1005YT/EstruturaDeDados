@@ -22,6 +22,11 @@
 <body>
     <?php PageController::Cabecalho(); ?>
     <main>
+        <span>
+            Moedas Atuais:
+            <i class='bx bx-coin'></i>
+            <?php echo $_SESSION['user']->getCoins()?>
+        </span>
         <section class="items">
             <?php
                 $user = $_SESSION['user'];
@@ -34,8 +39,10 @@
 
                 while($row = $resp->fetch_assoc()){ 
                     foreach($itemsdousuario as $item){
+                        // var_dump($item['item_iditem'] == $row['iditem']);
                         if($item['item_iditem'] == $row['iditem']){
                             $usuariohasitem = true;
+                            break;
                         }else{
                             $usuariohasitem = false;
                         }
@@ -54,7 +61,7 @@
                             </div>
                         </div>';
                     }else{
-                        echo '<div class="item">
+                        echo '<div class="item" id='.$row['iditem'].'>
                             <div class="img-container">
                                 <img class="'.$row['categoria_item'].'"src="./../../src/sprites/'.$row['categoria_item'].'/'.$row['src_item'].'" alt="item">
                             </div>
@@ -63,7 +70,7 @@
                             <div class="price">
                                 <p class="money">
                                     <i class="bx bx-coin"></i>
-                                    '.$row['valor_item'].'
+                                    <span id="valor">'.$row['valor_item'].'</span>
                                 </p>
                             </div>
                         </div>';
@@ -71,11 +78,9 @@
                 }
             ?>
         </section>
-        <section class="tabs">
-                
-        </section>
     </main>
-    <script>
+    <?php echo "<script>const coins = ".$_SESSION['user']->getCoins()."</script>" ?>
+    <script defer>
         let items = document.querySelectorAll(".item:not(.disable)")
         items.forEach(item => {
             item.addEventListener("mouseover", () => {
@@ -83,6 +88,20 @@
             })
             item.addEventListener("mouseleave", () => {
                 item.querySelector(".price").classList.remove("active")
+            })
+        })
+        items.forEach(item => {
+                item.addEventListener("click", () => {
+                    console.log(coins < parseInt(item.querySelector("#valor").innerHTML),coins , parseInt(item.querySelector("#valor").innerHTML))
+                    if(coins > parseInt(item.querySelector("#valor").innerHTML)){
+                        fetch(`comprar.php?item=${item.id}`, {
+                            method: "GET"
+                        }).then(() => {
+                            location.reload()
+                        })
+                    }else{
+                        alert("Você não tem moedas suficientes")
+                    }
             })
         })
     </script>

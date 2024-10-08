@@ -142,6 +142,13 @@ class Banco
         $query = "UPDATE usuario SET nickname_usuario = '$nickname', coins_usuario = $coins, nome_usuario = '$nome', email_usuario = '$email', senha_usuario = '$senha' WHERE idusuario = '$id'";
         return $this->executeQuery($query);
     }
+    public function updateUsuarioCoins($id, $coins)
+    {
+        $id = mysqli_real_escape_string($this->conn, $id);
+        $coins = mysqli_real_escape_string($this->conn, $coins);
+        $query = "UPDATE usuario SET coins_usuario = $coins WHERE idusuario = '$id'";
+        return $this->executeQuery($query);
+    }
 
     public function deleteUsuario($id)
     {

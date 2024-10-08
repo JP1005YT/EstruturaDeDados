@@ -37,6 +37,9 @@ class Usuario {
     public function getEmail() {
         return $this->emailUser;
     }
+    public function setCoins($coins){
+        $this->coins = $coins;
+    }
 
     // Método para verificar a senha
     public function verificarSenha($senha) {

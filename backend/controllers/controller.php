@@ -109,4 +109,22 @@
         public function QuizRespostaPush($id){
             return $this->banco->getQuizRespostaById($id);
         }
+
+        public function ComprarItem($iditem,$iduser){
+            $usuario = $this->banco->getUsuarioById($iduser);
+            $item = $this->banco->getItemById($iditem);
+
+            while($row = $usuario->fetch_assoc()){
+                $coins = $row['coins_usuario'];
+                while($row = $item->fetch_assoc()){
+                    $valor = $row['valor_item'];
+                    $newMoeda = $coins-$valor;
+                    $this->banco->updateUsuarioCoins($iduser,$newMoeda);
+                }
+            }
+            
+
+            $this->banco->insertUsuarioHasItem($iduser,$iditem,0);
+            return $newMoeda;
+        }
     }

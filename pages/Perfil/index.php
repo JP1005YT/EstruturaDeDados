@@ -13,7 +13,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title> DataStruct School | Home</title>
+    <title> DataStruct School | Perfil</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
@@ -40,13 +40,13 @@
                         <i class='bx bx-store'></i>
                         <span>Loja</span>
                     </div>
-                    <div class="icon-closet">
+                    <div class="icon-closet" onclick="switchPages('./../MinhasRoupas/')">
                         <i class='bx bx-closet'></i>
                         <span>Minhas Roupas</span>
                     </div>
                     <img src="./../../src/sprites/torsos/corpodefalt.png">
                     <img src="./../../src/sprites/calcas/calcadefalt.png">
-                    <img src="./../../src/sprites/cabelos/.png">
+                    <!-- <img src="./../../src/sprites/cabelos/.png"> -->
                     <img src="./../../src/sprites/rostos/rostodefalt.png">
                 </div>
             </main>
