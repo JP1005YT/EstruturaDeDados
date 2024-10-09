@@ -93,7 +93,7 @@
         items.forEach(item => {
                 item.addEventListener("click", () => {
                     console.log(coins < parseInt(item.querySelector("#valor").innerHTML),coins , parseInt(item.querySelector("#valor").innerHTML))
-                    if(coins > parseInt(item.querySelector("#valor").innerHTML)){
+                    if(coins >= parseInt(item.querySelector("#valor").innerHTML)){
                         fetch(`comprar.php?item=${item.id}`, {
                             method: "GET"
                         }).then(() => {
