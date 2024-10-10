@@ -1,0 +1,115 @@
+@import '../../global.css';
+
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: var(--cor1);
+    color: var(--cor6);
+    transition: background-color 0.3s ease-in-out;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 90vw;
+    margin-left: 5%;
+}
+
+.card {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 600px;
+    background: linear-gradient(30deg, var(--cor3), var(--cor4), var(--cor3));
+    border-radius: 25px;
+    position: relative;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--cor6);
+}
+
+.card-logo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 25px;
+    filter: drop-shadow(0 0 5px rgb(0, 0, 0));
+}
+
+.card-id {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 25px;
+    font-size: 24px;
+    filter: drop-shadow(0 0 5px rgb(0, 0, 0));
+}
+
+/* Estilos para o formulário de edição de perfil */
+.card form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.card form label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--cor6);
+}
+
+.card form input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--cor2);
+    border-radius: 5px;
+    font-size: 16px;
+    background: var(--cor6);
+    color: var(--cor1);
+}
+
+.card form input:focus {
+    border-color: var(--cor3);
+    outline: none;
+}
+
+.card form .edit-profile-btn {
+    margin-top: 20px;
+    align-self: flex-end;
+    background: var(--cor3);
+    color: var(--cor6);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.card form .edit-profile-btn:hover {
+    background: var(--cor4);
+    transform: scale(1.05);
+}
+
+.forgot-password-link {
+    display: block;
+    margin-top: 20px;
+    text-align: right;
+    color: var(--cor3);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+}

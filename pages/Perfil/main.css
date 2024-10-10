@@ -97,3 +97,22 @@ h2{
     right: 0;
     border-bottom-left-radius: 25px;
 }
+/* Estilos para o botão Editar Perfil */
+.edit-profile-btn {
+    background: var(--cor3);
+    color: var(--cor6);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    margin-right: 20px; /* Espaçamento à direita */
+    align-self: flex-end; /* Alinha o botão à direita */
+}
+
+.edit-profile-btn:hover {
+    background: var(--cor4);
+    transform: scale(1.05);
+}

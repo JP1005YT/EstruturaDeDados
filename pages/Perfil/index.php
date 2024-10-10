@@ -24,7 +24,7 @@
             PageController::Cabecalho();
         ?>
             <main>
-                <div class="card">
+                <section class="card">
                     <img src="./../../logo.png" width="35px" class="card-logo">
                     <h1><?php echo $_SESSION['user']->getUsername(); ?></h1>
                     <h2><?php echo $_SESSION['user']->getName(); ?></h2>
@@ -34,21 +34,22 @@
                      
                     echo $val
                      ?></span>
-                </div>
-                <div class="character">
-                    <div class="icon-store" onclick="switchPages('./../Loja/')">
+                     <button class="edit-profile-btn" onclick="switchPages('./../EditarPerfil/editPerfil.php')">Editar Perfil</button>
+                </section>
+                <section class="character">
+                    <section class="icon-store" onclick="switchPages('./../Loja/')">
                         <i class='bx bx-store'></i>
                         <span>Loja</span>
-                    </div>
-                    <div class="icon-closet" onclick="switchPages('./../MinhasRoupas/')">
+                    </section>
+                    <section class="icon-closet" onclick="switchPages('./../MinhasRoupas/')">
                         <i class='bx bx-closet'></i>
                         <span>Minhas Roupas</span>
-                    </div>
+                    </section>
                     <img src="./../../src/sprites/torsos/corpodefalt.png">
                     <img src="./../../src/sprites/calcas/calcadefalt.png">
                     <!-- <img src="./../../src/sprites/cabelos/.png"> -->
                     <img src="./../../src/sprites/rostos/rostodefalt.png">
-                </div>
+                </section>
             </main>
             <script>
                 function switchPages(url){

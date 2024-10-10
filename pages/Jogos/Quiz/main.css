@@ -3,7 +3,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background: var(--cor1);
+    background: linear-gradient(to right, var(--cor1), var(--cor2));
     color: var(--cor6);
     margin: 0;
     padding: 0;
@@ -27,9 +27,9 @@ h1 {
 }
 
 main form {
-    background: rgba(255, 255, 255, 0.8); /* Fundo branco transparente */
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco transparente */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 40px;
     max-width: 1400px;
     width: 100%;
@@ -38,23 +38,34 @@ main form {
 
 .question {
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 18px;
     color: var(--black);
+    font-weight: bold;
 }
 
 .question-container {
     position: relative;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid var(--cor2);
+    border-radius: 10px;
+    background: var(--cor6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .points {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     font-size: 1.2em;
     font-weight: bold;
+    color: var(--cor3);
 }
+
 .correct {
     color: green;
 }
+
 .incorrect {
     color: red;
 }
@@ -69,24 +80,30 @@ label {
     margin-bottom: 10px;
     font-size: 16px;
     color: var(--black);
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
+    background: rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease;
 }
 
- input[type="radio"] {
+label:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+input[type="radio"] {
     margin-right: 10px;
     appearance: none;
     width: 20px;
     height: 20px;
-    border: 5px solid var(--cor3);
+    border: 2px solid var(--cor3);
     border-radius: 50%;
     outline: none;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
- input[type="radio"]:checked {
-    background: var(--black);
+input[type="radio"]:checked {
+    background: var(--cor3);
 }
 
 button {
@@ -97,13 +114,14 @@ button {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
     display: block;
     margin: 20px auto 0;
 }
 
 button:hover {
     background: var(--cor4);
+    transform: scale(1.05);
 }
 
 @media only screen and (max-width: 600px) {

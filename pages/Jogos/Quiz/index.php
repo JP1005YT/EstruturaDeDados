@@ -8,7 +8,6 @@ session_start();
 
 $controlador = new Controller();
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -96,8 +95,9 @@ $controlador = new Controller();
             <input type="hidden" name="submitted" value="true">
         <?php
             foreach ($perguntasSelecionadas as $index => $pergunta) {
+                $numeroQuestao = $index + 1;
                 echo "<section class='question-container'>";
-                echo "<h3 class='question'>" . $pergunta['pergunta_quiz'] . "</h3>";
+                echo "<h3 class='question'>$numeroQuestao. " . $pergunta['pergunta_quiz'] . "</h3>";
                 
                 // Buscar alternativas da tabela quiz_respostas
                 $idresposta = $pergunta['idresposta'];

@@ -127,4 +127,8 @@
             $this->banco->insertUsuarioHasItem($iduser,$iditem,0);
             return $newMoeda;
         }
+
+        public function atualizarUsuario($id, $nickname, $nome, $email) {
+            //a fazer
+        }
     }
