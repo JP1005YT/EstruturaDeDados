@@ -60,35 +60,43 @@ $controlador = new Controller();
         <?php
             $acertos = 0;
             $perguntasSelecionadas = [];
-            if (method_exists($controlador, 'QuizPush')) {
-                $perguntas = $controlador->QuizPush();
-                $perguntasArray = [];
-                
-                while ($pergunta = $perguntas->fetch_assoc()) {
-                    $perguntasArray[] = $pergunta;
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+                if (method_exists($controlador, 'QuizPush')) {
+                    $perguntas = $controlador->QuizPush();
+                    $perguntasArray = [];
+                    
+                    while ($pergunta = $perguntas->fetch_assoc()) {
+                        $perguntasArray[] = $pergunta;
+                    }
+                    
+                    // Embaralha as perguntas
+                    shuffle($perguntasArray);
+                    
+                    // Seleciona as primeiras 10 perguntas únicas
+                    $perguntasSelecionadas = array_slice(array_unique($perguntasArray, SORT_REGULAR), 0, 10);
+                    
+                    // Armazena as perguntas selecionadas na sessão
+                    $_SESSION['perguntasSelecionadas'] = $perguntasSelecionadas;
                 }
+            } else {
+                // Recupera as perguntas selecionadas da sessão
+                $perguntasSelecionadas = $_SESSION['perguntasSelecionadas'] ?? [];
                 
-                // Embaralha as perguntas
-                shuffle($perguntasArray);
-                
-                // Seleciona as primeiras 10 perguntas
-                $perguntasSelecionadas = array_slice($perguntasArray, 0, 10);
-            }
-            
-            if (isset($_POST['submitted'])) {
-                foreach ($_POST as $key => $value) {
-                    if (strpos($key, 'resposta_') === 0) {
-                        $index = str_replace('resposta_', '', $key);
-                        $respostaUsuario = $value;
-                        $idresposta = $_POST["idresposta_$index"];
-                        $respostas = $controlador->QuizRespostaPush($idresposta)->fetch_assoc();
-                        $respostaCorreta = $respostas['resposta_quiz'];
-                        if ($respostaUsuario == $respostaCorreta) {
-                            $acertos++;
+                if (isset($_POST['submitted'])) {
+                    foreach ($_POST as $key => $value) {
+                        if (strpos($key, 'resposta_') === 0) {
+                            $index = str_replace('resposta_', '', $key);
+                            $respostaUsuario = $value;
+                            $idresposta = $_POST["idresposta_$index"];
+                            $respostas = $controlador->QuizRespostaPush($idresposta)->fetch_assoc();
+                            $respostaCorreta = $respostas['resposta_quiz'];
+                            if ($respostaUsuario == $respostaCorreta) {
+                                $acertos++;
+                            }
                         }
                     }
+                    echo "<h2>Você acertou $acertos de 10 perguntas.</h2>";
                 }
-                echo "<h2>Você acertou $acertos de 10 perguntas.</h2>";
             }
         ?>
         <form method="POST" action="" onsubmit="return validateForm();">
