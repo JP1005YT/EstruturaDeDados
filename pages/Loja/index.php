@@ -8,6 +8,16 @@
     spl_autoload_register(function ($class_name) {
         include './../../backend/classes/' . $class_name . '.php';
     });
+
+    // Verifica se o usuário está logado
+    if (!isset($_SESSION['user'])) {
+        // Aqui você pode redirecionar para a página de login ou exibir uma mensagem de erro
+        echo "Erro: usuário não logado.";
+        exit();
+    }
+
+    // Instancia o controlador
+    $controller = new Controller();
 ?>
 <html lang="pt-BR">
 <head>

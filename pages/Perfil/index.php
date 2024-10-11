@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset='utf-8'>
+    <meta charset='utf-8'> 
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title> DataStruct School | Perfil</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -37,6 +37,7 @@
                      <button class="edit-profile-btn" onclick="switchPages('./../EditarPerfil/editPerfil.php')">Editar Perfil</button>
                 </section>
                 <section class="character">
+                <button class="edit-profile-btn" onclick="switchPages('./../MinhasRoupas/')">Troca de roupa</button>
                     <section class="icon-store" onclick="switchPages('./../Loja/')">
                         <i class='bx bx-store'></i>
                         <span>Loja</span>

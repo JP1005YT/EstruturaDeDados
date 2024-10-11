@@ -36,7 +36,8 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
                           echo '
                         </div>
                     </div>
-                    <li><a href="' . BASE_URL . '/pages/Jogos/Quiz/index.php">Quiz</a></li>                    
+                    <li><a href="' . BASE_URL . '/pages/Jogos/Quiz/index.php">Quiz</a></li> 
+                    <li><a href="' . BASE_URL . '/pages/loja/index.php">Loja</a></li>                   
                     ';
     
         if (isset($_SESSION['user'])) {
