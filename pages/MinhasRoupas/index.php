@@ -129,103 +129,111 @@
                     break
             }
         })
-        function TrocarItem(part,isFront){
+        function TrocarItem(part, isFront) {
             switch (part) {
-                case 'rosto':
-                    let allRostos = document.querySelectorAll(".rostos .item");
-                    let activeRosto;
-                    allRostos.forEach((rosto, index) => {
-                        if (rosto.classList.contains("active")) {
-                            activeRosto = index;
-                        }
-                        rosto.classList.remove("active");
-                    });
-                    if (isFront) {
-                        if (activeRosto == allRostos.length - 1) {
-                            allRostos[0].classList.add("active");
-                        } else {
-                            allRostos[activeRosto + 1].classList.add("active");
-                        }
-                    } else {
-                        if (activeRosto == 0) {
-                            allRostos[allRostos.length - 1].classList.add("active");
-                        } else {
-                            allRostos[activeRosto - 1].classList.add("active");
-                        }
-                    }
-                    break;
-                case 'corpo':
-                    let allCorpos = document.querySelectorAll(".corpos .item");
-                    let activeCorpo;
-                    allCorpos.forEach((corpo, index) => {
-                        if (corpo.classList.contains("active")) {
-                            activeCorpo = index;
-                        }
-                        corpo.classList.remove("active");
-                    });
-                    if (isFront) {
-                        if (activeCorpo == allCorpos.length - 1) {
-                            allCorpos[0].classList.add("active");
-                        } else {
-                            allCorpos[activeCorpo + 1].classList.add("active");
-                        }
-                    } else {
-                        if (activeCorpo == 0) {
-                            allCorpos[allCorpos.length - 1].classList.add("active");
-                        } else {
-                            allCorpos[activeCorpo - 1].classList.add("active");
-                        }
-                    }
-                    break;
-                case 'cabelo':
-                    let allCabelos = document.querySelectorAll(".cabelos .item");
-                    let activeCabelo;
-                    allCabelos.forEach((cabelo, index) => {
-                        if (cabelo.classList.contains("active")) {
-                            activeCabelo = index;
-                        }
-                        cabelo.classList.remove("active");
-                    });
-                    if (isFront) {
-                        if (activeCabelo == allCabelos.length - 1) {
-                            allCabelos[0].classList.add("active");
-                        } else {
-                            allCabelos[activeCabelo + 1].classList.add("active");
-                        }
-                    } else {
-                        if (activeCabelo == 0) {
-                            allCabelos[allCabelos.length - 1].classList.add("active");
-                        } else {
-                            allCabelos[activeCabelo - 1].classList.add("active");
-                        }
-                    }
-                    break;
-                case 'calcas':
-                    let allCalcas = document.querySelectorAll(".calcas .item");
-                    let activeCalca;
-                    allCalcas.forEach((calca, index) => {
-                        if (calca.classList.contains("active")) {
-                            activeCalca = index;
-                        }
-                        calca.classList.remove("active");
-                    });
-                    if (isFront) {
-                        if (activeCalca == allCalcas.length - 1) {
-                            allCalcas[0].classList.add("active");
-                        } else {
-                            allCalcas[activeCalca + 1].classList.add("active");
-                        }
-                    } else {
-                        if (activeCalca == 0) {
-                            allCalcas[allCalcas.length - 1].classList.add("active");
-                        } else {
-                            allCalcas[activeCalca - 1].classList.add("active");
-                        }
-                    }
-                    break;
-                default:
-            console.log("Parte não reconhecida");
-        }
+            case 'rosto':
+                let allRostos = document.querySelectorAll(".rostos .item");
+                let activeRosto = -1;
+                allRostos.forEach((rosto, index) => {
+                if (rosto.classList.contains("active")) {
+                    activeRosto = index;
+                }
+                rosto.classList.remove("active");
+                });
+                if (activeRosto === -1) {
+                allRostos[0].classList.add("active");
+                } else if (isFront) {
+                if (activeRosto == allRostos.length - 1) {
+                    allRostos[0].classList.add("active");
+                } else {
+                    allRostos[activeRosto + 1].classList.add("active");
+                }
+                } else {
+                if (activeRosto == 0) {
+                    allRostos[allRostos.length - 1].classList.add("active");
+                } else {
+                    allRostos[activeRosto - 1].classList.add("active");
+                }
+                }
+                break;
+            case 'corpo':
+                let allCorpos = document.querySelectorAll(".corpos .item");
+                let activeCorpo = -1;
+                allCorpos.forEach((corpo, index) => {
+                if (corpo.classList.contains("active")) {
+                    activeCorpo = index;
+                }
+                corpo.classList.remove("active");
+                });
+                if (activeCorpo === -1) {
+                allCorpos[0].classList.add("active");
+                } else if (isFront) {
+                if (activeCorpo == allCorpos.length - 1) {
+                    allCorpos[0].classList.add("active");
+                } else {
+                    allCorpos[activeCorpo + 1].classList.add("active");
+                }
+                } else {
+                if (activeCorpo == 0) {
+                    allCorpos[allCorpos.length - 1].classList.add("active");
+                } else {
+                    allCorpos[activeCorpo - 1].classList.add("active");
+                }
+                }
+                break;
+            case 'cabelo':
+                let allCabelos = document.querySelectorAll(".cabelos .item");
+                let activeCabelo = -1;
+                allCabelos.forEach((cabelo, index) => {
+                if (cabelo.classList.contains("active")) {
+                    activeCabelo = index;
+                }
+                cabelo.classList.remove("active");
+                });
+                if (activeCabelo === -1) {
+                allCabelos[0].classList.add("active");
+                } else if (isFront) {
+                if (activeCabelo == allCabelos.length - 1) {
+                    allCabelos[0].classList.add("active");
+                } else {
+                    allCabelos[activeCabelo + 1].classList.add("active");
+                }
+                } else {
+                if (activeCabelo == 0) {
+                    allCabelos[allCabelos.length - 1].classList.add("active");
+                } else {
+                    allCabelos[activeCabelo - 1].classList.add("active");
+                }
+                }
+                break;
+            case 'calcas':
+                let allCalcas = document.querySelectorAll(".calcas .item");
+                let activeCalca = -1;
+                allCalcas.forEach((calca, index) => {
+                if (calca.classList.contains("active")) {
+                    activeCalca = index;
+                }
+                calca.classList.remove("active");
+                });
+                if (activeCalca === -1) {
+                allCalcas[0].classList.add("active");
+                } else if (isFront) {
+                if (activeCalca == allCalcas.length - 1) {
+                    allCalcas[0].classList.add("active");
+                } else {
+                    allCalcas[activeCalca + 1].classList.add("active");
+                }
+                } else {
+                if (activeCalca == 0) {
+                    allCalcas[allCalcas.length - 1].classList.add("active");
+                } else {
+                    allCalcas[activeCalca - 1].classList.add("active");
+                }
+                }
+                break;
+            default:
+                console.log("Parte não reconhecida");
+            }
         }
         function Salvar(){
             let Items = document.querySelectorAll('.character .active')
