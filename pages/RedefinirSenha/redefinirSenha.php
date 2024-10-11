@@ -1,4 +1,5 @@
 <?php
+    error_reporting(E_ERROR | E_PARSE);
     include_once './../../backend/controllers/page_controller.php';
     include_once './../../backend/controllers/controller.php';
     session_start();
