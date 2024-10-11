@@ -37,6 +37,20 @@ class Usuario {
     public function getEmail() {
         return $this->emailUser;
     }
+
+    public function getSenha(){
+        return $this->senhaUser;
+    }
+
+    public function setNickname($nickUser){
+        $this->nickUser = $nickUser;
+    }
+    public function setName($nameUser){
+        $this->nameUser = $nameUser;
+    }
+    public function setEmail($emailUser){
+        $this->emailUser = $emailUser;
+    }
     public function setCoins($coins){
         $this->coins = $coins;
     }

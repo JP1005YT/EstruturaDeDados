@@ -23,6 +23,7 @@
             <input placeholder="Senha"  name="senha" type="password">
             <input type="submit" value="Entrar">
             <p>Não possui conta? <a onclick="switchPages('../Cadastrar/')"> Criar </a> </p>
+            <a href="./../RedefinirSenha/redefinirSenha.php" class="forgot-password-link">Deseja Redefinir Sua Senha?</a>
         </form>
     </main>
     <script>

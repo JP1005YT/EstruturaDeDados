@@ -10,10 +10,10 @@
         $email = $_POST['email'];
 
         // Lógica para enviar o email de redefinição de senha
-        // $controlador->enviarEmailRedefinicaoSenha($email);
+        $controlador->enviarEmailRedefinicaoSenha($email);
 
         // Redirecionar para uma página de confirmação
-        header('Location: ./confirmacao.php');
+        // header('Location: ./confirmacao.php');
         exit();
     }
 ?>
@@ -35,7 +35,7 @@
             <img src="./../../logo.png" width="35px" class="card-logo">
             <h1>Redefinir Senha</h1>
             <form method="POST" action="">
-                <label for="email">Email:</label>
+                <label for="email">Email da Conta:</label>
                 <input type="email" id="email" name="email" required>
                 
                 <button type="submit" class="reset-password-btn">Enviar Link de Redefinição</button>

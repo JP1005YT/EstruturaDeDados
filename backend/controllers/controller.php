@@ -1,6 +1,15 @@
 <?php
     require_once __DIR__.'/../classes/Banco.php';
     require_once __DIR__.'/../classes/Usuario.php';
+
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    
+    require_once __DIR__. '/../packages/PHPMailer/src/Exception.php';
+    require_once __DIR__. '/../packages/PHPMailer/src/PHPMailer.php';
+    require_once __DIR__. '/../packages/PHPMailer/src/SMTP.php';
+
     define('BASE_URL', '/EstruturaDeDados');
     class Controller{
 
@@ -65,6 +74,60 @@
             header('Location: '. BASE_URL. '/index.php');
         }
 
+        public function UserEdit($nickname, $nome, $email){
+            session_start();
+            $usuario = $_SESSION['user'];
+            $id = $usuario->getIdUser();
+            $coins = $usuario->getCoins();
+            $senha = $usuario->getSenha();
+
+            $this->banco->updateUsuario($id,$nickname,$coins,$nome,$email,$senha);
+
+            $usuario->setNickname($nickname);
+            $usuario->setName($nome);
+            $usuario->setEmail($email);
+
+            $_SESSION['user'] = $usuario;
+
+            header('Location: '. BASE_URL. '/pages/Perfil/');
+
+        }
+
+        public function enviarEmailRedefinicaoSenha($email){
+
+            $mail = new PHPMailer(true);
+
+            try {
+                // Configurações do servidor
+                $mail->isSMTP();                                            // Define o uso do SMTP
+                $mail->Host       = 'smtp-mail.outlook.com';                   // Endereço do servidor SMTP
+                $mail->SMTPAuth   = true;                                 // Habilita a autenticação SMTP
+                $mail->Username   = 'godlolpro@outlook.com';             // Usuário do SMTP
+                $mail->Password   = '(WR=5GSc$Wc8UZp';                      // Senha do SMTP
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;      // Habilita a criptografia TLS
+                $mail->Port       = 587;                                  // Porta TCP para se conectar
+                
+                // outro dyahwivchyydewvm
+                // HM9UT-N2MWQ-3BV7M-CCPXF-XLRXB
+                
+                // Remetente e destinatário
+                $mail->setFrom('godlolpro32@gmail.com', 'JP1005YT');
+                $mail->addAddress($email, 'Usuario'); // Adiciona um destinatário
+            
+                // Conteúdo do email
+                $mail->isHTML(true);                                      // Define o formato do email como HTML
+                $mail->Subject = 'Assunto do Email';
+                $mail->Body    = 'Esta é uma mensagem de teste.';
+                $mail->AltBody = 'Esta é uma mensagem de teste em texto puro.'; // Mensagem alternativa
+            
+                // Envia o email
+                $mail->send();
+                echo 'Email enviado com sucesso!';
+            } catch (Exception $e) {
+                echo "Falha ao enviar email. Erro: {$mail->ErrorInfo}";
+            }
+
+        }
         public function UserPush(){
             return $this->banco->getUsuarios();
         }
