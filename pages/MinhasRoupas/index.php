@@ -44,6 +44,8 @@
             }
         }
     }
+
+    echo "<script> let UserID = ".json_encode($_SESSION['user']->getIdUser())."</script>";
 ?>
 <section class="opcs">
     <h1>Minhas Roupas</h1>
@@ -129,6 +131,9 @@
                     break
             }
         })
+
+        itemsAnteriores = document.querySelectorAll('.character .active')
+
         function TrocarItem(part, isFront) {
             switch (part) {
             case 'rosto':
@@ -236,8 +241,27 @@
             }
         }
         function Salvar(){
-            let Items = document.querySelectorAll('.character .active')
-            console.log(Items)
+            let itemsAtuais = document.querySelectorAll('.character .active')
+            itemsAtuais.forEach((itemAtual , index) => {
+                if(typeof itemsAnteriores[index] == 'undefined'){
+                    fetch(`proc_troca.php?userId=${UserID}
+                    &itemAtivo=${itemAtual.getAttribute('id')}`, {
+                            method: "GET"
+                        }).then(() => {
+                            location.reload()
+                    })
+                }else{
+                    if(itemsAnteriores[index].getAttribute('id') != itemAtual.getAttribute('id')){
+                    fetch(`proc_troca.php?userId=${UserID}
+                    &itemAtivo=${itemAtual.getAttribute('id')}
+                    &itemDesativado=${itemsAnteriores[index].getAttribute('id')}`, {
+                            method: "GET"
+                        }).then(() => {
+                            location.reload()
+                    })
+                }
+                }
+            })
         }
     </script>
 </main>

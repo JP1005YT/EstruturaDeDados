@@ -40,7 +40,6 @@ class Usuario {
     public function setCoins($coins){
         $this->coins = $coins;
     }
-
     // Método para verificar a senha
     public function verificarSenha($senha) {
         return password_verify($senha, $this->senhaUser);

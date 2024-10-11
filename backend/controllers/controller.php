@@ -131,4 +131,9 @@
         public function atualizarUsuario($id, $nickname, $nome, $email) {
             //a fazer
         }
+
+        public function updateMinhasRoupas($userId, $itemAtivo, $itemDesativado){
+            $this->banco->updateUsuarioHasItem($userId,$itemAtivo,1);
+            $this->banco->updateUsuarioHasItem($userId,$itemDesativado,0);
+        }
     }
