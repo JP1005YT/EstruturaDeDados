@@ -14,7 +14,20 @@ main {
     height: calc(100% - 150px);
     align-content: center;
 }
-
+.coins{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background: var(--cor1);
+    border-radius: 25px;
+    margin-top: 20px;
+    color: #fff;
+    font-size: 24px;
+}
+.coins *{
+    margin: 10px;
+}
 .item {
     position: relative;
     cursor: pointer;

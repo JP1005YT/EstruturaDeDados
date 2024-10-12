@@ -32,7 +32,7 @@
 <body>
     <?php PageController::Cabecalho(); ?>
     <main>
-        <span>
+        <span class="coins">
             Moedas Atuais:
             <i class='bx bx-coin'></i>
             <?php echo $_SESSION['user']->getCoins()?>

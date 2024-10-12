@@ -157,6 +157,14 @@ class Banco
         return $this->executeQuery($query);
     }
 
+    public function updateSenhabyEmail($senha,$email){
+        $senha = mysqli_real_escape_string($this->conn, $senha);
+        $email = mysqli_real_escape_string($this->conn, $email);
+
+        $query = "UPDATE usuario SET senha_usuario = '$senha' WHERE email_usuario = '$email'";
+        return $this->executeQuery($query);
+    }
+
     // Métodos CRUD para a tabela `usuario_has_item`
 
     public function getUsuarioHasItem()

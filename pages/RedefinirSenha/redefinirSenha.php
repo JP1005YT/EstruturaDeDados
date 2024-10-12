@@ -10,10 +10,16 @@
         $email = $_POST['email'];
 
         // Lógica para enviar o email de redefinição de senha
-        $controlador->enviarEmailRedefinicaoSenha($email);
+        $codigo = $controlador->enviarEmailRedefinicaoSenha($email);
 
-        // Redirecionar para uma página de confirmação
-        // header('Location: ./confirmacao.php');
+        // Redirecionar para uma página de confirmação com POST
+        echo "<form id='redirectForm' method='POST' action='./confirmarCodigo.php'>
+                <input type='hidden' name='email' value='" . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . "'>
+                <input type='hidden' name='codigo' value='" . htmlspecialchars($codigo, ENT_QUOTES, 'UTF-8') . "'>
+              </form>
+              <script type='text/javascript'>
+                document.getElementById('redirectForm').submit();
+              </script>";
         exit();
     }
 ?>

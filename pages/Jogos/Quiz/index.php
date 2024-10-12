@@ -96,6 +96,8 @@ $controlador = new Controller();
                         }
                     }
                     echo "<h2>Você acertou $acertos de 10 perguntas.</h2>";
+                    $dinheiro = $acertos * 100;
+                    $controlador->usuarioAdicionarDinheiro($dinheiro);
                 }
             }
         ?>

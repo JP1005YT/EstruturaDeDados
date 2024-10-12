@@ -1,20 +1,28 @@
 <?php
-    error_reporting(E_ERROR | E_PARSE);
+    // error_reporting(E_ERROR | E_PARSE);
     include_once './../../backend/controllers/page_controller.php';
     include_once './../../backend/controllers/controller.php';
     session_start();
 
     $controlador = new Controller();
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $email = $_POST['email'];
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['code'])) {
+        $code = $_POST['code'];
+        $codeEmail = $_POST['codeEmail'];
+        $password = $_POST['password'];
+        $confirmPassword = $_POST['confirm-password'];
+        $email = $_POST['userEmail'];
 
-        // Lógica para enviar o email de redefinição de senha
-        // $controlador->enviarEmailRedefinicaoSenha($email);
-
-        // Redirecionar para uma página de confirmação
-        header('Location: ./confirmacao.php');
-        exit();
+        if($code == $codeEmail){
+            if($password == $confirmPassword){
+                $controlador->redefinirSenha($password, $email);
+                header('Location: ../../pages/Entrar/');
+            }else{
+                echo "<script>alert('As senhas não coincidem!');</script>";
+            }
+        }else{
+            echo "<script>alert('Código de recuperação inválido!');</script>";
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -33,12 +41,17 @@
     <main>
         <div class="card">
             <img src="./../../logo.png" width="35px" class="card-logo">
-            <h1>Redefinir Senha</h1>
+            <h1>ESCREVER NOVA SENHA</h1>
             <form method="POST" action="">
-                <label for="email">Email da Conta:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <button type="submit" class="reset-password-btn">Enviar Link de Redefinição</button>
+                <input type="text" id="userEmail" name="userEmail" hidden value="<?php echo $_POST['email']?>">
+                <input type="text" id="codeEmail" name="codeEmail" hidden value="<?php echo $_POST['codigo']?>">
+                <label for="code">Codigo de Recuperação:</label>
+                <input type="text" id="code" name="code" required>
+                <label for="password">Nova Senha:</label>
+                <input type="password" id="password" name="password" required>
+                <label for="confirm-password">Confirmar Nova Senha:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <button type="submit" class="reset-password-btn">Confirmar Redefinição</button>
             </form>
         </div>
     </main>

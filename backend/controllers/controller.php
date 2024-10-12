@@ -96,14 +96,14 @@
         public function enviarEmailRedefinicaoSenha($email){
 
             $mail = new PHPMailer(true);
-
+            $codigo = rand(10000,99999);
             try {
                 // Configurações do servidor
                 $mail->isSMTP();                                            // Define o uso do SMTP
-                $mail->Host       = 'smtp-mail.outlook.com';                   // Endereço do servidor SMTP
+                $mail->Host       = 'smtp.gmail.com';                   // Endereço do servidor SMTP
                 $mail->SMTPAuth   = true;                                 // Habilita a autenticação SMTP
-                $mail->Username   = 'godlolpro@outlook.com';             // Usuário do SMTP
-                $mail->Password   = '(WR=5GSc$Wc8UZp';                      // Senha do SMTP
+                $mail->Username   = 'godlolpro32@gmail.com';             // Usuário do SMTP
+                $mail->Password   = 'wwdp tcgf wnsp xvqh';                      // Senha do SMTP
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;      // Habilita a criptografia TLS
                 $mail->Port       = 587;                                  // Porta TCP para se conectar
                 
@@ -111,23 +111,29 @@
                 // HM9UT-N2MWQ-3BV7M-CCPXF-XLRXB
                 
                 // Remetente e destinatário
-                $mail->setFrom('godlolpro32@gmail.com', 'JP1005YT');
+                $mail->setFrom('no-reply@gmail.com', 'DataStructSchool');
                 $mail->addAddress($email, 'Usuario'); // Adiciona um destinatário
             
                 // Conteúdo do email
                 $mail->isHTML(true);                                      // Define o formato do email como HTML
-                $mail->Subject = 'Assunto do Email';
-                $mail->Body    = 'Esta é uma mensagem de teste.';
-                $mail->AltBody = 'Esta é uma mensagem de teste em texto puro.'; // Mensagem alternativa
+                $mail->Subject = 'Recuperar Conta'; // Assunto do email
+                $mail->Body    = 'Seu codigo de Recuperação é '. $codigo;
             
                 // Envia o email
                 $mail->send();
                 echo 'Email enviado com sucesso!';
             } catch (Exception $e) {
                 echo "Falha ao enviar email. Erro: {$mail->ErrorInfo}";
+            }finally{
+                return $codigo;
             }
-
         }
+
+        public function redefinirSenha($senha, $email){
+            $password = password_hash($senha, PASSWORD_DEFAULT);
+            $this->banco->updateSenhabyEmail($password, $email);
+        }
+
         public function UserPush(){
             return $this->banco->getUsuarios();
         }
@@ -139,6 +145,19 @@
             if($this->banco->insertUsuarioHasItem($idusuario,$iditem,0)){
                 header('Location: '. BASE_URL. '/pages/Admin/');
             };
+        }
+        public function UsuarioAdicionarDinheiro($dinheiro){
+            session_start();
+            $usuario = $_SESSION['user'];
+            $id = $usuario->getIdUser();
+            $coins = $usuario->getCoins();
+            $newMoeda = $coins+$dinheiro;
+
+            $this->banco->updateUsuarioCoins($id,$newMoeda);
+
+            $usuario->setCoins($newMoeda);
+
+            $_SESSION['user'] = $usuario;
         }
 
         public function ItemRegister(){ 
