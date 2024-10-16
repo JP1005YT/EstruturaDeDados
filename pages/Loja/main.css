@@ -11,7 +11,6 @@ main {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 20px; /* Diminua o valor do gap para reduzir o espaçamento */
-    height: calc(100% - 150px);
     align-content: center;
 }
 .coins{

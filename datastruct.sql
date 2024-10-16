@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/10/2024 às 20:01
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Tempo de geração: 16/10/2024 às 16:40
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,9 +46,29 @@ INSERT INTO `item` (`iditem`, `src_item`, `categoria_item`, `valor_item`, `nome_
 (9, 'ec86b291fd5b915748f72439682b89a0.png', 'rostos', 250, 'hollow knight'),
 (10, 'd48e1c39b67f38215d8431ab181f9eb9.png', 'cabelos', 1000, 'ronaldo fenômeno'),
 (11, '86b24ff8d1af23e4abea0716b4d7fd28.png', 'cabelos', 400, 'buja'),
-(12, '89ab2248701e98711c8c63020a44c77d.png', 'rostos', 100, 'Desconfiado'),
+(12, '', '', 0, ''),
 (13, '8ea1b020fd0e3c57b9d751d67866ee4f.png', 'rostos', 200, 'japa'),
-(14, 'f166c997dc1b45ae5cdb2a50aa4aa75f.png', 'rostos', 1000, 'Miranha Simbionte');
+(14, 'f166c997dc1b45ae5cdb2a50aa4aa75f.png', 'rostos', 1000, 'Miranha Simbionte'),
+(15, '162908df3418f02af42adcb52d9e6985.png', 'rostos', 200, 'Desconfiado'),
+(16, 'bf4ef91d5702b08fc01e08ff517355eb.png', 'rostos', 200, 'choro'),
+(17, 'e0578762c30a156b3722822c1950ce9c.png', 'rostos', 200, 'vesgo'),
+(18, '87f8f14a4f022298a1aff9df7be34057.png', 'rostos', 200, 'fechadin'),
+(19, '8e1795baa7e61800256e684a0805f5ce.png', 'rostos', 300, 'brancos'),
+(20, '22d2b9ef3b11ec6e7022fedea52cc3be.png', 'rostos', 300, 'simpatico'),
+(21, '67894c93ec8cc433cb994604261aa086.png', 'rostos', 300, 'bravo'),
+(22, '699b2684ff4964574a507394e121c4c7.png', 'rostos', 200, 'feliz'),
+(23, '5373a754a798c1ef670f87c2d705b303.png', 'rostos', 200, '  -_-'),
+(24, '996c9bbe51518f4da39181153ec7d1ab.png', 'cabelos', 500, 'ryu'),
+(25, 'ecba5fa82a68384a92785345845c40d9.png', 'calcas', 200, 'jeans'),
+(26, 'ba24e43b48b326c7e85df2cd3f5cc517.png', 'calcas', 500, 'angelical'),
+(27, '6e68eaed44b90368c7a6b3c4f55d119d.png', 'torsos', 200, 'blusa vermelha'),
+(28, '5f52a965e4c75e79787d1bcf087cb219.png', 'torsos', 400, 'roxo'),
+(29, '03cda14c7e0a463016d95cf7034b3b0e.png', 'torsos', 500, 'blusa preta'),
+(30, 'd280eba5868b1ee14059ffa30191cd99.png', 'torsos', 1000, 'simbionte'),
+(31, 'a3c8d80c56cc4937047526f688941f7c.png', 'calcas', 1000, 'simbionte'),
+(32, 'a2df5a91b1537392799f1bc2c62579a1.png', 'torsos', 300, 'branca '),
+(33, '08311ef8606f0eb7f1d6fd4cad5f47c3.png', 'calcas', 200, 'bolinha '),
+(34, '0589c65b9ff11684785ece20afc3d657.png', 'calcas', 500, 'calça preta ');
 
 -- --------------------------------------------------------
 
@@ -171,7 +191,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`idusuario`, `nickname_usuario`, `coins_usuario`, `nome_usuario`, `email_usuario`, `senha_usuario`) VALUES
 (4, 'JP1005YT', 0, 'João Pedro Garcia Girotto', 'godlolpro32@gmail.com', '$2y$10$haPC5yYwLqP/X1Nr11PfG.WXhI9PbwRuonNnMPhKbfcj1Qs2yMNQG'),
 (5, 'admin', 0, 'admin', 'admin', '$2y$10$1plFXalBSBvm0/8K34UsF.nwnN2qO/HceMDQL62FO2AJoIlUXY1FO'),
-(10, 'Manu', 0, 'Manoela Pinheiro da Silva', 'manoela2903@outlook.com', '$2y$10$AosoAP.yjddZS4U0GTxXqe.Y4I75E8EZXzJCLwMGE.7C/m8.o6rRi');
+(10, 'Manu', 0, 'Manoela Pinheiro da Silva', 'manoela2903@outlook.com', '$2y$10$AosoAP.yjddZS4U0GTxXqe.Y4I75E8EZXzJCLwMGE.7C/m8.o6rRi'),
+(11, 'BUJA', 0, 'buja bujaaa', 'jooj.soares.227@gmail.com', '$2y$10$cTZroieoFQM6ML85nCERj.k7B25hhyOaLqc9HYJryp02N0/0VanAi');
 
 -- --------------------------------------------------------
 
@@ -190,7 +211,19 @@ CREATE TABLE `usuario_has_item` (
 --
 
 INSERT INTO `usuario_has_item` (`usuario_idusuario`, `item_iditem`, `ativo_item`) VALUES
-(4, 6, 0);
+(4, 6, 0),
+(4, 12, 0),
+(5, 5, 0),
+(5, 10, 1),
+(5, 11, 0),
+(5, 12, 0),
+(5, 13, 1),
+(5, 14, 0),
+(5, 15, 0),
+(5, 23, 0),
+(5, 30, 0),
+(5, 31, 0),
+(11, 11, 0);
 
 --
 -- Índices para tabelas despejadas
@@ -237,13 +270,13 @@ ALTER TABLE `usuario_has_item`
 -- AUTO_INCREMENT de tabela `item`
 --
 ALTER TABLE `item`
-  MODIFY `iditem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `iditem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restrições para tabelas despejadas
