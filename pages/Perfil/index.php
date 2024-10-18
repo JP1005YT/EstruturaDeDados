@@ -61,7 +61,7 @@
                 </section>
                 <section class="character">
                     <button class="edit-profile-btn" onclick="switchPages('./../MinhasRoupas/')">Troca de roupa</button>
-                <div class="corpos">
+                <div class="torsos">
                     <img class="base" src="./../../src/sprites/torsos/corpodefalt.png">
                 </div>
                 <div class="calcas">
@@ -79,7 +79,7 @@
                 function switchPages(url){
                     window.location.href = url
                 }
-                let corpos = document.querySelector(".corpos")
+                let torsos = document.querySelector(".torsos")
                 let calcas = document.querySelector(".calcas")
                 let cabelos = document.querySelector(".cabelos")
                 let rostos = document.querySelector(".rostos")
@@ -94,8 +94,8 @@
                     img.classList.add("item")
                     img.src = `./../../src/sprites/${item.categoria_item}/${item.src_item}`
                     switch(item.categoria_item){
-                        case "corpos":
-                            corpos.appendChild(img)
+                        case "torsos":
+                            torsos.appendChild(img)
                             break
                         case "calcas":
                             calcas.appendChild(img)

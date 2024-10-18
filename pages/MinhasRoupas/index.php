@@ -61,7 +61,7 @@
                 <i class='bx bxs-chevrons-left'></i>
             </button>
         </div>
-        <button onclick="TrocarItem('corpo',true)">
+        <button onclick="TrocarItem('torso',true)">
             <i class='bx bxs-chevrons-left'></i>
         </button>
         <button onclick="TrocarItem('calcas',true)">
@@ -72,7 +72,7 @@
         <?php
         echo "<h1>".$_SESSION['user']->getUsername()."</h1>";
         ?>
-        <div class="corpos">
+        <div class="torsos">
             <img class="base" src="./../../src/sprites/torsos/corpodefalt.png">
         </div>
         <div class="calcas">
@@ -94,7 +94,7 @@
                 <i class='bx bxs-chevrons-right'></i>
             </button>
         </div>
-        <button onclick="TrocarItem('corpo',false)">
+        <button onclick="TrocarItem('torso',false)">
             <i class='bx bxs-chevrons-right'></i>
         </button>
         <button onclick="TrocarItem('calcas',false)">
@@ -102,7 +102,7 @@
         </button>
     </section>
     <script>
-        let corpos = document.querySelector(".corpos")
+        let torsos = document.querySelector(".torsos")
         let calcas = document.querySelector(".calcas")
         let cabelos = document.querySelector(".cabelos")
         let rostos = document.querySelector(".rostos")
@@ -117,8 +117,8 @@
             img.classList.add("item")
             img.src = `./../../src/sprites/${item.categoria_item}/${item.src_item}`
             switch(item.categoria_item){
-                case "corpos":
-                    corpos.appendChild(img)
+                case "torsos":
+                    torsos.appendChild(img)
                     break
                 case "calcas":
                     calcas.appendChild(img)
@@ -161,28 +161,28 @@
                 }
                 }
                 break;
-            case 'corpo':
-                let allCorpos = document.querySelectorAll(".corpos .item");
-                let activeCorpo = -1;
-                allCorpos.forEach((corpo, index) => {
-                if (corpo.classList.contains("active")) {
-                    activeCorpo = index;
+            case 'torso':
+                let alltorsos = document.querySelectorAll(".torsos .item");
+                let activetorso = -1;
+                alltorsos.forEach((torso, index) => {
+                if (torso.classList.contains("active")) {
+                    activetorso = index;
                 }
-                corpo.classList.remove("active");
+                torso.classList.remove("active");
                 });
-                if (activeCorpo === -1) {
-                allCorpos[0].classList.add("active");
+                if (activetorso === -1) {
+                alltorsos[0].classList.add("active");
                 } else if (isFront) {
-                if (activeCorpo == allCorpos.length - 1) {
-                    allCorpos[0].classList.add("active");
+                if (activetorso == alltorsos.length - 1) {
+                    alltorsos[0].classList.add("active");
                 } else {
-                    allCorpos[activeCorpo + 1].classList.add("active");
+                    alltorsos[activetorso + 1].classList.add("active");
                 }
                 } else {
-                if (activeCorpo == 0) {
-                    allCorpos[allCorpos.length - 1].classList.add("active");
+                if (activetorso == 0) {
+                    alltorsos[alltorsos.length - 1].classList.add("active");
                 } else {
-                    allCorpos[activeCorpo - 1].classList.add("active");
+                    alltorsos[activetorso - 1].classList.add("active");
                 }
                 }
                 break;
