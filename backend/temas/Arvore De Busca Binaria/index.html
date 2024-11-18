@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Árvore de Busca Binária</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+</head>
+<body>
+    <main>
+        <section class="card">
+           <h1>Árvore de Busca Binária</h1>
+        <section>
+            <h2>O que é uma Árvore de Busca Binária?</h2>
+            <p>
+                Uma árvore de busca binária é uma estrutura de dados hierárquica onde cada nó possui no máximo dois filhos, chamados de filho à esquerda e filho à direita. Os nós são organizados de forma que, para cada nó, os valores menores estão na subárvore esquerda e os valores maiores estão na subárvore direita.
+            </p>
+            <p>
+                Na programação, árvores de busca binária são úteis para operações eficientes de busca, inserção e remoção de elementos, com aplicações em algoritmos, banco de dados e sistemas de arquivos.
+            </p>
+        </section>
+        <section>
+            <h2>Como Funciona?</h2>
+            <p>
+                A árvore começa com um nó raiz. Novos elementos são inseridos comparando-se seus valores com os valores dos nós existentes. Se o valor for menor que o nó atual, ele será inserido na subárvore esquerda; se for maior, na subárvore direita.
+            </p>
+                <img src='../../../src/binary_tree1.png' class='image' alt='Árvore de busca binária exemplo'>
+            <h2>Estrutura de uma Árvore de Busca Binária</h2>
+                <p>
+                    Cada nó da árvore contém um valor e referências para o filho à esquerda e o filho à direita. Nós folha são aqueles que não possuem filhos.
+                </p>
+                <img src="../../../src/binary_tree2.png" class="image" alt='Estrutura de um nó da árvore de busca binária'>
+            <section class="example">
+                <h3>Inserindo um Nó na Árvore</h3>
+                <p>
+                    Para inserir um nó na árvore, o valor é comparado com os nós existentes até encontrar uma posição apropriada, respeitando as regras de organização da árvore.
+                </p>
+                <pre>
+                    <code>
+                        1.    class No {
+                        2.        public int valor;
+                        3.        public No esquerdo, direito;
+                        4.    
+                        5.        public No(int valor) {
+                        6.            this.valor = valor;
+                        7.            this.esquerdo = null;
+                        8.            this.direito = null;
+                        9.        }
+                        10.   }
+                        
+                        11.   class ArvoreBuscaBinaria {
+                        12.       private No raiz;
+                        
+                        13.       public ArvoreBuscaBinaria() {
+                        14.           this.raiz = null;
+                        15.       }
+                        
+                        16.       public void inserir(int valor) {
+                        17.           this.raiz = inserirRecursivo(this.raiz, valor);
+                        18.       }
+                        
+                        19.       private No inserirRecursivo(No atual, int valor) {
+                        20.           if (atual == null) {
+                        21.               return new No(valor);
+                        22.           }
+                        23.           if (valor < atual.valor) {
+                        24.               atual.esquerdo = inserirRecursivo(atual.esquerdo, valor);
+                        25.           } else if (valor > atual.valor) {
+                        26.               atual.direito = inserirRecursivo(atual.direito, valor);
+                        27.           }
+                        28.           return atual;
+                        29.       }
+                        30.   }
+                    </code>
+                </pre>
+            </section>
+            <h2>Explicação</h2>
+                <p>
+                    O método de inserção percorre a árvore até encontrar uma posição vazia, garantindo que a organização da árvore seja mantida.
+                </p>
+                <img src="../../../src/binary_tree3.png" class='image' alt='Inserindo nó na árvore de busca binária'>
+            <section class="example">
+                <h3>Buscando um Valor na Árvore</h3>
+                <p>
+                    Para buscar um valor, percorremos a árvore comparando o valor procurado com os valores dos nós. Se o valor for encontrado, a busca é concluída; caso contrário, continuamos na subárvore correspondente.
+                </p>
+                <pre>
+                    <code>
+                        1.    class ArvoreBuscaBinaria {
+                        2.        private No raiz;
+                        3.    
+                        4.        public boolean buscar(int valor) {
+                        5.            return buscarRecursivo(this.raiz, valor);
+                        6.        }
+                        
+                        7.        private boolean buscarRecursivo(No atual, int valor) {
+                        8.            if (atual == null) {
+                        9.                return false;
+                        10.           }
+                        11.           if (valor == atual.valor) {
+                        12.               return true;
+                        13.           }
+                        14.           return valor < atual.valor
+                        15.               ? buscarRecursivo(atual.esquerdo, valor)
+                        16.               : buscarRecursivo(atual.direito, valor);
+                        17.       }
+                        18.   }
+                    </code>
+                </pre>
+            </section>
+            <h2>Explicação</h2>
+            <p>
+                A busca na árvore segue as mesmas regras de navegação usadas na inserção, sendo eficiente para valores organizados.
+            </p>
+            <img src="../../../src/binary_tree4.png" class='image' alt='Buscando valor na árvore de busca binária'>
+            <section class="example">
+                <h3>Exemplo Completo</h3>
+                <p>
+                    Vamos ver um exemplo completo de como criar uma árvore de busca binária, inserir valores e buscar elementos.
+                </p>
+                <pre>
+                    <code>
+                        1.    public class ExemploArvoreBuscaBinaria {
+                        2.        public static void Main(string[] args) {
+                        3.            ArvoreBuscaBinaria arvore = new ArvoreBuscaBinaria();
+                        4.            arvore.inserir(50);
+                        5.            arvore.inserir(30);
+                        6.            arvore.inserir(70);
+                        7.            arvore.inserir(20);
+                        8.            arvore.inserir(40);
+                        9.            
+                        10.           Console.WriteLine(arvore.buscar(40)); // true
+                        11.           Console.WriteLine(arvore.buscar(25)); // false
+                        12.       }
+                        13.   }
+                    </code>
+                </pre>
+            </section>
+        </section>
+       </section> 
+    </main>
+</body>
+</html>

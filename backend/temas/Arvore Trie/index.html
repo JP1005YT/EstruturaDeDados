@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Árvore Trie</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+</head>
+<body>
+    <main>
+        <section class="card">
+            <h1>Árvore Trie</h1>
+            <section>
+                <h2>O que é uma Árvore Trie?</h2>
+                <p>
+                    A Árvore Trie, também chamada de árvore de prefixos ou árvore digital, é uma estrutura de dados especializada para armazenar e buscar sequências, como strings ou palavras, de forma eficiente. Cada nó representa um caractere e forma caminhos que representam as palavras.
+                </p>
+                <p>
+                    Essa estrutura é amplamente utilizada em sistemas de auto-completar, dicionários digitais, e na pesquisa por prefixos.
+                </p>
+            </section>
+            <section>
+                <h2>Como Funciona?</h2>
+                <p>
+                    A Árvore Trie organiza os dados em uma hierarquia baseada nos prefixos das strings. Cada nó armazena um caractere, e as palavras são formadas ao seguir os caminhos da raiz até um nó terminal que indica o fim de uma palavra.
+                </p>
+                <img src="../../../src/trie1.png" class='image' alt='Exemplo de estrutura de Árvore Trie'>
+            </section>
+            <section>
+                <h2>Estrutura de uma Árvore Trie</h2>
+                <p>
+                    Cada nó da Árvore Trie contém:
+                </p>
+                <ul>
+                    <li>Um mapa ou array de filhos, representando os próximos caracteres possíveis.</li>
+                    <li>Uma flag indicando se o nó marca o fim de uma palavra.</li>
+                </ul>
+                <img src="../../../src/trie2.png" class='image' alt='Estrutura de um nó da Árvore Trie'>
+            </section>
+            <section class="example">
+                <h3>Inserindo e Buscando em uma Árvore Trie</h3>
+                <p>
+                    A inserção de palavras na Árvore Trie é feita percorrendo os caracteres da palavra e criando nós se necessário. Para buscar, basta seguir o caminho dos caracteres.
+                </p>
+                <pre>
+                    <code>
+                        class TrieNode {
+                            public $children = [];
+                            public $isEndOfWord = false;
+                        }
+
+                        class Trie {
+                            private $root;
+
+                            public function __construct() {
+                                $this->root = new TrieNode();
+                            }
+
+                            public function insert($word) {
+                                $node = $this->root;
+                                for ($i = 0; $i < strlen($word); $i++) {
+                                    $char = $word[$i];
+                                    if (!isset($node->children[$char])) {
+                                        $node->children[$char] = new TrieNode();
+                                    }
+                                    $node = $node->children[$char];
+                                }
+                                $node->isEndOfWord = true;
+                            }
+
+                            public function search($word) {
+                                $node = $this->root;
+                                for ($i = 0; $i < strlen($word); $i++) {
+                                    $char = $word[$i];
+                                    if (!isset($node->children[$char])) {
+                                        return false;
+                                    }
+                                    $node = $node->children[$char];
+                                }
+                                return $node->isEndOfWord;
+                            }
+
+                            public function startsWith($prefix) {
+                                $node = $this->root;
+                                for ($i = 0; $i < strlen($prefix); $i++) {
+                                    $char = $prefix[$i];
+                                    if (!isset($node->children[$char])) {
+                                        return false;
+                                    }
+                                    $node = $node->children[$char];
+                                }
+                                return true;
+                            }
+                        }
+
+                        // Exemplo de uso
+                        $trie = new Trie();
+                        $trie->insert("casa");
+                        $trie->insert("carro");
+                        echo $trie->search("casa"); // true
+                        echo $trie->startsWith("car"); // true
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Explicação</h2>
+                <p>
+                    A inserção e busca na Árvore Trie são altamente eficientes, especialmente em operações com prefixos, pois evitam comparações desnecessárias, tornando-a ideal para sistemas que processam grandes volumes de texto.
+                </p>
+                <img src="../../../src/trie3.png" class='image' alt='Buscando um prefixo na Árvore Trie'>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

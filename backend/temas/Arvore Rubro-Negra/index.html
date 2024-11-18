@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árvore Rubro-Negra</title>
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+    <main>
+        <section class="card">
+            <h1>Árvore Rubro-Negra</h1>
+            <section>
+                <h2>O que é uma Árvore Rubro-Negra?</h2>
+                <p>
+                    A Árvore Rubro-Negra é uma árvore binária de busca auto-balanceada, onde cada nó possui uma propriedade de cor: **vermelho** ou **preto**. Essa estrutura foi introduzida por Rudolf Bayer em 1972 e é amplamente utilizada em sistemas que requerem alta eficiência, como bibliotecas padrão de programação (exemplo: `SortedDictionary` em C#).
+                </p>
+            </section>
+            <section>
+                <h2>Propriedades Fundamentais</h2>
+                <ul>
+                    <li>Cada nó é vermelho ou preto.</li>
+                    <li>A raiz é sempre preta.</li>
+                    <li>Todos os nós folha (nulos) são pretos.</li>
+                    <li>Se um nó é vermelho, seus filhos devem ser pretos (não há dois nós vermelhos consecutivos).</li>
+                    <li>Todo caminho de um nó até suas folhas descendentes contém o mesmo número de nós pretos.</li>
+                </ul>
+                <img src="../../../src/rb1.png" class="image" alt="Exemplo de Árvore Rubro-Negra">
+            </section>
+            <section>
+                <h2>Como Funciona?</h2>
+                <p>
+                    A Árvore Rubro-Negra mantém o balanceamento por meio de **rotações** (simples ou duplas) e mudanças de cor após operações de inserção ou remoção, garantindo que a altura seja aproximadamente logarítmica em relação ao número de nós.
+                </p>
+                <img src="../../../src/rb2.png" class="image" alt="Rotações em uma Árvore Rubro-Negra">
+            </section>
+            <section class="example">
+                <h3>Exemplo de Implementação em C#</h3>
+                <pre>
+                    <code>
+                        public class Node {
+                            public int Key;
+                            public string Color;
+                            public Node Left, Right, Parent;
+
+                            public Node(int key) {
+                                Key = key;
+                                Color = "Red";
+                                Left = null;
+                                Right = null;
+                                Parent = null;
+                            }
+                        }
+
+                        public class RBTree {
+                            private Node Root;
+
+                            public RBTree() {
+                                Root = null;
+                            }
+
+                            public void Insert(int key) {
+                                Node newNode = new Node(key);
+                                Root = InsertNode(Root, newNode);
+                                FixInsert(newNode);
+                            }
+
+                            private Node InsertNode(Node root, Node node) {
+                                if (root == null) {
+                                    return node;
+                                }
+
+                                if (node.Key < root.Key) {
+                                    root.Left = InsertNode(root.Left, node);
+                                    root.Left.Parent = root;
+                                } else {
+                                    root.Right = InsertNode(root.Right, node);
+                                    root.Right.Parent = root;
+                                }
+
+                                return root;
+                            }
+
+                            private void RotateLeft(Node node) {
+                                Node temp = node.Right;
+                                node.Right = temp.Left;
+
+                                if (temp.Left != null) {
+                                    temp.Left.Parent = node;
+                                }
+                                temp.Parent = node.Parent;
+
+                                if (node.Parent == null) {
+                                    Root = temp;
+                                } else if (node == node.Parent.Left) {
+                                    node.Parent.Left = temp;
+                                } else {
+                                    node.Parent.Right = temp;
+                                }
+
+                                temp.Left = node;
+                                node.Parent = temp;
+                            }
+
+                            private void RotateRight(Node node) {
+                                Node temp = node.Left;
+                                node.Left = temp.Right;
+
+                                if (temp.Right != null) {
+                                    temp.Right.Parent = node;
+                                }
+                                temp.Parent = node.Parent;
+
+                                if (node.Parent == null) {
+                                    Root = temp;
+                                } else if (node == node.Parent.Right) {
+                                    node.Parent.Right = temp;
+                                } else {
+                                    node.Parent.Left = temp;
+                                }
+
+                                temp.Right = node;
+                                node.Parent = temp;
+                            }
+
+                            private void FixInsert(Node node) {
+                                while (node.Parent != null && node.Parent.Color == "Red") {
+                                    if (node.Parent == node.Parent.Parent.Left) {
+                                        Node uncle = node.Parent.Parent.Right;
+
+                                        if (uncle != null && uncle.Color == "Red") {
+                                            node.Parent.Color = "Black";
+                                            uncle.Color = "Black";
+                                            node.Parent.Parent.Color = "Red";
+                                            node = node.Parent.Parent;
+                                        } else {
+                                            if (node == node.Parent.Right) {
+                                                node = node.Parent;
+                                                RotateLeft(node);
+                                            }
+                                            node.Parent.Color = "Black";
+                                            node.Parent.Parent.Color = "Red";
+                                            RotateRight(node.Parent.Parent);
+                                        }
+                                    } else {
+                                        Node uncle = node.Parent.Parent.Left;
+
+                                        if (uncle != null && uncle.Color == "Red") {
+                                            node.Parent.Color = "Black";
+                                            uncle.Color = "Black";
+                                            node.Parent.Parent.Color = "Red";
+                                            node = node.Parent.Parent;
+                                        } else {
+                                            if (node == node.Parent.Left) {
+                                                node = node.Parent;
+                                                RotateRight(node);
+                                            }
+                                            node.Parent.Color = "Black";
+                                            node.Parent.Parent.Color = "Red";
+                                            RotateLeft(node.Parent.Parent);
+                                        }
+                                    }
+                                }
+                                Root.Color = "Black";
+                            }
+                        }
+
+                        // Exemplo de uso
+                        class Program {
+                            static void Main(string[] args) {
+                                RBTree tree = new RBTree();
+                                tree.Insert(10);
+                                tree.Insert(20);
+                                tree.Insert(30);
+                            }
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Vantagens da Árvore Rubro-Negra</h2>
+                <ul>
+                    <li>Complexidade O(log n) para inserção, exclusão e busca.</li>
+                    <li>Manutenção de balanceamento eficiente com operações simples de rotação.</li>
+                </ul>
+                <img src="../../../src/rb3.png" class="image" alt="Árvore Rubro-Negra com cores e balanceamento">
+            </section>
+        </section>
+    </main>
+</body>
+</html>

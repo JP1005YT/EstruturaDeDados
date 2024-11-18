@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Árvore AVL</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../main.css'>
+</head>
+<body>
+    <main>
+        <section class="card">
+            <h1>Árvore AVL</h1>
+            <section>
+                <h2>O que é uma Árvore AVL?</h2>
+                <p>
+                    A Árvore AVL é uma árvore binária de busca auto-balanceada. Criada por Adelson-Velsky e Landis em 1962, ela mantém a altura balanceada automaticamente após cada operação de inserção ou remoção, garantindo eficiência em buscas, inserções e exclusões.
+                </p>
+                <p>
+                    É chamada de auto-balanceada porque a diferença de altura (ou fator de balanceamento) entre as subárvores esquerda e direita de qualquer nó nunca é maior que 1.
+                </p>
+            </section>
+            <section>
+                <h2>Como Funciona?</h2>
+                <p>
+                    Após cada inserção ou remoção, a Árvore AVL verifica o fator de balanceamento de cada nó. Caso o fator seja maior que 1 ou menor que -1, a árvore executa rotações para corrigir o balanceamento.
+                </p>
+                <img src="../../../src/avl1.png" class='image' alt='Exemplo de Árvore AVL antes e após o balanceamento'>
+            </section>
+            <section>
+                <h2>Estrutura da Árvore AVL</h2>
+                <p>
+                    Cada nó na Árvore AVL contém:
+                </p>
+                <ul>
+                    <li>Uma chave.</li>
+                    <li>Ponteiros para os nós filhos (esquerda e direita).</li>
+                    <li>Um valor indicando a altura do nó.</li>
+                </ul>
+                <img src="../../../src/avl2.png" class='image' alt='Estrutura de um nó da Árvore AVL'>
+            </section>
+            <section class="example">
+                <h3>Operações em uma Árvore AVL</h3>
+                <p>
+                    As operações principais da Árvore AVL incluem inserção, remoção e busca. Após cada modificação, a árvore pode realizar rotações (simples ou duplas) para manter-se balanceada.
+                </p>
+                <pre>
+                    <code>
+                        class AVLNode {
+                            public $key;
+                            public $left;
+                            public $right;
+                            public $height;
+
+                            public function __construct($key) {
+                                $this->key = $key;
+                                $this->left = null;
+                                $this->right = null;
+                                $this->height = 1;
+                            }
+                        }
+
+                        class AVLTree {
+                            public function getHeight($node) {
+                                return $node ? $node->height : 0;
+                            }
+
+                            public function getBalanceFactor($node) {
+                                return $node ? $this->getHeight($node->left) - $this->getHeight($node->right) : 0;
+                            }
+
+                            public function rotateRight($y) {
+                                $x = $y->left;
+                                $T2 = $x->right;
+                                $x->right = $y;
+                                $y->left = $T2;
+                                $y->height = max($this->getHeight($y->left), $this->getHeight($y->right)) + 1;
+                                $x->height = max($this->getHeight($x->left), $this->getHeight($x->right)) + 1;
+                                return $x;
+                            }
+
+                            public function rotateLeft($x) {
+                                $y = $x->right;
+                                $T2 = $y->left;
+                                $y->left = $x;
+                                $x->right = $T2;
+                                $x->height = max($this->getHeight($x->left), $this->getHeight($x->right)) + 1;
+                                $y->height = max($this->getHeight($y->left), $this->getHeight($y->right)) + 1;
+                                return $y;
+                            }
+
+                            public function insert($node, $key) {
+                                if (!$node) return new AVLNode($key);
+
+                                if ($key < $node->key) {
+                                    $node->left = $this->insert($node->left, $key);
+                                } else if ($key > $node->key) {
+                                    $node->right = $this->insert($node->right, $key);
+                                } else {
+                                    return $node;
+                                }
+
+                                $node->height = max($this->getHeight($node->left), $this->getHeight($node->right)) + 1;
+
+                                $balance = $this->getBalanceFactor($node);
+
+                                if ($balance > 1 && $key < $node->left->key) {
+                                    return $this->rotateRight($node);
+                                }
+                                if ($balance < -1 && $key > $node->right->key) {
+                                    return $this->rotateLeft($node);
+                                }
+                                if ($balance > 1 && $key > $node->left->key) {
+                                    $node->left = $this->rotateLeft($node->left);
+                                    return $this->rotateRight($node);
+                                }
+                                if ($balance < -1 && $key < $node->right->key) {
+                                    $node->right = $this->rotateRight($node->right);
+                                    return $this->rotateLeft($node);
+                                }
+
+                                return $node;
+                            }
+                        }
+
+                        // Exemplo de uso
+                        $tree = new AVLTree();
+                        $root = null;
+                        $root = $tree->insert($root, 10);
+                        $root = $tree->insert($root, 20);
+                        $root = $tree->insert($root, 30);
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Vantagens da Árvore AVL</h2>
+                <p>
+                    A Árvore AVL é ideal para cenários onde operações de busca precisam ser rápidas e frequentes, como em bancos de dados, sistemas de arquivos e dicionários.
+                </p>
+                <ul>
+                    <li>Busca, inserção e exclusão com complexidade O(log n).</li>
+                    <li>Balanceamento automático, garantindo eficiência.</li>
+                </ul>
+                <img src="../../../src/avl3.png" class='image' alt='Rotações na Árvore AVL para balanceamento'>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
