@@ -9,13 +9,23 @@
     require_once __DIR__. '/../packages/PHPMailer/src/Exception.php';
     require_once __DIR__. '/../packages/PHPMailer/src/PHPMailer.php';
     require_once __DIR__. '/../packages/PHPMailer/src/SMTP.php';
-
-    define('BASE_URL', '/EstruturaDeDados');
+    
+    if (!defined('BASE_URL')) {
+        define('BASE_URL', '/EstruturaDeDados');
+    }
     class Controller{
 
         public $banco;
         public function __construct(){
             $this->banco = new Banco();
+        }
+
+        public function QuizPush($nivel){
+            return $this->banco->getQuizPerguntasByNivel($nivel);
+        }
+
+        public function QuizRespostaPush($id){
+            return $this->banco->getQuizRespostaById($id);
         }
 
         public function UserLogin(){
@@ -147,7 +157,6 @@
             };
         }
         public function UsuarioAdicionarDinheiro($dinheiro){
-            session_start();
             $usuario = $_SESSION['user'];
             $id = $usuario->getIdUser();
             $coins = $usuario->getCoins();
@@ -181,15 +190,6 @@
         }
         public function GetItemsOfUsuariosById($id){
             return $this->banco->getUsuarioHasItemById($id);
-        }
-
-        //funções para o quiz
-        public function QuizPush(){
-            return $this->banco->getQuizPerguntas();
-        }
-
-        public function QuizRespostaPush($id){
-            return $this->banco->getQuizRespostaById($id);
         }
 
         public function ComprarItem($iditem,$iduser){

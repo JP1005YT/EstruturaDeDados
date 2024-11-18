@@ -124,6 +124,35 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* Estilo para o select */
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--cor2);
+    border-radius: 5px;
+    background-color: var(--cor6);
+    color: var(--black);
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efeito de hover e foco no select */
+select:hover, select:focus {
+    background-color: var(--cor7);
+    border-color: var(--cor3);
+    outline: none;
+}
+
+/* Estilo para as opções dentro do select */
+option {
+    padding: 10px;
+    background-color: var(--cor6);
+    color: var(--black);
+    font-size: 16px;
+}
+
 @media only screen and (max-width: 600px) {
     body {
         font-size: 14px;

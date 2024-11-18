@@ -13,6 +13,20 @@ class Banco
         }
     }
 
+    public function getQuizPerguntasByNivel($nivel) {
+        $stmt = $this->conn->prepare("SELECT * FROM quiz_perguntas WHERE nivel = ?");
+        $stmt->bind_param("i", $nivel); // Alterado para "i" para inteiros
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+
+    public function getQuizRespostaById($id) {
+        $stmt = $this->conn->prepare("SELECT * FROM quiz_respostas WHERE idquiz = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+
     // Método genérico para executar queries SQL
     private function executeQuery($query)
     {
@@ -95,12 +109,6 @@ class Banco
         return $this->executeQuery($query);
     }
 
-    public function getQuizRespostaById($id)
-    {
-        $id = mysqli_real_escape_string($this->conn, $id);
-        $query = "SELECT * FROM quiz_respostas WHERE idquiz = '$id'";
-        return $this->executeQuery($query);
-    }
     // Métodos CRUD para a tabela `usuario`
 
     public function getUsuarios()
