@@ -130,10 +130,24 @@
                 if(playerpos >= window.innerWidth - 100){
                     jogoganho = true
                     alert("Parabéns! Você conseguiu fugir do professor Bruno!")
-                    window.location.reload();
+                    switch (nivel) {
+                        case 1:
+                            trocarPagina(50)
+                        break;
+                        case 2:
+                            trocarPagina(100)
+                        break;
+                        case 3:
+                            trocarPagina(300)
+                        break;
+                    }
                 }
             }
         }, 100)
+
+        function trocarPagina(money){
+            window.location.href = `./ganhar.php?money=${money}`
+        }
     </script>
 </body>
 </html>

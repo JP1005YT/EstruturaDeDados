@@ -37,6 +37,7 @@ define('BASE_URL', '/EstruturaDeDados'); // Ajuste de acordo com a estrutura do 
                         </div>
                     </div>
                     <li><a href="' . BASE_URL . '/pages/Jogos/Quiz/index.php">Quiz</a></li> 
+                    <li><a href="' . BASE_URL . '/pages/Jogos/Corrida/">Corrida</a></li> 
                     <li><a href="' . BASE_URL . '/pages/loja/index.php">Loja</a></li>                   
                     ';
     
