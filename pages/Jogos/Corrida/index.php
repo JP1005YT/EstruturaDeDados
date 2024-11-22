@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="../../../logo.png" />
 </head>
 <body>
-    <img src="src/BACKgroud.png">
+    <img src="../../../src/BACKgroud.png">
     <section class="mainMenu">
         <h2>Selecione a Fase</h2>
         <ul>
@@ -108,10 +108,12 @@ function iniciarJogo() {
     }, 1000);
 }
 
+
 let enemypos = 0;
 let playerpos = 150;
 let playerWalking = false;
 let block = false;
+
 
 document.addEventListener('keydown', (event) => {
     if (event.keyCode === 32) {
