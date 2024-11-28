@@ -152,6 +152,33 @@ option {
     color: var(--black);
     font-size: 16px;
 }
+#resetButton{
+    margin: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    width: 75%;
+    border-radius: 10px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+}
+
+#resetButton a{
+    text-decoration: none;
+    background:  var(--cor2);
+    padding:20px;
+    font-size: 18px;
+    border-radius: 20px;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    margin-top: 20px;
+}
+#resetButton a:hover{
+    cursor: pointer;
+}
 
 @media only screen and (max-width: 600px) {
     body {

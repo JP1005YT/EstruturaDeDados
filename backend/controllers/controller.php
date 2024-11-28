@@ -158,6 +158,7 @@
         }
         public function UsuarioAdicionarDinheiro($dinheiro){
             $usuario = $_SESSION['user'];
+            $_SESSION['perguntasSelecionadas'] = null;
             $id = $usuario->getIdUser();
             $coins = $usuario->getCoins();
             $newMoeda = $coins+$dinheiro;

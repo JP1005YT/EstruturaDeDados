@@ -84,9 +84,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitted'])) {
             }
         }
     }
-    $dinheiro = $acertos * 100;
+    $dinheiro = $acertos * (100 * (intval($_SESSION['nivel']) + 1));
     $controlador->UsuarioAdicionarDinheiro($dinheiro);
-    echo "<h4>Você acertou $acertos perguntas.</h4>";
+    echo "<script>
+    setInterval(() => {
+        document.querySelector('#sendButton').style.display = 'none'
+        document.querySelector('#resetButton').style.display = 'flex'
+        document.querySelector('#resetButton').innerHTML = 'Você acertou $acertos perguntas e ganhou $dinheiro moedas! <a href=\"index.php\">Responder novamente</a>'
+    },1000)
+    </script>";
 }
 ?>
 
@@ -105,6 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitted'])) {
     <?php PageController::Cabecalho(); ?>
     <main>
         <h1>Responda ao Quiz!</h1>
+        <p id="resetButton" style="display: none;"></p>
         <form method="POST" action="">
             <input type="hidden" name="submitted" value="true">
             <?php
@@ -147,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitted'])) {
                 echo "</section>";
             }
             ?>
-            <button type="submit">Enviar Respostas</button>
+            <button type="submit" id="sendButton">Enviar Respostas</button>
         </form>
     </main>
     <?php PageController::Rodape(); ?>

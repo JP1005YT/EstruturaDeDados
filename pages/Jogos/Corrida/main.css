@@ -78,6 +78,10 @@ body img {
 
 .dialogos.active {
     display: flex;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
 }
 
 #writeTexteHere {
@@ -89,6 +93,10 @@ body img {
 .instrucoes {
     display: none;
     flex-direction: column;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
 
     &.active {
         display: flex;
