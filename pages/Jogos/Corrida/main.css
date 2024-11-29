@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 body img {
     position: absolute;
@@ -20,6 +21,7 @@ body img {
     height: 100%;
     object-fit: cover; /* Faz a imagem cobrir a tela sem distorcer */
     z-index: -1; /* Garante que a imagem fique atrás de todo o conteúdo */
+    filter: blur(1px);
 }
 
 .mainMenu {
@@ -131,10 +133,11 @@ body img {
     }
 
     .enemy {
-        width: 100px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
         position: absolute;
         left: 0;
+        margin-top: 9%;
         background-position: center;
         background-size: 100%;
         background-image: url('../../../src/correndo.gif');
@@ -156,13 +159,14 @@ body img {
     }
     
     .player {
-        width: 100px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
         position: absolute;
         left: 150px;
+        margin-top: 9%;
         background-position: center;
         background-size: 100%;
-        background-image: url('../../../src/correndo.gif');
+        background-image: url('../../../src/correndo2.gif');
         background-repeat: no-repeat;
     
         &::before {

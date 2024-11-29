@@ -153,23 +153,6 @@ setInterval(() => {
     }
 }, 100);
 
-function createTrail(character) {
-    const trail = document.createElement('div');
-    trail.className = 'trail';
-
-    // Posição do rastro baseada na posição do personagem
-    const rect = character.getBoundingClientRect();
-    trail.style.left = `${character.offsetLeft + 20}px`;  // Ajuste fino na posição do rastro
-    trail.style.top = `${character.offsetTop + 20}px`;    // Ajuste para a altura do personagem
-
-    // Adiciona o rastro ao jogo
-    document.querySelector('.jogo').appendChild(trail);
-
-    // Remove o rastro após a animação (1 segundo)
-    setTimeout(() => {
-        trail.remove();
-    }, 1000);
-}
 
 
 
